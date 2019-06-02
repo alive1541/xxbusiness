@@ -1,5 +1,5 @@
 <template>
-  <tabbar class="base-tabbar">
+  <tabbar class="base-tabbar" @on-index-change="barChange">
     <tabbar-item :selected="currentRoute==='Account'" link="account">
       <img slot="icon" src="../../../assets/img/account-book.svg">
       <img slot="icon-active" src="../../../assets/img/account-book-active.svg">
@@ -10,11 +10,7 @@
       <img slot="icon-active" src="../../../assets/img/order-active.svg">
       <span slot="label">订单</span>
     </tabbar-item>
-    <tabbar-item
-      :selected="currentRoute==='Message'"
-      link="message"
-      :badge="this.$store.state.badge"
-    >
+    <tabbar-item :selected="currentRoute==='Message'" link="message" :badge="badge">
       <img slot="icon" src="../../../assets/img/message.svg">
       <img slot="icon-active" src="../../../assets/img/message-active.svg">
       <span slot="label">消息</span>
@@ -31,11 +27,18 @@
 export default {
   components: {},
   data() {
+    const badge = window.localStorage.getItem("badge");
     return {
+      badge: Number(badge) > 0 ? badge : false,
       currentRoute: 0
     };
   },
   methods: {
+    barChange(value) {
+      if (value === 2) {
+        this.badge = false;
+      }
+    },
     setActiveTabbar: function() {
       const routeName = this.$router.history.current.name;
       this.currentRoute = routeName;

@@ -1,11 +1,16 @@
 import axios from "../axios.js";
 import { baseApi } from "@/config/config.js";
 class api {
-  userBalance(params) {
-    return axios.get(baseApi + "/customer/allBalance", { params });
+  getAssets(params) {
+    return axios.get(baseApi + "/customer/assets", { params });
   }
   websiteBalance(params) {
     return axios.get(baseApi + "/customer/websiteBalance", { params });
+  }
+  turnWebsiteStatus(params) {
+    return axios.get(baseApi + "/customer/account/turn_website_status", {
+      params
+    });
   }
 }
 

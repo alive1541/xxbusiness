@@ -7,9 +7,9 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    title: "XX理财",
+    title: "XX理财"
     //未读消息的数量
-    badge: "14"
+    // badge: "14"
   },
   actions,
   mutations

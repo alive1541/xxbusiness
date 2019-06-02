@@ -3,7 +3,7 @@ const app = new Koa();
 const bodyParser = require("koa-bodyparser");
 const port = 3000;
 const { routers } = require("./router.js");
-const ips = "http://192.168.1.11:8080";
+const ips = "http://192.168.1.85:8080";
 
 app.use(bodyParser());
 app.use(async (ctx, next) => {

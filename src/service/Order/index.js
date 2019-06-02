@@ -1,8 +1,8 @@
 import axios from "../axios.js";
 import { baseApi } from "@/config/config.js";
 class api {
-  getOrderList(params) {
-    return axios.get(baseApi + "/customer/notice_msg/list", { params });
+  getList(params) {
+    return axios.get(baseApi + "/customer/order/list", { params });
   }
 }
 

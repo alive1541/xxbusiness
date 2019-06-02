@@ -1,6 +1,6 @@
 export default {
-  setownerId({ commit }, ownerId) {
-    console.log('action', ownerId);
-    commit('setownerId', ownerId);
+  setList({ commit }, list) {
+    console.log("action", list);
+    commit("setList", list);
   }
 };

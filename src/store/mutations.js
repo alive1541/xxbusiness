@@ -1,6 +1,7 @@
 export const mutations = {
-  setownerId(state, ownerId) {
-    console.log('mutations', ownerId);
-    state.ownerId = ownerId;
+  setList(state, list) {
+    console.log("mutations", list);
+    state.list = list;
+    state.badge = String(list.length);
   }
 };
