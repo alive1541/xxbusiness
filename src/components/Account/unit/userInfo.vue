@@ -212,7 +212,14 @@ export default {
 .popover-demo-content {
   padding: 10px;
 }
-.userinfo-icon {
+.top-im-item .userinfo-icon {
+  position: relative;
+  display: inline-block;
+  right: 0;
+  top: 0;
+}
+.userinfo-icon,
+.userInfo-des-all .userinfo-icon {
   position: absolute;
   right: -20px;
   top: -1px;
@@ -221,12 +228,7 @@ export default {
   fill: lightskyblue;
   vertical-align: middle;
 }
-.top-im-item .userinfo-icon {
-  position: relative;
-  display: inline-block;
-  right: 0;
-  top: 0;
-}
+
 .userInfo-des {
   position: relative;
   font-size: 11px;
