@@ -9,7 +9,7 @@
               <popover placement="right">
                 <div slot="content" class="popover-demo-content">
                   是您目前持有的所有资产，
-                  <br>它等于总余额+预计收益+未结算
+                  <br>它等于总余额+未结算
                 </div>
                 <a>
                   <x-icon class="btn btn-default" type="ios-information-outline" size="15"></x-icon>
@@ -23,7 +23,7 @@
         <div>
           <img class="arrow-img" src="../../../assets/img/double-right.svg">
         </div>
-        <div class="top-im-item">
+        <div class="top-im-item top-im-item-right">
           <div style="margin-Bottom:15px">
             <span class="userInfo-des">总余额</span>
             <span class="userinfo-icon">
@@ -46,7 +46,7 @@
                 </a>
               </popover>
             </span>
-            <span v-if="!isNagtiveNum(all_unsettle)" class="red">{{all_unsettle}}</span>
+            <span v-if="!isNagtiveNum(all_unsettle)" class="red">+{{all_unsettle}}</span>
             <span v-if="isNagtiveNum(all_unsettle)" class="green">{{all_unsettle}}</span>
           </div>
         </div>
@@ -73,17 +73,14 @@
             </span>
           </div>
           <div>
-            <span v-if="!isNagtiveNum(all_profit)" class="red">{{all_profit}}</span>
+            <span v-if="!isNagtiveNum(all_profit)" class="red">+{{all_profit}}</span>
             <span v-if="isNagtiveNum(all_profit)" class="green">{{all_profit}}</span>
             <br>
             <span class="userInfo-des">
               总盈亏
               <span class="userinfo-icon">
                 <popover placement="right">
-                  <div slot="content" class="popover-demo-content">
-                    历史上您使用产品的盈亏情况，
-                    <br>它等于总资产-充值总额+提现总额
-                  </div>
+                  <div slot="content" class="popover-demo-content">历史所有订单收益总和</div>
                   <a>
                     <x-icon class="btn btn-default" type="ios-information-outline" size="15"></x-icon>
                   </a>
@@ -94,7 +91,7 @@
         </div>
         <div class="right">
           <div class="inner-top">
-            <span v-if="!isNagtiveNum(yes_profit)" class="red">{{yes_profit}}</span>
+            <span v-if="!isNagtiveNum(yes_profit)" class="red">+{{yes_profit}}</span>
             <span v-if="isNagtiveNum(yes_profit)" class="green">{{yes_profit}}</span>
             <br>
             <span class="userInfo-des">
@@ -206,6 +203,12 @@ export default {
   position: relative;
   flex-grow: 1;
 }
+.top-im-item-right {
+  text-align: left;
+  flex-grow: 0.4;
+  padding-left: 20px;
+}
+
 .arrow-img {
   width: 35px;
 }

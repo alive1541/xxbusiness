@@ -35,6 +35,8 @@ export default {
   },
   methods: {
     barChange(value) {
+      const routeTitle = ["账户", "订单", "消息", "我的"];
+      this.$store.dispatch("setRouteTitle", routeTitle[Number(value)]);
       if (value === 2) {
         this.badge = false;
       }

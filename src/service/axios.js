@@ -1,5 +1,5 @@
-import axios from 'axios';
-import ctx from '../main.js';
+import axios from "axios";
+import ctx from "../main.js";
 
 //跨域携带凭证信息
 axios.defaults.withCredentials = true;
@@ -18,26 +18,27 @@ axios.interceptors.request.use(
 // 添加一个响应拦截器
 axios.interceptors.response.use(
   function(response) {
-    // 统一拦截403
-    if (response.data.errorCode !== 0 && response.data.msg === '请求非法') {
-      return handle403Error('请求非法');
-    }
     return response.data;
   },
   function(error) {
+    const status = error.response.status;
+    // 统一拦截403
+    if (status === 403) {
+      return handle403Error("您在其他地方有登陆，请确认是否本人在登录");
+    }
     return Promise.reject(error);
   }
 );
 
 function handle403Error(msg) {
   ctx.$vux.alert.show({
-    title: '请求失败',
+    title: "请重新登录",
     content: msg,
     onShow() {
       // console.log("Plugin: I'm showing");
     },
     onHide() {
-      ctx.$router.replace({ name: 'LogIn' });
+      ctx.$router.replace({ name: "LogIn" });
     }
   });
 }

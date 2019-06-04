@@ -1,6 +1,6 @@
 export default {
-  setList({ commit }, list) {
-    console.log("action", list);
-    commit("setList", list);
+  setRouteTitle({ commit }, title) {
+    console.log("action", title);
+    commit("setRouteTitle", title);
   }
 };

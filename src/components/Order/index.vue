@@ -2,15 +2,15 @@
   <div class="card-wraper">
     <div class="titleBar">
       <button-tab>
-        <button-tab-item :selected="selectedIndex === 0" @on-item-click="tabChange">今日</button-tab-item>
+        <button-tab-item :selected="selectedIndex === 0" @on-item-click="tabChange">实时未结算</button-tab-item>
         <button-tab-item :selected="selectedIndex === 1" @on-item-click="tabChange">历史</button-tab-item>
       </button-tab>
     </div>
-    <div class="historyContent" v-if="selectedIndex === 1">
+    <div class="historyContent" v-if="selectedIndex === 1 || noAuthority">
       <divider>暂未开放，敬请期待</divider>
     </div>
-    <div v-if="selectedIndex === 0" class="todayContent">
-      <x-table :cell-bordered="false" :content-bordered="false" class="order-table">
+    <div v-if="selectedIndex === 0 && !noAuthority" class="todayContent">
+      <x-table class="order-table">
         <thead>
           <tr class="order-table-title">
             <th>网站</th>
@@ -20,7 +20,7 @@
             <th>主客</th>
             <th>购买金额</th>
             <th>赔率</th>
-            <th>结算金额</th>
+            <!-- <th>结算金额</th> -->
           </tr>
         </thead>
         <tbody>
@@ -31,7 +31,7 @@
           >
             <td>{{item.website}}</td>
             <td>{{item.account}}</td>
-            <td>{{item.game_time}}</td>
+            <td>{{item.game_time || '网站未显示'}}</td>
             <td>
               {{item.host_team}} 对
               <br>
@@ -40,7 +40,7 @@
             <td>{{selectTeamBook[item.select_team]}}</td>
             <td>{{item.order_amount}}</td>
             <td>{{item.odds}}</td>
-            <td>{{item.settle_amount}}</td>
+            <!-- <td>{{item.settle_amount}}</td> -->
           </tr>
         </tbody>
       </x-table>
@@ -58,7 +58,8 @@ export default {
     return {
       selectTeamBook: { left: "主", right: "客" },
       selectedIndex: 0,
-      list: []
+      list: [],
+      noAuthority: true
     };
   },
   methods: {
@@ -72,9 +73,13 @@ export default {
       })
         .then(res => {
           if (!res) return;
+          this.noAuthority = false;
           if (res.errorCode === 0) {
-            const result = this.addStyleTypeToList(res.data);
+            // const result = this.addStyleTypeToList(res.data);
+            const result = res.data;
             this.list = result;
+          } else if (res.errorCode === 4) {
+            this.noAuthority = true;
           } else {
             this.errorHandler(res.msg, this.getList);
           }
@@ -83,39 +88,39 @@ export default {
           this.$vux.toast.text(e);
         });
     },
-    addStyleTypeToList(list) {
-      let currentColorClass = "firstColor";
-      const dataSource = list.slice();
-      const result = [];
-      for (let i = 0; i < dataSource.length; i++) {
-        let listFirst = list.shift();
-        const resultLast = result[result.length - 1];
-        if (!resultLast) {
-          result.push({
-            colorClass: currentColorClass,
-            ...listFirst
-          });
-        } else if (listFirst.is_unilateral === 1) {
-          result.push({
-            colorClass: "isUnilateral",
-            ...listFirst
-          });
-        } else if (resultLast.order_id === listFirst.order_id) {
-          result.push({
-            colorClass: resultLast.colorClass,
-            ...listFirst
-          });
-        } else {
-          currentColorClass =
-            currentColorClass === "firstColor" ? "secondColor" : "firstColor";
-          result.push({
-            colorClass: currentColorClass,
-            ...listFirst
-          });
-        }
-      }
-      return result;
-    },
+    // addStyleTypeToList(list) {
+    //   let currentColorClass = "firstColor";
+    //   const dataSource = list.slice();
+    //   const result = [];
+    //   for (let i = 0; i < dataSource.length; i++) {
+    //     let listFirst = list.shift();
+    //     const resultLast = result[result.length - 1];
+    //     if (!resultLast) {
+    //       result.push({
+    //         colorClass: currentColorClass,
+    //         ...listFirst
+    //       });
+    //     } else if (listFirst.is_unilateral === 1) {
+    //       result.push({
+    //         colorClass: "isUnilateral",
+    //         ...listFirst
+    //       });
+    //     } else if (resultLast.order_id === listFirst.order_id) {
+    //       result.push({
+    //         colorClass: resultLast.colorClass,
+    //         ...listFirst
+    //       });
+    //     } else {
+    //       currentColorClass =
+    //         currentColorClass === "firstColor" ? "secondColor" : "firstColor";
+    //       result.push({
+    //         colorClass: currentColorClass,
+    //         ...listFirst
+    //       });
+    //     }
+    //   }
+    //   return result;
+    // },
     errorHandler(msg, cb) {
       // 显示
       this.$vux.confirm.show({
@@ -143,14 +148,13 @@ export default {
   color: black;
 }
 .order-table {
+  color: black;
   background-color: #fff;
 }
-/* .order-table tr,
 .order-table th,
 .order-table td {
-  border-bottom: 1px solid #fff;
-  border-right: 1px solid #fff;
-} */
+  line-height: 20px;
+}
 .firstColor {
   background-color: #4db6ac;
 }
@@ -173,6 +177,7 @@ export default {
   width: 90%;
 }
 .card-wraper {
-  margin: 15px auto;
+  margin: 15px auto 0 auto;
+  padding-bottom: 53px;
 }
 </style>

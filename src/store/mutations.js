@@ -1,7 +1,6 @@
 export const mutations = {
-  setList(state, list) {
-    console.log("mutations", list);
-    state.list = list;
-    state.badge = String(list.length);
+  setRouteTitle(state, title) {
+    console.log("mutation", title);
+    state.routeTitle = title;
   }
 };

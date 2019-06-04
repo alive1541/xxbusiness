@@ -1,5 +1,5 @@
 <template>
-  <div class="box-wraper">
+  <div>
     <!-- <x-header title="账户" :left-options="leftOp">
       <div class="title">
         账户

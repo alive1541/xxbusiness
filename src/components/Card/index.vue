@@ -75,7 +75,7 @@ export default {
         .then(res => {
           if (!res) return;
           if (res.errorCode === 0) {
-            this.ifAutoOnline = res.data.on_auto_online === "1";
+            this.ifAutoOnline = res.data.on_auto_online === 1;
           } else {
             this.errorHandler(res.msg, this.getOnlineStatus);
           }
@@ -92,7 +92,7 @@ export default {
       Api.setOnlineStatus({
         owner_id: window.localStorage.getItem("owner_id"),
         token: cookie.get("token"),
-        auto_online
+        on_auto_online: auto_online
       })
         .then(res => {
           if (!res) return;

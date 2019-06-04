@@ -1,9 +1,14 @@
 <template>
   <div class="box-wraper">
-    <x-header title="账户">
-      <div class="title">账户</div>
-    </x-header>
-    <router-view></router-view>
+    <div class="header">
+      <x-header :title="$store.state.routeTitle" :left-options="{showBack: false}">
+        <div class="title">{{$store.state.routeTitle}}</div>
+      </x-header>
+    </div>
+    <div class="content">
+      <div style="height:46px"></div>
+      <router-view></router-view>
+    </div>
     <tabbar/>
   </div>
 </template>
@@ -16,7 +21,9 @@ import { cookie } from "vux";
 export default {
   components: { Tabbar },
   data() {
-    return {};
+    return {
+      routeTitle: this.$store.state.routeTitle
+    };
   },
   methods: {
     getOrderList() {
@@ -31,7 +38,7 @@ export default {
             const list = data.map(v => {
               return {
                 title: "系统消息",
-                desc: v.notice_msg
+                desc: v
               };
             });
             window.localStorage.setItem("list", JSON.stringify(list));
@@ -57,12 +64,36 @@ export default {
         }
       });
     }
+    // preventDefault() {
+    //   document
+    //     .getElementsByClassName("content")[0]
+    //     .on("touchmove", function(event) {
+    //       event.preventDefault();
+    //     });
+    // }
   },
+
   mounted: function() {
     this.getOrderList();
+    // this.preventDefault();
   }
 };
 </script>
 
 <style scoped lang="less">
+.content {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  // overflow: scroll;
+  // margin-top: 46px;
+  // margin-bottom: 252px;
+  -webkit-overflow-scrolling: touch;
+}
+.header {
+  position: fixed;
+  height: 46px;
+  width: 100%;
+  z-index: 9999;
+}
 </style>
