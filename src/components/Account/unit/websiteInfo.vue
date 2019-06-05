@@ -127,6 +127,7 @@ export default {
           if (res.errorCode === 0) {
             this.show = false;
             this.getWebsiteBalance(orderNameBook[this.selectedIndex]);
+            this.$vux.toast.text(res.msg);
           } else {
             this.$vux.toast.text(res.msg);
           }
