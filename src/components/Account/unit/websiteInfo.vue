@@ -1,5 +1,5 @@
 <template>
-  <div class="website-wraper">
+  <div class="website-wraper bottom-pad">
     <div class="titleBar">
       <button-tab>
         <button-tab-item :selected="selectedIndex === 0" @on-item-click="tabChange">按网站排序</button-tab-item>
@@ -208,7 +208,6 @@ export default {
 }
 .website-wraper {
   font-size: 14px;
-  padding-bottom: 53px;
 }
 .website-header {
   line-height: 60px;

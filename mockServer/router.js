@@ -34,7 +34,8 @@ const routers = app => {
           all_deposit: "all_deposit",
           all_withdrawals: "all_withdrawals",
           all_profit: "all_profit",
-          yes_profit: "yes_profit"
+          yes_profit: "yes_profit",
+          updated_at: "1554048000000"
         },
         flag: true,
         errorCode: 0,
@@ -217,6 +218,160 @@ const routers = app => {
         flag: true,
         errorCode: 0,
         msg: "请求成功"
+      };
+    } else {
+      ctx.body = {
+        data: [],
+        flag: true,
+        errorCode: 1,
+        msg: "请求非法"
+      };
+    }
+  });
+
+  router.get("/customer/order/history_list", (ctx, next) => {
+    console.log("/customer/order/history_list", ctx.query);
+    const cookies = ctx.cookies.get("token");
+    if (cookies) {
+      ctx.body = {
+        errorCode: 0,
+        flag: true,
+        data: [
+          {
+            first_website: "1",
+            second_website: "2",
+            first_account: "2",
+            second_account: "1",
+            game_time: "3",
+            host_team: "2",
+            guest_team: "1",
+            first_select_team: "2",
+            second_select_team: "1",
+            first_settle_amount: "2",
+            second_settle_amount: "3",
+            first_order_amount: "1",
+            second_order_amount: "2",
+            first_odds: "3",
+            second_odds: "1",
+            is_unilateral: 0,
+            order_time: "1",
+            profit: "2",
+            first_settle_status: "3",
+            second_settle_status: "1"
+          },
+          {
+            first_website: "1",
+            second_website: "2",
+            first_account: "3",
+            second_account: "2",
+            game_time: "1",
+            host_team: "2",
+            guest_team: "1",
+            first_select_team: "3",
+            second_select_team: "2",
+            first_settle_amount: "1",
+            second_settle_amount: "2",
+            first_order_amount: "2",
+            second_order_amount: "1",
+            first_odds: "2",
+            second_odds: "3",
+            is_unilateral: 0,
+            order_time: "2",
+            profit: "2",
+            first_settle_status: "1",
+            second_settle_status: "2"
+          },
+          {
+            first_website: "2",
+            second_website: "1",
+            first_account: "2",
+            second_account: "2",
+            game_time: "2",
+            host_team: "2",
+            guest_team: "2",
+            first_select_team: "2",
+            second_select_team: "2",
+            first_settle_amount: "2",
+            second_settle_amount: "2",
+            first_order_amount: "2",
+            second_order_amount: "2",
+            first_odds: "2",
+            second_odds: "2",
+            is_unilateral: 1,
+            first_order_time: "2",
+            second_order_time: "2",
+            profit: "profit",
+            first_settle_status: "2",
+            second_settle_status: "2"
+          },
+          {
+            first_website: "1",
+            second_website: "2",
+            first_account: "2",
+            second_account: "1",
+            game_time: "3",
+            host_team: "2",
+            guest_team: "1",
+            first_select_team: "2",
+            second_select_team: "1",
+            first_settle_amount: "2",
+            second_settle_amount: "3",
+            first_order_amount: "1",
+            second_order_amount: "2",
+            first_odds: "3",
+            second_odds: "1",
+            is_unilateral: 0,
+            order_time: "1",
+            profit: "2",
+            first_settle_status: "3",
+            second_settle_status: "1"
+          },
+          {
+            first_website: "1",
+            second_website: "2",
+            first_account: "3",
+            second_account: "2",
+            game_time: "1",
+            host_team: "2",
+            guest_team: "1",
+            first_select_team: "3",
+            second_select_team: "2",
+            first_settle_amount: "1",
+            second_settle_amount: "2",
+            first_order_amount: "2",
+            second_order_amount: "1",
+            first_odds: "2",
+            second_odds: "3",
+            is_unilateral: 0,
+            order_time: "2",
+            profit: "2",
+            first_settle_status: "1",
+            second_settle_status: "2"
+          },
+          {
+            first_website: "2",
+            second_website: "1",
+            first_account: "2",
+            second_account: "2",
+            game_time: "2",
+            host_team: "2",
+            guest_team: "2",
+            first_select_team: "2",
+            second_select_team: "2",
+            first_settle_amount: "2",
+            second_settle_amount: "2",
+            first_order_amount: "2",
+            second_order_amount: "2",
+            first_odds: "2",
+            second_odds: "2",
+            is_unilateral: 1,
+            first_order_time: "2",
+            second_order_time: "2",
+            profit: "profit",
+            first_settle_status: "2",
+            second_settle_status: "2"
+          }
+        ]
       };
     } else {
       ctx.body = {

@@ -1,5 +1,6 @@
 <template>
   <div>
+    <divider v-if="updatedTimeStr">数据更新时间，{{updatedTimeStr}}之前</divider>
     <div class="wraper">
       <div class="top-im">
         <div class="top-im-item">
@@ -28,7 +29,7 @@
             <span class="userInfo-des">总余额</span>
             <span class="userinfo-icon">
               <popover placement="right">
-                <div slot="content" class="popover-demo-content">总余额是您当前所有账户余额的和</div>
+                <div slot="content" class="popover-demo-content">总余额是您当前所有账户余额的和(包括可能的红利)</div>
                 <a>
                   <x-icon class="btn btn-default" type="ios-information-outline" size="15"></x-icon>
                 </a>
@@ -129,12 +130,14 @@
 
 <script>
 import Api from "@/service/Account";
-import { Popover, cookie } from "vux";
+import { Popover, cookie, Divider, dateFormat } from "vux";
+import { type } from "os";
 
 export default {
-  components: { Popover },
+  components: { Popover, Divider },
   data() {
     return {
+      updatedTimeStr: "",
       all_assets: "0",
       all_balance: "0",
       all_unsettle: "0",
@@ -145,6 +148,21 @@ export default {
     };
   },
   methods: {
+    getTime(updatedAt) {
+      const diff = Number(new Date().getTime() - new Date(updatedAt).getTime());
+      console.log("diff", diff);
+      const h_flag = 60 * 60 * 1000;
+      const s_flag = 60 * 1000;
+      let hour = Math.floor(diff / h_flag);
+      console.log("hour", hour);
+      let last = diff % h_flag;
+      let seconds = Math.floor(last / s_flag);
+
+      if (hour) {
+        return `${hour}小时${seconds}分钟`;
+      }
+      return `${seconds}分钟`;
+    },
     getAllBalance() {
       Api.getAssets({
         owner_id: window.localStorage.getItem("owner_id"),
@@ -161,6 +179,8 @@ export default {
             this.all_withdrawals = data["all_withdrawals"];
             this.all_profit = data["all_profit"];
             this.yes_profit = data["yes_profit"];
+            this.updatedTimeStr = this.getTime(data["updated_at"]);
+            // this.updatedTimeStr = this.getTime("2019/06/05 20:50:05");
           } else {
             this.errorHandler(res.msg, this.getAllBalance);
           }

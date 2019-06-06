@@ -2,6 +2,7 @@
 node_modules/
 mockServer/node_modules
 dist/
+dist.tar.gz
 npm-debug.log
 yarn-error.log
 

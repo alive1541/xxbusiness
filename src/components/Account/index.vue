@@ -1,13 +1,6 @@
 <template>
   <div>
-    <!-- <x-header title="账户" :left-options="leftOp">
-      <div class="title">
-        账户
-        <span class="logout" @click="logout">退出</span>
-      </div>
-    </x-header>-->
     <userInfo/>
-    <!-- <actionsheet v-model="logoutInfoVisible" :menus="menus" show-cancel @on-click-menu="submit"></actionsheet> -->
     <websiteInfo/>
   </div>
 </template>
@@ -22,23 +15,7 @@ export default {
     WebsiteInfo
   },
   data() {
-    return {
-      // leftOp: { showBack: false },
-      // logoutInfoVisible: false,
-      // menus: [
-      //   {
-      //     label: `确定咩?<br/><span style="color:#666;font-size:12px;">确定退出${
-      //       this.$store.state.title
-      //     }</span>`,
-      //     type: "info"
-      //   },
-      //   {
-      //     label: "确定",
-      //     type: "warn",
-      //     value: "ok"
-      //   }
-      // ]
-    };
+    return {};
   },
   methods: {
     // logout: function() {
