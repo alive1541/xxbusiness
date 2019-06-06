@@ -64,6 +64,7 @@ export default {
     submit(key, item) {
       if (key === "ok") {
         cookie.remove("token");
+        window.localStorage.clear();
         this.$router.replace({ name: "LogIn" });
       }
     },

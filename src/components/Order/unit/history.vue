@@ -92,7 +92,6 @@ export default {
     getScrollHeight() {
       const c_height = document.documentElement.clientHeight;
       const h = `${c_height - 46 - 15 - 30 - 20 - 53}px`;
-      console.log("h", h);
       return h;
     }
   },

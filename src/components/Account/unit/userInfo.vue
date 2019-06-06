@@ -150,11 +150,9 @@ export default {
   methods: {
     getTime(updatedAt) {
       const diff = Number(new Date().getTime() - new Date(updatedAt).getTime());
-      console.log("diff", diff);
       const h_flag = 60 * 60 * 1000;
       const s_flag = 60 * 1000;
       let hour = Math.floor(diff / h_flag);
-      console.log("hour", hour);
       let last = diff % h_flag;
       let seconds = Math.floor(last / s_flag);
 

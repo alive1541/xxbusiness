@@ -9,7 +9,7 @@
       <div style="height:46px"></div>
       <router-view></router-view>
     </div>
-    <tabbar/>
+    <tabbar :father_badge="badge"/>
   </div>
 </template>
 
@@ -22,6 +22,7 @@ export default {
   components: { Tabbar },
   data() {
     return {
+      badge: "",
       routeTitle: this.$store.state.routeTitle
     };
   },
@@ -41,8 +42,10 @@ export default {
                 desc: v
               };
             });
+            const badge = JSON.stringify(list.length);
             window.localStorage.setItem("list", JSON.stringify(list));
-            window.localStorage.setItem("badge", JSON.stringify(list.length));
+            window.localStorage.setItem("badge", badge);
+            this.badge = badge;
           } else {
             this.errorHandler(res.msg, this.getAllBalance);
           }

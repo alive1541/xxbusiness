@@ -25,6 +25,9 @@
 
 <script>
 export default {
+  props: {
+    father_badge: String
+  },
   components: {},
   data() {
     const badge = window.localStorage.getItem("badge");
@@ -33,8 +36,14 @@ export default {
       currentRoute: 0
     };
   },
+  watch: {
+    father_badge: function(val) {
+      this.badge = Number(val) > 0 ? val : false;
+    }
+  },
   methods: {
     barChange(value) {
+      // console.log("value", value);
       const routeTitle = ["账户", "订单", "消息", "我的"];
       this.$store.dispatch("setRouteTitle", routeTitle[Number(value)]);
       if (value === 2) {
