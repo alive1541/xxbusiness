@@ -61,7 +61,9 @@
           </div>
         </flexbox-item>
       </flexbox>
-      <divider v-if="websiteData.length === 0">暂无数据</divider>
+      <divider v-if="websiteData.length === 0">您当前的账户还没有任何网站的信息</divider>
+      <divider v-if="websiteData.length === 0">点击准备赚钱按钮注册网站吧</divider>
+      <divider v-if="websiteData.length === 0">如果您已经注册好了账号，敬请提交账号</divider>
     </div>
     <confirm v-model="show" title="系统下线操作" @on-confirm="onConfirm">
       <p

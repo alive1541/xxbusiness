@@ -11,6 +11,8 @@ npm install
 # serve with hot reload at localhost:8080
 # 修改入口为config/index.js host/port
 npm run dev
+# npm run dev报错问题
+# 把config/index.js host修改为自己的ip
 
 # build for production with minification
 npm run build

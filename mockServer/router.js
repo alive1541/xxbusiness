@@ -175,30 +175,6 @@ const routers = app => {
       ctx.body = {
         data: [
           {
-            order_id: "1",
-            website: "1",
-            account: "shalina1992",
-            balance: "1,7300",
-            profit: "+230",
-            is_unilateral: 0
-          },
-          {
-            order_id: "1",
-            website: "1",
-            account: "shalina1992",
-            balance: "1,7300",
-            profit: "+230",
-            is_unilateral: 0
-          },
-          {
-            order_id: "2",
-            website: "2",
-            account: "shalina1992",
-            balance: "1,7300",
-            profit: "+230",
-            is_unilateral: 1
-          },
-          {
             order_id: "3",
             website: "3",
             account: "shalina1992",
@@ -258,118 +234,6 @@ const routers = app => {
             profit: "2",
             first_settle_status: "3",
             second_settle_status: "1"
-          },
-          {
-            first_website: "1",
-            second_website: "2",
-            first_account: "3",
-            second_account: "2",
-            game_time: "1",
-            host_team: "2",
-            guest_team: "1",
-            first_select_team: "3",
-            second_select_team: "2",
-            first_settle_amount: "1",
-            second_settle_amount: "2",
-            first_order_amount: "2",
-            second_order_amount: "1",
-            first_odds: "2",
-            second_odds: "3",
-            is_unilateral: 0,
-            order_time: "2",
-            profit: "2",
-            first_settle_status: "1",
-            second_settle_status: "2"
-          },
-          {
-            first_website: "2",
-            second_website: "1",
-            first_account: "2",
-            second_account: "2",
-            game_time: "2",
-            host_team: "2",
-            guest_team: "2",
-            first_select_team: "2",
-            second_select_team: "2",
-            first_settle_amount: "2",
-            second_settle_amount: "2",
-            first_order_amount: "2",
-            second_order_amount: "2",
-            first_odds: "2",
-            second_odds: "2",
-            is_unilateral: 1,
-            first_order_time: "2",
-            second_order_time: "2",
-            profit: "profit",
-            first_settle_status: "2",
-            second_settle_status: "2"
-          },
-          {
-            first_website: "1",
-            second_website: "2",
-            first_account: "2",
-            second_account: "1",
-            game_time: "3",
-            host_team: "2",
-            guest_team: "1",
-            first_select_team: "2",
-            second_select_team: "1",
-            first_settle_amount: "2",
-            second_settle_amount: "3",
-            first_order_amount: "1",
-            second_order_amount: "2",
-            first_odds: "3",
-            second_odds: "1",
-            is_unilateral: 0,
-            order_time: "1",
-            profit: "2",
-            first_settle_status: "3",
-            second_settle_status: "1"
-          },
-          {
-            first_website: "1",
-            second_website: "2",
-            first_account: "3",
-            second_account: "2",
-            game_time: "1",
-            host_team: "2",
-            guest_team: "1",
-            first_select_team: "3",
-            second_select_team: "2",
-            first_settle_amount: "1",
-            second_settle_amount: "2",
-            first_order_amount: "2",
-            second_order_amount: "1",
-            first_odds: "2",
-            second_odds: "3",
-            is_unilateral: 0,
-            order_time: "2",
-            profit: "2",
-            first_settle_status: "1",
-            second_settle_status: "2"
-          },
-          {
-            first_website: "2",
-            second_website: "1",
-            first_account: "2",
-            second_account: "2",
-            game_time: "2",
-            host_team: "2",
-            guest_team: "2",
-            first_select_team: "2",
-            second_select_team: "2",
-            first_settle_amount: "2",
-            second_settle_amount: "2",
-            first_order_amount: "2",
-            second_order_amount: "2",
-            first_odds: "2",
-            second_odds: "2",
-            is_unilateral: 1,
-            first_order_time: "2",
-            second_order_time: "2",
-            profit: "profit",
-            first_settle_status: "2",
-            second_settle_status: "2"
           }
         ]
       };
@@ -381,6 +245,179 @@ const routers = app => {
         msg: "请求非法"
       };
     }
+  });
+
+  router.get("/customer/get_all_websites", (ctx, next) => {
+    console.log("/customer/get_all_websites", ctx.query);
+    // const cookies = ctx.cookies.get("token");
+    ctx.body = {
+      data: [
+        {
+          website_id: 4,
+          nationality_id: 3,
+          website_name: "平博",
+          nationality_name: "印度尼西亚"
+        },
+        {
+          website_id: 2,
+          nationality_id: 1,
+          website_name: "平博2",
+          nationality_name: "印度尼西亚2"
+        },
+        {
+          website_id: 4,
+          nationality_id: 3,
+          website_name: "平博",
+          nationality_name: "印度尼西亚"
+        }
+      ],
+      flag: true,
+      errorCode: 0,
+      msg: "请求成功"
+    };
+  });
+
+  router.post("/customer/account_submit", (ctx, next) => {
+    console.log("/customer/account_submit", ctx.query);
+    // const cookies = ctx.cookies.get("token");
+    ctx.body = { flag: true, errorCode: 0, msg: "操作成功" };
+  });
+
+  router.get("/customer/website_url", (ctx, next) => {
+    console.log("/customer/website_url", ctx.query);
+    // const cookies = ctx.cookies.get("token");
+    ctx.body = {
+      data: [
+        { website_name: "平博1", url: "http://www.xxx.com/register" },
+        { website_name: "平博2", url: "http://www.xxx.com/register" },
+        { website_name: "平博3", url: "http://www.xxx.com/register" },
+        { website_name: "平博4", url: "http://www.xxx.com/register" }
+      ],
+      flag: true,
+      errorCode: 0,
+      msg: "请求成功"
+    };
+  });
+
+  router.get("/customer/instruction", (ctx, next) => {
+    console.log("/customer/instruction", ctx.query);
+    // const cookies = ctx.cookies.get("token");
+    ctx.body = {
+      flag: true,
+      errorCode: 0,
+      msg: "请求成功"
+    };
+  });
+
+  router.get("/customer/register_filled_info_range", (ctx, next) => {
+    console.log("/customer/register_filled_info_range", ctx.query);
+    // const cookies = ctx.cookies.get("token");
+    ctx.body = {
+      msg: "操作成功",
+      flag: true,
+      errorCode: 0,
+      data: {
+        neighborhood_list: [
+          {
+            id: 1,
+            value: "中国"
+          },
+          {
+            id: 2,
+            value: "印度尼西亚"
+          },
+          {
+            id: 3,
+            value: "越南"
+          },
+          {
+            id: 4,
+            value: "菲律宾"
+          }
+        ],
+        nationality_list: [
+          {
+            id: 1,
+            value: "中国"
+          },
+          {
+            id: 2,
+            value: "印度尼西亚"
+          },
+          {
+            id: 3,
+            value: "越南"
+          },
+          {
+            id: 4,
+            value: "菲律宾"
+          }
+        ],
+        phone_prefix_list: [
+          {
+            id: 1,
+            value: "+86"
+          },
+          {
+            id: 2,
+            value: "+62"
+          },
+          {
+            id: 3,
+            value: "+84"
+          },
+          {
+            id: 4,
+            value: "+63"
+          }
+        ]
+      }
+    };
+  });
+
+  router.post("/customer/register_websites", (ctx, next) => {
+    console.log("/customer/register_websites", ctx.query);
+    // const cookies = ctx.cookies.get("token");
+    ctx.body = {
+      flag: true,
+      errorCode: 0,
+      msg: "请求成功"
+    };
+  });
+
+  router.get("/customer/register_info_list", (ctx, next) => {
+    console.log("/customer/register_info_list", ctx.query);
+    // const cookies = ctx.cookies.get("token");
+    ctx.body = {
+      msg: "操作成功",
+      flag: true,
+      errorCode: 0,
+      data: [
+        {
+          website_name: "liji",
+          phone_last_four: "9208",
+          submit_time: "2019-07-25 10:28:41",
+          status: 2,
+          extra_info:
+            '[{"keyName":"账号","value":"1123"},{"keyName":"密码","value":"1123"}]'
+        },
+        {
+          website_name: "pinnacle",
+          phone_last_four: "9208",
+          submit_time: "2019-07-25 10:28:41",
+          status: 1,
+          extra_info: null
+        },
+        {
+          website_name: "12bet",
+          phone_last_four: "9208",
+          submit_time: "2019-07-25 10:28:41",
+          status: 1,
+          extra_info:
+            '[{"keyName":"账号","value":"1123"},{"keyName":"密码","value":"1123"},{"keyName":"密码22","value":"xxxxxx"}]'
+        }
+      ]
+    };
   });
 
   app.use(router.routes()).use(router.allowedMethods());

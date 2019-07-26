@@ -9,7 +9,8 @@ export default new Vuex.Store({
   state: {
     title: "XX理财",
     routeTitle: "账户",
-    // badge: ""
+    currentRoute: "Account",
+    ifRefresh: true
   },
   actions,
   mutations

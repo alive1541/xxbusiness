@@ -38,7 +38,7 @@ function handle403Error(msg) {
       // console.log("Plugin: I'm showing");
     },
     onHide() {
-      ctx.$router.replace({ name: "LogIn" });
+      // ctx.$router.replace({ name: "LogIn" });
     }
   });
 }

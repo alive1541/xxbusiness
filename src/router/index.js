@@ -1,15 +1,20 @@
 import Vue from "vue";
 import Router from "vue-router";
+import ctx from "../main.js";
 import LogIn from "@/components/Login/index";
 import Base from "@/components/Base/index";
 import Account from "@/components/Account/index";
+import GetMoney from "@/components/GetMoney/index";
 import Order from "@/components/Order/index";
 import Message from "@/components/Message/index";
 import Card from "@/components/Card/index";
+import AutoSign from "@/components/AutoSign/index";
+import AutoSignResult from "@/components/AutoSignResult/index";
+import PersonalSign from "@/components/PersonalSign/index";
 
 Vue.use(Router);
 
-export default new Router({
+let route = new Router({
   routes: [
     {
       path: "/",
@@ -18,6 +23,7 @@ export default new Router({
     {
       path: "/login",
       name: "LogIn",
+      name_ch: "登陆",
       component: LogIn
     },
     {
@@ -29,6 +35,11 @@ export default new Router({
           path: "account",
           name: "Account",
           component: Account
+        },
+        {
+          path: "getMoney",
+          name: "GetMoney",
+          component: GetMoney
         },
         {
           path: "order",
@@ -44,8 +55,48 @@ export default new Router({
           path: "card",
           name: "Card",
           component: Card
+        },
+        {
+          path: "autoSign",
+          name: "AutoSign",
+          component: AutoSign
+        },
+        {
+          path: "autoSignResult",
+          name: "AutoSignResult",
+          component: AutoSignResult
+        },
+        {
+          path: "personalSign",
+          name: "PersonalSign",
+          component: PersonalSign
         }
       ]
     }
   ]
 });
+
+route.beforeEach((to, from, next) => {
+  // console.log("to", to);
+  // console.log("from", from);
+  // console.log("next", next);
+  handleTabbarAndRoute(to);
+  next();
+});
+
+function handleTabbarAndRoute(to) {
+  const route = to.name;
+  const routeMap = ["Account", "GetMoney", "Order", "Message", "Card"];
+  if (ctx) {
+    ctx.$store.dispatch("setCurrentRoute", route);
+    if (!routeMap.includes(route)) {
+      console.log("route", route);
+      ctx.$store.dispatch("updateRefresh", false);
+      ctx.$nextTick(() => {
+        ctx.$store.dispatch("updateRefresh", true);
+      });
+    }
+  }
+}
+
+export default route;

@@ -2,7 +2,10 @@ export default {
   setRouteTitle({ commit }, title) {
     commit("setRouteTitle", title);
   },
-  // setBadge({ commit }, badge) {
-  //   commit("setBadge", badge);
-  // }
+  setCurrentRoute({ commit }, currentRoute) {
+    commit("setCurrentRoute", currentRoute);
+  },
+  updateRefresh({ commit }, refresh) {
+    commit("updateRefresh", refresh);
+  }
 };

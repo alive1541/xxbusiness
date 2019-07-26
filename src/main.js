@@ -13,9 +13,13 @@ import {
   ToastPlugin
 } from "vux";
 import FastClick from "fastclick";
+import VueClipboard from "vue-clipboard2";
+
 import router from "./router/index";
 import store from "./store";
 import App from "./App";
+
+VueClipboard.config.autoSetContainer = true;
 
 FastClick.attach(document.body);
 
@@ -30,6 +34,7 @@ Vue.component("tabbar-item", TabbarItem);
 Vue.use(AlertPlugin);
 Vue.use(ConfirmPlugin);
 Vue.use(ToastPlugin);
+Vue.use(VueClipboard);
 
 /* eslint-disable no-new */
 export default new Vue({

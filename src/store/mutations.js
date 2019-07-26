@@ -2,7 +2,10 @@ export const mutations = {
   setRouteTitle(state, title) {
     state.routeTitle = title;
   },
-  // setBadge(state, badge) {
-  //   state.badge = badge;
-  // }
+  setCurrentRoute(state, currentRoute) {
+    state.currentRoute = currentRoute;
+  },
+  updateRefresh(state, refresh) {
+    state.ifRefresh = refresh;
+  }
 };

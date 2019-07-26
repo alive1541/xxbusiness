@@ -1,29 +1,38 @@
 <template>
-  <tabbar class="base-tabbar" @on-index-change="barChange">
-    <tabbar-item :selected="currentRoute==='Account'" link="account">
-      <img slot="icon" src="../../../assets/img/account-book.svg">
-      <img slot="icon-active" src="../../../assets/img/account-book-active.svg">
-      <span slot="label">账户</span>
-    </tabbar-item>
-    <tabbar-item :selected="currentRoute==='Order'" link="order">
-      <img slot="icon" src="../../../assets/img/order.svg">
-      <img slot="icon-active" src="../../../assets/img/order-active.svg">
-      <span slot="label">订单</span>
-    </tabbar-item>
-    <tabbar-item :selected="currentRoute==='Message'" link="message" :badge="badge">
-      <img slot="icon" src="../../../assets/img/message.svg">
-      <img slot="icon-active" src="../../../assets/img/message-active.svg">
-      <span slot="label">消息</span>
-    </tabbar-item>
-    <tabbar-item :selected="currentRoute==='Card'" link="card">
-      <img slot="icon" src="../../../assets/img/card.svg">
-      <img slot="icon-active" src="../../../assets/img/card-active.svg">
-      <span slot="label">我的</span>
-    </tabbar-item>
-  </tabbar>
+  <div v-if="$store.state.ifRefresh">
+    <tabbar class="base-tabbar" @on-index-change="barChange">
+      <tabbar-item :selected="$store.state.currentRoute==='Account'" link="account">
+        <img slot="icon" src="../../../assets/img/account-book.svg" />
+        <img slot="icon-active" src="../../../assets/img/account-book-active.svg" />
+        <span slot="label">账户</span>
+      </tabbar-item>
+      <tabbar-item :selected="$store.state.currentRoute==='GetMoney'" link="getMoney">
+        <img slot="icon" src="../../../assets/img/get-money.svg" />
+        <img slot="icon-active" src="../../../assets/img/get-money-active.svg" />
+        <span slot="label">开始赚钱</span>
+      </tabbar-item>
+      <tabbar-item :selected="$store.state.currentRoute==='Order'" link="order">
+        <img slot="icon" src="../../../assets/img/order.svg" />
+        <img slot="icon-active" src="../../../assets/img/order-active.svg" />
+        <span slot="label">订单</span>
+      </tabbar-item>
+      <tabbar-item :selected="$store.state.currentRoute==='Message'" link="message" :badge="badge">
+        <img slot="icon" src="../../../assets/img/message.svg" />
+        <img slot="icon-active" src="../../../assets/img/message-active.svg" />
+        <span slot="label">消息</span>
+      </tabbar-item>
+      <tabbar-item :selected="$store.state.currentRoute==='Card'" link="card">
+        <img slot="icon" src="../../../assets/img/card.svg" />
+        <img slot="icon-active" src="../../../assets/img/card-active.svg" />
+        <span slot="label">我的</span>
+      </tabbar-item>
+    </tabbar>
+  </div>
 </template>
 
 <script>
+import routeMap from "../../../router/routeMap";
+
 export default {
   props: {
     father_badge: String
@@ -32,8 +41,8 @@ export default {
   data() {
     const badge = window.localStorage.getItem("badge");
     return {
-      badge: Number(badge) > 0 ? badge : false,
-      currentRoute: 0
+      badge: Number(badge) > 0 ? badge : false
+      // currentRoute: ""
     };
   },
   watch: {
@@ -43,16 +52,17 @@ export default {
   },
   methods: {
     barChange(value) {
-      // console.log("value", value);
-      const routeTitle = ["账户", "订单", "消息", "我的"];
-      this.$store.dispatch("setRouteTitle", routeTitle[Number(value)]);
+      // const name = ["Account", "GetMoney", "Order", "Message", "Card"];
+      // this.$store.dispatch("setRouteTitle", routeMap[name[value]]);
       if (value === 2) {
         this.badge = false;
       }
     },
     setActiveTabbar: function() {
-      const routeName = this.$router.history.current.name;
-      this.currentRoute = routeName;
+      const currentRoute = this.$router.history.current.name;
+      // this.currentRoute = currentRoute;
+      this.$store.dispatch("setRouteTitle", routeMap[currentRoute]);
+      this.$store.dispatch("setCurrentRoute", currentRoute);
     }
   },
   mounted: function() {
