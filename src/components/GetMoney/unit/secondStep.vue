@@ -71,14 +71,20 @@ export default {
         return this.$vux.toast.text("请填写密码");
       }
       const { nationality_id, website_id, account, password } = this;
-      Api.accountSubmit({
-        owner_id: window.localStorage.getItem("owner_id"),
-        token: cookie.get("token"),
-        nationality_id,
-        website_id,
-        account,
-        password
-      })
+      const owner_id = window.localStorage.getItem("owner_id");
+      Api.accountSubmit(
+        {
+          owner_id,
+          nationality_id,
+          website_id,
+          account,
+          password
+        },
+        {
+          owner_id,
+          token: cookie.get("token")
+        }
+      )
         .then(res => {
           if (!res) return;
           if (res.errorCode === 0) {

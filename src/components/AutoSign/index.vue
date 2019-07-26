@@ -5,15 +5,15 @@
       <group>
         <selector title="居住地" :options="neighborhood_list" v-model="neighborhood_id"></selector>
         <selector title="国籍" :options="nationality_list" v-model="nationality_id"></selector>
-        <x-input title="姓" v-model="last_name"></x-input>
-        <x-input title="名" v-model="first_name"></x-input>
+        <x-input title="姓    " v-model="last_name" :show-clear="false"></x-input>
+        <x-input title="名    " v-model="first_name" :show-clear="false"></x-input>
         <popup-radio title="性别" :options="genderOptions" v-model="gender"></popup-radio>
         <datetime title="生日" v-model="birthdate" @on-confirm="onDateConfirm"></datetime>
-        <x-input title="邮箱" is-type="email" v-model="mail"></x-input>
+        <x-input title="邮箱   " is-type="email" v-model="mail" :show-clear="false"></x-input>
         <div class="sign-group-wraper">
           <div></div>
           <selector class="sign-prefix" :options="phone_prefix_list" v-model="phone_prefix"></selector>
-          <x-input class="sign-phone" v-model="phone"></x-input>
+          <x-input class="sign-phone" v-model="phone" :show-clear="false"></x-input>
         </div>
       </group>
       <div class="sign-agreement">
@@ -83,19 +83,25 @@ export default {
       if (ifHasEmpty) {
         return this.$vux.toast.text("请将信息填写完整");
       }
-      Api.registerWebsites({
-        owner_id: window.localStorage.getItem("owner_id"),
-        token: cookie.get("token"),
-        neighborhood_id,
-        nationality_id,
-        last_name,
-        first_name,
-        gender,
-        birthdate,
-        mail,
-        phone_prefix,
-        phone
-      })
+      const owner_id = window.localStorage.getItem("owner_id");
+      Api.registerWebsites(
+        {
+          owner_id,
+          neighborhood_id,
+          nationality_id,
+          last_name,
+          first_name,
+          gender,
+          birthdate,
+          mail,
+          phone_prefix,
+          phone
+        },
+        {
+          owner_id,
+          token: cookie.get("token")
+        }
+      )
         .then(res => {
           if (!res) return;
           if (res.errorCode === 0) {
@@ -105,6 +111,7 @@ export default {
           }
         })
         .catch(e => {
+          console.log(2);
           this.$vux.toast.text(e);
         });
     },
@@ -193,6 +200,7 @@ export default {
 }
 .sign-prefix {
   width: 100px;
+  margin-right: 15px;
 }
 .sign-phone {
   flex: 1;

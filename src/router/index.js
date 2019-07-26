@@ -11,6 +11,7 @@ import Card from "@/components/Card/index";
 import AutoSign from "@/components/AutoSign/index";
 import AutoSignResult from "@/components/AutoSignResult/index";
 import PersonalSign from "@/components/PersonalSign/index";
+import { handleTabbarAndRoute } from "../assets/util";
 
 Vue.use(Router);
 
@@ -80,23 +81,8 @@ route.beforeEach((to, from, next) => {
   // console.log("to", to);
   // console.log("from", from);
   // console.log("next", next);
-  handleTabbarAndRoute(to);
+  handleTabbarAndRoute(to.name, ctx);
   next();
 });
-
-function handleTabbarAndRoute(to) {
-  const route = to.name;
-  const routeMap = ["Account", "GetMoney", "Order", "Message", "Card"];
-  if (ctx) {
-    ctx.$store.dispatch("setCurrentRoute", route);
-    if (!routeMap.includes(route)) {
-      console.log("route", route);
-      ctx.$store.dispatch("updateRefresh", false);
-      ctx.$nextTick(() => {
-        ctx.$store.dispatch("updateRefresh", true);
-      });
-    }
-  }
-}
 
 export default route;

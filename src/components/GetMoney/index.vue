@@ -11,6 +11,7 @@ import FirstStep from "./unit/firstStep.vue";
 import SecondStep from "./unit/secondStep.vue";
 import ThirdStep from "./unit/thirdStep.vue";
 import Api from "../../service/GetMoney";
+import { cookie } from "vux";
 
 export default {
   components: {
@@ -26,7 +27,10 @@ export default {
   },
   methods: {
     init() {
-      Api.getAllWebsites()
+      Api.getAllWebsites({
+        owner_id: window.localStorage.getItem("owner_id"),
+        token: cookie.get("token")
+      })
         .then(res => {
           if (!res) return;
           if (res.errorCode === 0) {

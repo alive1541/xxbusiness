@@ -50,6 +50,15 @@ export default {
     };
   },
   methods: {
+    handleParams(params) {
+      console.log(111, this.$route.params.type);
+      if (this.$route.params.type === "recharge") {
+        params.type = 2;
+        delete params.nationality_id;
+      } else {
+        params.type = 1;
+      }
+    },
     getInstruction() {
       if (this.mail === "") {
         return this.$vux.toast.text("请填写邮箱");
@@ -60,12 +69,7 @@ export default {
         mail: this.mail,
         nationality_id: this.$route.params.nationality_id
       };
-      if (this.$route.params.type === "recharge") {
-        params.type = 2;
-        delete params.nationality_id;
-      } else {
-        params.type = 1;
-      }
+      this.handleParams(params);
       Api.getInstruction(params)
         .then(res => {
           if (!res) return;
@@ -81,11 +85,14 @@ export default {
         });
     },
     getWebsiteUrl() {
-      Api.getWebsiteUrl({
+      let params = {
         owner_id: window.localStorage.getItem("owner_id"),
         token: cookie.get("token"),
         nationality_id: this.$route.params.nationality_id || ""
-      })
+      };
+      this.handleParams(params);
+      console.log(1111222, params);
+      Api.getWebsiteUrl(params)
         .then(res => {
           if (!res) return;
           if (res.errorCode === 0) {
@@ -102,7 +109,7 @@ export default {
       const id = this.$route.params.nationality_id;
       const type = this.$route.params.type;
       if (!type) {
-        this.$router.push({
+        this.$router.replace({
           name: "GetMoney"
         });
       }
@@ -150,8 +157,10 @@ export default {
 }
 .personal-item {
   display: inline-block;
-  padding: 10px 20px;
-  margin: 10px 10px;
+  padding: 10px 5px;
+  margin: 10px 0;
+  width: 70px;
+  text-align: center;
   color: #673ab7;
   border: 2px solid #673ab7;
 }

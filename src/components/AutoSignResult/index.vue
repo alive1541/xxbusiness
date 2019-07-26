@@ -109,7 +109,6 @@ export default {
     },
     registerInfoList() {
       Api.registerInfoList({
-        a: 2,
         owner_id: window.localStorage.getItem("owner_id"),
         token: cookie.get("token")
       })
@@ -126,12 +125,12 @@ export default {
         });
     },
     extraMsg(item) {
-      let extData;
-      try {
-        extData = JSON.parse(item.extra_info);
-      } catch (e) {
-        console.log(e);
-      }
+      const extData = item.extra_info;
+      // try {
+      //   extData = JSON.parse(item.extra_info);
+      // } catch (e) {
+      //   console.log(e);
+      // }
       const title = item.website_name;
       this.extraTitle = title;
       this.extraData = extData;
