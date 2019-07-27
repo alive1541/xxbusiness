@@ -7,7 +7,7 @@
           <selector
             title="国籍"
             placeholder="请选择注册国籍"
-            @on-change="websiteChange"
+            @on-change="nationalityChange"
             v-model="nationality_id"
             :options="nationalityOptions"
           ></selector>
@@ -16,7 +16,7 @@
             @on-change="websiteChange"
             placeholder="请选择网站"
             v-model="website_id"
-            :options="websiteOptions"
+            :options="websiteKeyOptions"
           ></selector>
         </div>
       </group>
@@ -49,7 +49,7 @@ import Api from "../../../service/GetMoney";
 export default {
   props: {
     nationalityOptions: Array,
-    websiteOptions: Array
+    websiteOptions: Object
   },
   components: { Group, Selector, XButton, XInput, Confirm },
   data() {
@@ -59,7 +59,8 @@ export default {
       password: "",
       nationality_id: "",
       website_id: "",
-      buttonDisabled: true
+      buttonDisabled: true,
+      websiteKeyOptions: []
     };
   },
   methods: {
@@ -102,10 +103,18 @@ export default {
       this.show = true;
     },
     handleTitle() {
-      const website = this.websiteOptions.find(value => {
+      const website = this.websiteKeyOptions.find(value => {
         return value.key === this.website_id;
       });
       return website ? website.value : "";
+    },
+    nationalityChange(val) {
+      const keyOptions = this.websiteOptions[val];
+      if (keyOptions) {
+        this.websiteKeyOptions = keyOptions;
+        this.website_id = keyOptions[0].key;
+      }
+      this.websiteChange();
     },
     websiteChange(val) {
       if (this.nationality_id !== "" && this.website_id !== "") {

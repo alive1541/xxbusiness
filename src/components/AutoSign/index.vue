@@ -8,7 +8,7 @@
         <x-input title="姓    " v-model="last_name" :show-clear="false"></x-input>
         <x-input title="名    " v-model="first_name" :show-clear="false"></x-input>
         <popup-radio title="性别" :options="genderOptions" v-model="gender"></popup-radio>
-        <datetime title="生日" v-model="birthdate" @on-confirm="onDateConfirm"></datetime>
+        <datetime title="出生日期" min-year="1900" v-model="birthdate" @on-confirm="onDateConfirm"></datetime>
         <x-input title="邮箱   " is-type="email" v-model="mail" :show-clear="false"></x-input>
         <div class="sign-group-wraper">
           <div></div>
@@ -185,7 +185,7 @@ export default {
   margin-top: 10px;
   box-shadow: 0 2px 8px #e0e0e0;
   padding: 5px;
-  padding-bottom: 20px;
+  padding-bottom: 80px;
 }
 .sign-wraper-inner {
   padding: 15px;

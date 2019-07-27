@@ -38,6 +38,7 @@ function handle403Error(msg) {
       // console.log("Plugin: I'm showing");
     },
     onHide() {
+      window.location.href = "/login";
       // ctx.$router.replace({ name: "LogIn" });
     }
   });

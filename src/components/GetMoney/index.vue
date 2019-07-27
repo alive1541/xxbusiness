@@ -22,7 +22,7 @@ export default {
   data() {
     return {
       nationalityOptions: [],
-      websiteOptions: []
+      websiteOptions: {}
     };
   },
   methods: {
@@ -45,13 +45,10 @@ export default {
     },
     setOptionsData(data) {
       let nationalityOptions = [];
-      let websiteOptions = [];
+      let websiteOptions = {};
       data.forEach(item => {
         const nationalityIndex = nationalityOptions.findIndex(value => {
           return value.key === item.nationality_id;
-        });
-        const websiteIndex = websiteOptions.findIndex(value => {
-          return value.key === item.website_id;
         });
         if (nationalityIndex === -1) {
           nationalityOptions.push({
@@ -59,11 +56,14 @@ export default {
             value: item.nationality_name
           });
         }
-        if (websiteIndex === -1) {
-          websiteOptions.push({
+        const websiteKey = item.nationality_id;
+        if (websiteOptions[websiteKey]) {
+          websiteOptions[websiteKey].push({
             key: item.website_id,
             value: item.website_name
           });
+        } else {
+          websiteOptions[websiteKey] = [];
         }
       });
       this.nationalityOptions = nationalityOptions;

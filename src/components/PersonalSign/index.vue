@@ -15,6 +15,7 @@
         <div class="personal-flex">
           <a
             :href="item.url"
+            target="_blank"
             class="personal-item"
             :key="i + 'key'"
             v-for="(item,i) in websiteObj"
