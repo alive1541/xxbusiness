@@ -44,9 +44,7 @@ export default {
       ifAutoOnline: false,
       menus: [
         {
-          label: `确定咩?<br/><span style="color:#666;font-size:12px;">确定退出${
-            this.$store.state.title
-          }</span>`,
+          label: `确定咩?<br/><span style="color:#666;font-size:12px;">确定退出${this.$store.state.title}</span>`,
           type: "info"
         },
         {
@@ -69,10 +67,12 @@ export default {
       }
     },
     getOnlineStatus() {
-      Api.getOnlineStatus({
-        owner_id: window.localStorage.getItem("owner_id"),
-        token: cookie.get("token")
-      })
+      Api.getOnlineStatus(
+        {
+          owner_id: window.localStorage.getItem("owner_id")
+        },
+        cookie.get("token")
+      )
         .then(res => {
           if (!res) return;
           if (res.errorCode === 0) {
@@ -90,11 +90,13 @@ export default {
       this.setOnlineStatus(ifAutoOnline);
     },
     setOnlineStatus(auto_online) {
-      Api.setOnlineStatus({
-        owner_id: window.localStorage.getItem("owner_id"),
-        token: cookie.get("token"),
-        on_auto_online: auto_online
-      })
+      Api.setOnlineStatus(
+        {
+          owner_id: window.localStorage.getItem("owner_id"),
+          on_auto_online: auto_online
+        },
+        cookie.get("token")
+      )
         .then(res => {
           if (!res) return;
           if (res.errorCode === 0) {

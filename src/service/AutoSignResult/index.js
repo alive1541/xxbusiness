@@ -1,9 +1,12 @@
 import axios from "../axios.js";
 import { baseApi } from "@/config/config.js";
 class api {
-  registerInfoList(params) {
+  registerInfoList(params, token) {
     return axios.get(baseApi + "/customer/register_info_list", {
-      params
+      params,
+      headers: {
+        token
+      }
     });
   }
 }

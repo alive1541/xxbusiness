@@ -10,7 +10,7 @@
               <popover placement="right">
                 <div slot="content" class="popover-demo-content">
                   是您目前持有的所有资产，
-                  <br>它等于总余额+未结算
+                  <br />它等于总余额+未结算
                 </div>
                 <a>
                   <x-icon class="btn btn-default" type="ios-information-outline" size="15"></x-icon>
@@ -18,11 +18,11 @@
               </popover>
             </span>
           </span>
-          <br>
+          <br />
           <span class="userInfo-des-all-momey">{{all_assets}}</span>
         </div>
         <div>
-          <img class="arrow-img" src="../../../assets/img/double-right.svg">
+          <img class="arrow-img" src="../../../assets/img/double-right.svg" />
         </div>
         <div class="top-im-item top-im-item-right">
           <div style="margin-Bottom:15px">
@@ -59,7 +59,7 @@
           <div class="inner-top">
             <span>
               {{all_deposit}}
-              <br>
+              <br />
               <span class="userInfo-des">
                 充值总额
                 <div class="userinfo-icon">
@@ -76,7 +76,7 @@
           <div>
             <span v-if="!isNagtiveNum(all_profit)" class="red">+{{all_profit}}</span>
             <span v-if="isNagtiveNum(all_profit)" class="green">{{all_profit}}</span>
-            <br>
+            <br />
             <span class="userInfo-des">
               总盈亏
               <span class="userinfo-icon">
@@ -94,7 +94,7 @@
           <div class="inner-top">
             <span v-if="!isNagtiveNum(yes_profit)" class="red">+{{yes_profit}}</span>
             <span v-if="isNagtiveNum(yes_profit)" class="green">{{yes_profit}}</span>
-            <br>
+            <br />
             <span class="userInfo-des">
               昨日盈亏
               <span class="userinfo-icon">
@@ -109,7 +109,7 @@
           </div>
           <div>
             <span>{{all_withdrawals}}</span>
-            <br>
+            <br />
             <span class="userInfo-des">
               提现总额
               <span class="userinfo-icon">
@@ -162,10 +162,12 @@ export default {
       return `${seconds}分钟`;
     },
     getAllBalance() {
-      Api.getAssets({
-        owner_id: window.localStorage.getItem("owner_id"),
-        token: cookie.get("token")
-      })
+      Api.getAssets(
+        {
+          owner_id: window.localStorage.getItem("owner_id")
+        },
+        cookie.get("token")
+      )
         .then(res => {
           if (!res) return;
           if (res.errorCode === 0) {

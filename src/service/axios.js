@@ -18,15 +18,19 @@ axios.interceptors.request.use(
 // 添加一个响应拦截器
 axios.interceptors.response.use(
   function(response) {
+    console.log(response);
+    if (response.data.errorCode === 7) {
+      return handle403Error("您在其他地方有登陆，请确认是否本人在登录");
+    }
     return response.data;
   },
   function(error) {
-    const status = error.response.status;
-    // 统一拦截403
-    if (status === 403) {
-      return handle403Error("您在其他地方有登陆，请确认是否本人在登录");
-    }
-    return Promise.reject(error);
+    // const status = error.response.status;
+    // // 统一拦截403
+    // if (status === 403) {
+    //   return handle403Error("您在其他地方有登陆，请确认是否本人在登录");
+    // }
+    // return Promise.reject(error);
   }
 );
 
@@ -38,7 +42,7 @@ function handle403Error(msg) {
       // console.log("Plugin: I'm showing");
     },
     onHide() {
-      window.location.href = "/login";
+      window.location.href = "/";
       // ctx.$router.replace({ name: "LogIn" });
     }
   });

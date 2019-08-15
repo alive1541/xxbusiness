@@ -81,10 +81,7 @@ export default {
           account,
           password
         },
-        {
-          owner_id,
-          token: cookie.get("token")
-        }
+        cookie.get("token")
       )
         .then(res => {
           if (!res) return;

@@ -53,11 +53,13 @@ export default {
       }
     },
     getHistory() {
-      Api.getHistory({
-        owner_id: window.localStorage.getItem("owner_id"),
-        token: cookie.get("token"),
-        order_id: this.orderId
-      })
+      Api.getHistory(
+        {
+          owner_id: window.localStorage.getItem("owner_id"),
+          order_id: this.orderId
+        },
+        cookie.get("token")
+      )
         .then(res => {
           if (!res) return;
           this.noAuthority = false;

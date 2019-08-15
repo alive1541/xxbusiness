@@ -56,7 +56,7 @@
               class="website-mini-btn"
               mini
               type="primary"
-              @click.native="onOffLine(item.website, 2,item.account)"
+              @click.native="onOffLine(item.website, 1,item.account)"
             >上线</x-button>
           </div>
         </flexbox-item>
@@ -101,7 +101,7 @@ export default {
       toWebsiteStatus: "",
       websiteStatusBook: {
         "-1": "下线",
-        "2": "上线"
+        "1": "上线"
       },
       selectedIndex: 0,
       websiteData: []
@@ -118,12 +118,15 @@ export default {
       return status === -2;
     },
     onConfirm() {
-      Api.turnWebsiteStatus({
-        owner_id: window.localStorage.getItem("owner_id"),
-        token: cookie.get("token"),
-        website: this.website,
-        to_website_status: this.toWebsiteStatus
-      })
+      Api.turnWebsiteStatus(
+        {
+          owner_id: window.localStorage.getItem("owner_id"),
+          website: this.website,
+          account: this.balance,
+          to_website_status: this.toWebsiteStatus
+        },
+        cookie.get("token")
+      )
         .then(res => {
           if (!res) return;
           if (res.errorCode === 0) {
@@ -151,9 +154,8 @@ export default {
     getWebsiteBalance(order_name = "Website_code") {
       Api.websiteBalance({
         owner_id: window.localStorage.getItem("owner_id"),
-        token: cookie.get("token"),
         order_name
-      })
+      },cookie.get("token"))
         .then(res => {
           if (!res) return;
           if (res.errorCode === 0) {

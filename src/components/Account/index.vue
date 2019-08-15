@@ -1,13 +1,14 @@
 <template>
   <div>
-    <userInfo/>
-    <websiteInfo/>
+    <userInfo />
+    <websiteInfo />
   </div>
 </template>
 
 <script>
 import UserInfo from "./unit/userInfo";
 import WebsiteInfo from "./unit/websiteInfo";
+import { cookie } from "vux";
 
 export default {
   components: {
@@ -18,6 +19,16 @@ export default {
     return {};
   },
   methods: {
+    init() {
+      const query = location.href.split("?")[1];
+      let token;
+      if (query) {
+        token = query.split("=")[1];
+      }
+      if (token) {
+        cookie.set("token", token);
+      }
+    }
     // logout: function() {
     //   this.logoutInfoVisible = true;
     // },
@@ -28,7 +39,13 @@ export default {
     //     this.$router.replace({ name: "LogIn" });
     //   }
     // }
+  },
+  beforeMount: function() {
+    this.init();
   }
+  // mounted: function() {
+  //   this.init();
+  // }
 };
 </script>
 

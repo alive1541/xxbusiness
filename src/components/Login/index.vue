@@ -48,9 +48,12 @@ export default {
         .then(res => {
           if (!res) return;
           if (res.errorCode === 0) {
-            cookie.set("token", res.token);
+            const {
+              data: { token, owner_id }
+            } = res;
+            cookie.set("token", token);
             // this.$store.dispatch("setownerId", res.owner_id);
-            window.localStorage.setItem("owner_id", res.owner_id);
+            window.localStorage.setItem("owner_id", owner_id);
             this.$router.replace({ path: "/page/account" });
           } else {
             return (this.infoMsg = res.msg);

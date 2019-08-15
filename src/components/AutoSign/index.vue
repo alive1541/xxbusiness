@@ -97,10 +97,7 @@ export default {
           phone_prefix,
           phone
         },
-        {
-          owner_id,
-          token: cookie.get("token")
-        }
+        cookie.get("token")
       )
         .then(res => {
           if (!res) return;
@@ -128,10 +125,12 @@ export default {
       this.birthdate = value;
     },
     init() {
-      Api.registerFilledInfoRange({
-        owner_id: window.localStorage.getItem("owner_id"),
-        token: cookie.get("token")
-      })
+      Api.registerFilledInfoRange(
+        {
+          owner_id: window.localStorage.getItem("owner_id")
+        },
+        cookie.get("token")
+      )
         .then(res => {
           if (!res) return;
           if (res.errorCode === 0) {

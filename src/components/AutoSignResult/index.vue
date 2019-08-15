@@ -108,10 +108,12 @@ export default {
       this.$router.push({ name: "AutoSign" });
     },
     registerInfoList() {
-      Api.registerInfoList({
-        owner_id: window.localStorage.getItem("owner_id"),
-        token: cookie.get("token")
-      })
+      Api.registerInfoList(
+        {
+          owner_id: window.localStorage.getItem("owner_id")
+        },
+        cookie.get("token")
+      )
         .then(res => {
           if (!res) return;
           if (res.errorCode === 0) {

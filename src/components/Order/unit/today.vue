@@ -23,7 +23,7 @@
           <td>{{item.game_time || '网站未显示'}}</td>
           <td>
             {{item.host_team}} 对
-            <br>
+            <br />
             {{item.guest_team}}
           </td>
           <td>{{selectTeamBook[item.select_team]}}</td>
@@ -51,10 +51,12 @@ export default {
   },
   methods: {
     getList() {
-      Api.getList({
-        owner_id: window.localStorage.getItem("owner_id"),
-        token: cookie.get("token")
-      })
+      Api.getList(
+        {
+          owner_id: window.localStorage.getItem("owner_id")
+        },
+        cookie.get("token")
+      )
         .then(res => {
           if (!res) return;
           this.noAuthority = false;

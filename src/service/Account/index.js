@@ -1,15 +1,28 @@
 import axios from "../axios.js";
 import { baseApi } from "@/config/config.js";
 class api {
-  getAssets(params) {
-    return axios.get(baseApi + "/customer/assets", { params });
+  getAssets(params, token) {
+    return axios.get(baseApi + "/customer/assets", {
+      params,
+      headers: {
+        token
+      }
+    });
   }
-  websiteBalance(params) {
-    return axios.get(baseApi + "/customer/websiteBalance", { params });
+  websiteBalance(params, token) {
+    return axios.get(baseApi + "/customer/websiteBalance", {
+      params,
+      headers: {
+        token
+      }
+    });
   }
-  turnWebsiteStatus(params) {
+  turnWebsiteStatus(params, token) {
     return axios.get(baseApi + "/customer/account/turn_website_status", {
-      params
+      params,
+      headers: {
+        token
+      }
     });
   }
 }

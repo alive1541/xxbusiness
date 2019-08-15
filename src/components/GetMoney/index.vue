@@ -27,10 +27,12 @@ export default {
   },
   methods: {
     init() {
-      Api.getAllWebsites({
-        owner_id: window.localStorage.getItem("owner_id"),
-        token: cookie.get("token")
-      })
+      Api.getAllWebsites(
+        {
+          owner_id: window.localStorage.getItem("owner_id")
+        },
+        cookie.get("token")
+      )
         .then(res => {
           if (!res) return;
           if (res.errorCode === 0) {
@@ -63,7 +65,12 @@ export default {
             value: item.website_name
           });
         } else {
-          websiteOptions[websiteKey] = [];
+          websiteOptions[websiteKey] = [
+            {
+              key: item.website_id,
+              value: item.website_name
+            }
+          ];
         }
       });
       this.nationalityOptions = nationalityOptions;

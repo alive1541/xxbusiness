@@ -66,12 +66,11 @@ export default {
       }
       let params = {
         owner_id: window.localStorage.getItem("owner_id"),
-        token: cookie.get("token"),
         mail: this.mail,
         nationality_id: this.$route.params.nationality_id
       };
       this.handleParams(params);
-      Api.getInstruction(params)
+      Api.getInstruction(params, cookie.get("token"))
         .then(res => {
           if (!res) return;
           if (res.errorCode === 0) {
@@ -88,12 +87,10 @@ export default {
     getWebsiteUrl() {
       let params = {
         owner_id: window.localStorage.getItem("owner_id"),
-        token: cookie.get("token"),
         nationality_id: this.$route.params.nationality_id || ""
       };
       this.handleParams(params);
-      console.log(1111222, params);
-      Api.getWebsiteUrl(params)
+      Api.getWebsiteUrl(params, cookie.get("token"))
         .then(res => {
           if (!res) return;
           if (res.errorCode === 0) {
