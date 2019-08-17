@@ -14,19 +14,31 @@
     </group>
     <div class="login-btn">
       <p class="logon-info">{{infoMsg}}</p>
-      <x-button type="primary" @click.native="login">登录</x-button>
+      <x-button type="primary" @click.native="login">{{$i18n.translate("test")}}</x-button>
+      <x-dialog v-model="dialogStatus" :hide-on-blur="true">
+        <div class="e-dialog">
+          <div class="e-dialog-content">
+            <radio title="请选择语言" :options="options" @on-change="check"></radio>
+          </div>
+        </div>
+      </x-dialog>
     </div>
+    <button @click="changeLanguage">切换语言</button>
   </div>
 </template>
 
+
+
 <script>
-import { XInput, XButton, md5, cookie } from "vux";
+import { XInput, XButton, md5, cookie, XDialog, Radio } from "vux";
 import Api from "@/service/Login";
 
 export default {
   components: {
     XInput,
-    XButton
+    XButton,
+    XDialog,
+    Radio
   },
   data() {
     return {
@@ -34,10 +46,23 @@ export default {
       password: "",
       iconType1: "",
       iconType2: "",
-      infoMsg: ""
+      infoMsg: "",
+
+      dialogStatus: false,
+      value: "zh-CN",
+      options: ["zh-CN", "en"]
     };
   },
   methods: {
+    changeLanguage() {
+      this.dialogStatus = !this.dialogStatus;
+    },
+    check(value, label) {
+      this.$nextTick(() => {
+        this.$i18n.set(value);
+      });
+      // this.dialogStatus = false;
+    },
     async login() {
       const ifAccess = this.validate();
       if (!ifAccess) return;

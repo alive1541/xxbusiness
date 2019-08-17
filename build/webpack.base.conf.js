@@ -1,32 +1,32 @@
-'use strict';
-const path = require('path');
-const utils = require('./utils');
-const config = require('../config');
-const vueLoaderConfig = require('./vue-loader.conf');
-const vuxLoader = require('vux-loader');
+"use strict";
+const path = require("path");
+const utils = require("./utils");
+const config = require("../config");
+const vueLoaderConfig = require("./vue-loader.conf");
+const vuxLoader = require("vux-loader");
 
 function resolve(dir) {
-  return path.join(__dirname, '..', dir);
+  return path.join(__dirname, "..", dir);
 }
 
 let webpackConfig = {
-  context: path.resolve(__dirname, '../'),
+  context: path.resolve(__dirname, "../"),
   entry: {
-    app: './src/main.js'
+    app: "./src/main.js"
   },
   output: {
     path: config.build.assetsRoot,
-    filename: '[name].js',
+    filename: "[name].js",
     publicPath:
-      process.env.NODE_ENV === 'production'
+      process.env.NODE_ENV === "production"
         ? config.build.assetsPublicPath
         : config.dev.assetsPublicPath
   },
   resolve: {
-    extensions: ['.js', '.vue', '.json'],
+    extensions: [".js", ".vue", ".json"],
     alias: {
-      vue$: 'vue/dist/vue.esm.js',
-      '@': resolve('src')
+      vue$: "vue/dist/vue.esm.js",
+      "@": resolve("src")
     }
   },
   module: {
@@ -35,11 +35,11 @@ let webpackConfig = {
         ? [
             {
               test: /\.(js|vue)$/,
-              loader: 'eslint-loader',
-              enforce: 'pre',
-              include: [resolve('src'), resolve('test')],
+              loader: "eslint-loader",
+              enforce: "pre",
+              include: [resolve("src"), resolve("test")],
               options: {
-                formatter: require('eslint-friendly-formatter'),
+                formatter: require("eslint-friendly-formatter"),
                 emitWarning: !config.dev.showEslintErrorsInOverlay
               }
             }
@@ -47,36 +47,40 @@ let webpackConfig = {
         : []),
       {
         test: /\.vue$/,
-        loader: 'vue-loader',
+        loader: "vue-loader",
         options: vueLoaderConfig
       },
       {
+        test: /\.(yaml|yml)$/,
+        loader: "js-yaml-loader"
+      },
+      {
         test: /\.js$/,
-        loader: 'babel-loader',
-        include: [resolve('src'), resolve('test')]
+        loader: "babel-loader",
+        include: [resolve("src"), resolve("test")]
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
-        loader: 'url-loader',
+        loader: "url-loader",
         options: {
           limit: 10000,
-          name: utils.assetsPath('img/[name].[hash:7].[ext]')
+          name: utils.assetsPath("img/[name].[hash:7].[ext]")
         }
       },
       {
         test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/,
-        loader: 'url-loader',
+        loader: "url-loader",
         options: {
           limit: 10000,
-          name: utils.assetsPath('media/[name].[hash:7].[ext]')
+          name: utils.assetsPath("media/[name].[hash:7].[ext]")
         }
       },
       {
         test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
-        loader: 'url-loader',
+        loader: "url-loader",
         options: {
           limit: 10000,
-          name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
+          name: utils.assetsPath("fonts/[name].[hash:7].[ext]")
         }
       }
     ]
@@ -85,24 +89,31 @@ let webpackConfig = {
 
 module.exports = vuxLoader.merge(webpackConfig, {
   plugins: [
-    'vux-ui',
-    'progress-bar',
+    "vux-ui",
+    "progress-bar",
     {
-      name: 'duplicate-style',
+      name: "duplicate-style",
       options: {
         cssProcessorOptions: {
           safe: true,
           zindex: false,
           autoprefixer: {
             add: true,
-            browsers: ['iOS >= 7', 'Android >= 4.1']
+            browsers: ["iOS >= 7", "Android >= 4.1"]
           }
         }
       }
     },
     {
-      name: 'less-theme',
-      path: 'src/style/theme.less'
+      name: "less-theme",
+      path: "src/style/theme.less"
+    },
+    {
+      name: "i18n",
+      vuxStaticReplace: true,
+      staticReplace: true,
+      extractToFiles: "src/locales/component.yml",
+      localeList: ["en", "zh-CN"]
     }
   ]
 });
