@@ -8,6 +8,7 @@
 <script>
 import UserInfo from "./unit/userInfo";
 import WebsiteInfo from "./unit/websiteInfo";
+import qs from "qs";
 import { cookie } from "vux";
 
 export default {
@@ -21,13 +22,26 @@ export default {
   methods: {
     init() {
       const query = location.href.split("?")[1];
-      let token;
-      if (query) {
-        token = query.split("=")[1];
+
+      try {
+        const { token, language } = qs.parse(query);
+        if (token) {
+          cookie.set("token", token);
+        }
+        if (language) {
+          this.$nextTick(() => {
+            this.$i18n.set(language);
+          });
+        }
+      } catch (e) {
+        console.log(e);
       }
-      if (token) {
-        cookie.set("token", token);
-      }
+      // if (query) {
+      //   token = query.split("=")[1];
+      // }
+      // if (token) {
+      //   cookie.set("token", token);
+      // }
     }
     // logout: function() {
     //   this.logoutInfoVisible = true;

@@ -6,5 +6,6 @@ export default {
   Card: "我的",
   AutoSign: "一键注册",
   AutoSignResult: "一键注册结果",
-  PersonalSign: "手动注册"
+  PersonalSign: "手动注册",
+  PersonalRecharge: "充值"
 };

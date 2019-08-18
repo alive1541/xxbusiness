@@ -1,3 +1,5 @@
+import ctx from "../main";
+
 export const mutations = {
   setRouteTitle(state, title) {
     state.routeTitle = title;

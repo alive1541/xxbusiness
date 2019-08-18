@@ -1,17 +1,19 @@
 <template>
   <div>
-    <divider v-if="updatedTimeStr">数据更新时间，{{updatedTimeStr}}之前</divider>
+    <divider
+      v-if="updatedTimeStr"
+    >{{$i18n.translate("Data update time")}}{{updatedTimeStr}} {{$i18n.translate("before")}}</divider>
     <div class="wraper">
       <div class="top-im">
         <div class="top-im-item">
           <span class="userInfo-des-all">
-            总资产(元)
+            {{$i18n.translate("Total assets")}}
             <span class="userinfo-icon">
               <popover placement="right">
-                <div slot="content" class="popover-demo-content">
-                  是您目前持有的所有资产，
-                  <br />它等于总余额+未结算
-                </div>
+                <div
+                  slot="content"
+                  class="popover-demo-content"
+                >{{$i18n.translate("Total assets info")}}</div>
                 <a>
                   <x-icon class="btn btn-default" type="ios-information-outline" size="15"></x-icon>
                 </a>
@@ -26,10 +28,13 @@
         </div>
         <div class="top-im-item top-im-item-right">
           <div style="margin-Bottom:15px">
-            <span class="userInfo-des">总余额</span>
+            <span class="userInfo-des">{{$i18n.translate("Total balance")}}</span>
             <span class="userinfo-icon">
               <popover placement="right">
-                <div slot="content" class="popover-demo-content">总余额是您当前所有账户余额的和(包括可能的红利)</div>
+                <div
+                  slot="content"
+                  class="popover-demo-content"
+                >{{$i18n.translate("Total balance info")}}</div>
                 <a>
                   <x-icon class="btn btn-default" type="ios-information-outline" size="15"></x-icon>
                 </a>
@@ -38,10 +43,13 @@
             <span>{{all_balance}}</span>
           </div>
           <div>
-            <span class="userInfo-des">未结算</span>
+            <span class="userInfo-des">{{$i18n.translate("Unsettled")}}</span>
             <span class="userinfo-icon">
               <popover placement="right">
-                <div slot="content" class="popover-demo-content">包含两部分，比赛未结束和比赛已结束未结算。</div>
+                <div
+                  slot="content"
+                  class="popover-demo-content"
+                >{{$i18n.translate("Unsettled info")}}</div>
                 <a>
                   <x-icon class="btn btn-default" type="ios-information-outline" size="15"></x-icon>
                 </a>
@@ -61,10 +69,13 @@
               {{all_deposit}}
               <br />
               <span class="userInfo-des">
-                充值总额
+                {{$i18n.translate("Total deposit")}}
                 <div class="userinfo-icon">
                   <popover placement="right">
-                    <div slot="content" class="popover-demo-content">历史上您的所有账户的充值总额</div>
+                    <div
+                      slot="content"
+                      class="popover-demo-content"
+                    >{{$i18n.translate("Total deposit info")}}</div>
                     <a>
                       <x-icon class="btn btn-default" type="ios-information-outline" size="15"></x-icon>
                     </a>
@@ -78,10 +89,13 @@
             <span v-if="isNagtiveNum(all_profit)" class="green">{{all_profit}}</span>
             <br />
             <span class="userInfo-des">
-              总盈亏
+              {{$i18n.translate("Total profit")}}
               <span class="userinfo-icon">
                 <popover placement="right">
-                  <div slot="content" class="popover-demo-content">历史所有订单收益总和</div>
+                  <div
+                    slot="content"
+                    class="popover-demo-content"
+                  >{{$i18n.translate("Total profit info")}}</div>
                   <a>
                     <x-icon class="btn btn-default" type="ios-information-outline" size="15"></x-icon>
                   </a>
@@ -96,10 +110,13 @@
             <span v-if="isNagtiveNum(yes_profit)" class="green">{{yes_profit}}</span>
             <br />
             <span class="userInfo-des">
-              昨日盈亏
+              {{$i18n.translate("Yesterday's profit")}}
               <span class="userinfo-icon">
                 <popover placement="right">
-                  <div slot="content" class="popover-demo-content">它是昨日已结算的成对的订单的金额的和</div>
+                  <div
+                    slot="content"
+                    class="popover-demo-content"
+                  >{{$i18n.translate("Yesterday's profit info")}}</div>
                   <a>
                     <x-icon class="btn btn-default" type="ios-information-outline" size="15"></x-icon>
                   </a>
@@ -111,10 +128,13 @@
             <span>{{all_withdrawals}}</span>
             <br />
             <span class="userInfo-des">
-              提现总额
+              {{$i18n.translate("Total withdrawal")}}
               <span class="userinfo-icon">
                 <popover placement="right">
-                  <div slot="content" class="popover-demo-content">历史上您的提现总额</div>
+                  <div
+                    slot="content"
+                    class="popover-demo-content"
+                  >{{$i18n.translate("Total withdrawal info")}}</div>
                   <a>
                     <x-icon class="btn btn-default" type="ios-information-outline" size="15"></x-icon>
                   </a>
@@ -157,17 +177,14 @@ export default {
       let seconds = Math.floor(last / s_flag);
 
       if (hour) {
-        return `${hour}小时${seconds}分钟`;
+        return `${hour}${this.$i18n.translate(
+          "hour"
+        )}${seconds}${this.$i18n.translate("minute")}`;
       }
-      return `${seconds}分钟`;
+      return `${seconds}${this.$i18n.translate("minute")}`;
     },
     getAllBalance() {
-      Api.getAssets(
-        {
-          owner_id: window.localStorage.getItem("owner_id")
-        },
-        cookie.get("token")
-      )
+      Api.getAssets({}, cookie.get("token"))
         .then(res => {
           if (!res) return;
           if (res.errorCode === 0) {
@@ -193,7 +210,7 @@ export default {
       // 显示
       this.$vux.confirm.show({
         title: msg,
-        content: "点击确定可以重新获取内容",
+        content: this.$i18n.translate("errorHandle info"),
         onConfirm() {
           cb();
         },

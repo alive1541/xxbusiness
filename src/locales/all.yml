@@ -42,3 +42,25 @@ zh-CN:
   vux.search.cancel_text: 取消
   vux.search.placeholder: 搜索
   vux.x-header.back_text: 返回
+id:
+  vux.actionsheet.cancel: Batalkan
+  vux.alert.button_text: Lanjutkan
+  vux.calendar.cancel_text: Batalkan
+  vux.calendar.confirm_text: Berhasil
+  vux.confirm.confirm_text: Lanjutkan
+  vux.confirm.cancel_text: Batalkan
+  vux.datetime.cancel_text: Batalkan
+  vux.datetime.confirm_text: Berhasil
+  vux.inline-calendar.week_day_0: Senin
+  vux.inline-calendar.week_day_1: Selasa
+  vux.inline-calendar.week_day_2: Rabu
+  vux.inline-calendar.week_day_3: Kamis
+  vux.inline-calendar.week_day_4: Jumat
+  vux.inline-calendar.week_day_5: Sabtu
+  vux.inline-calendar.week_day_6: Minggu
+  vux.loading.loading: Sedang memuat
+  vux.popup-picker.cancel_text: Batalkan
+  vux.popup-picker.confirm_text: Berhasil
+  vux.search.cancel_text: Lanjutkan
+  vux.search.placeholder: Cari
+  vux.x-header.back_text: Kembali

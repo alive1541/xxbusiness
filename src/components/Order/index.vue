@@ -2,15 +2,21 @@
   <div class="card-wraper bottom-pad">
     <div class="titleBar">
       <button-tab>
-        <button-tab-item :selected="selectedIndex === 0" @on-item-click="tabChange">实时未结算</button-tab-item>
-        <button-tab-item :selected="selectedIndex === 1" @on-item-click="tabChange">历史</button-tab-item>
+        <button-tab-item
+          :selected="selectedIndex === 0"
+          @on-item-click="tabChange"
+        >{{$i18n.translate("Real-time unsettled")}}</button-tab-item>
+        <button-tab-item
+          :selected="selectedIndex === 1"
+          @on-item-click="tabChange"
+        >{{$i18n.translate("history")}}</button-tab-item>
       </button-tab>
     </div>
     <div v-if="selectedIndex === 0" class="todayContent">
-      <today/>
+      <today />
     </div>
     <div v-if="selectedIndex === 1" class="todayContent">
-      <history/>
+      <history />
     </div>
   </div>
 </template>
@@ -37,7 +43,7 @@ export default {
       // 显示
       this.$vux.confirm.show({
         title: msg,
-        content: "点击确定可以重新获取内容",
+        content: this.$i18n.translate("errorHandle info"),
         onConfirm() {
           cb();
         },

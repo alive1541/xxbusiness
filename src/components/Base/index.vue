@@ -28,12 +28,7 @@ export default {
   },
   methods: {
     getOrderList() {
-      Api.getOrderList(
-        {
-          owner_id: window.localStorage.getItem("owner_id")
-        },
-        cookie.get("token")
-      )
+      Api.getOrderList({}, cookie.get("token"))
         .then(res => {
           if (!res) return;
           if (res.errorCode === 0) {
@@ -60,7 +55,7 @@ export default {
       // 显示
       this.$vux.confirm.show({
         title: msg,
-        content: "点击确定可以重新获取内容",
+        content: this.$i18n.translate("errorHandle info"),
         onConfirm() {
           cb();
         },

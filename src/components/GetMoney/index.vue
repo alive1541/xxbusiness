@@ -27,12 +27,7 @@ export default {
   },
   methods: {
     init() {
-      Api.getAllWebsites(
-        {
-          owner_id: window.localStorage.getItem("owner_id")
-        },
-        cookie.get("token")
-      )
+      Api.getAllWebsites({}, cookie.get("token"))
         .then(res => {
           if (!res) return;
           if (res.errorCode === 0) {

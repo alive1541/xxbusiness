@@ -3,13 +3,13 @@
     <x-table class="order-table">
       <thead>
         <tr class="order-table-title">
-          <th>网站</th>
-          <th>账号</th>
-          <th>订单详情</th>
-          <th>购买金额(赔率)</th>
-          <th>下单时间</th>
-          <th>结算金额</th>
-          <th>收益</th>
+          <th>{{$i18n.translate("web")}}</th>
+          <th>{{$i18n.translate("account")}}</th>
+          <th>{{$i18n.translate("order details")}}</th>
+          <th>{{$i18n.translate("money")}}({{$i18n.translate("odds")}})</th>
+          <th>{{$i18n.translate("Order time")}}</th>
+          <th>{{$i18n.translate("Settlement amount")}}</th>
+          <th>{{$i18n.translate("profit")}}</th>
         </tr>
       </thead>
       <tbody :key="i + 'key'" v-for="(item,i) in list">
@@ -61,7 +61,7 @@ export default {
   methods: {
     handleOrderDetial(item) {
       const { game_time, host_team, guest_team } = item;
-      return `${game_time} ${host_team} 对 ${guest_team}`;
+      return `${game_time} ${host_team} & ${guest_team}`;
     },
     isUnilateral(item) {
       return item.is_unilateral === 1;

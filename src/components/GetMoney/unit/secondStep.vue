@@ -1,20 +1,20 @@
 <template>
   <div class="first-wraper">
     <div class="first-inner">
-      <div class="first-title">第二步 账号提交</div>
+      <div class="first-title">2 {{$i18n.translate("Account submission")}}</div>
       <group class="first-group-wraper">
         <div>
           <selector
-            title="国籍"
-            placeholder="请选择注册国籍"
+            :title="$i18n.translate('Country of Citizenship')"
+            :placeholder="$i18n.translate('Please choose')"
             @on-change="nationalityChange"
             v-model="nationality_id"
             :options="nationalityOptions"
           ></selector>
           <selector
-            title="网站"
+            :title="$i18n.translate('website')"
             @on-change="websiteChange"
-            placeholder="请选择网站"
+            :placeholder="$i18n.translate('Please choose')"
             v-model="website_id"
             :options="websiteKeyOptions"
           ></selector>
@@ -25,8 +25,8 @@
         type="primary"
         @click.native="handleClick"
         :disabled="buttonDisabled"
-      >提交</xButton>
-      <div class="first-info">提示：手动注册需要提交账号密码；修改了密码的也需要提交账号密码，否则系统无法完成自动下单</div>
+      >{{$i18n.translate('submit')}}</xButton>
+      <div class="first-info">Tips: {{$i18n.translate('Account submission info')}}</div>
     </div>
     <confirm
       ref="confirm"
@@ -36,8 +36,8 @@
       :close-on-confirm="false"
     >
       <group>
-        <x-input title="账户名" v-model="account"></x-input>
-        <x-input title="密码" v-model="password"></x-input>
+        <x-input :title="$i18n.translate('username')" v-model="account"></x-input>
+        <x-input :title="$i18n.translate('password')" v-model="password"></x-input>
       </group>
     </confirm>
   </div>
@@ -66,16 +66,18 @@ export default {
   methods: {
     onConfirm() {
       if (this.account.trim() === "") {
-        return this.$vux.toast.text("请填写账户名");
+        return this.$vux.toast.text(
+          this.$i18n.translate("Please complete the information")
+        );
       }
       if (this.password.trim() === "") {
-        return this.$vux.toast.text("请填写密码");
+        return this.$vux.toast.text(
+          this.$i18n.translate("Please complete the information")
+        );
       }
       const { nationality_id, website_id, account, password } = this;
-      const owner_id = window.localStorage.getItem("owner_id");
       Api.accountSubmit(
         {
-          owner_id,
           nationality_id,
           website_id,
           account,

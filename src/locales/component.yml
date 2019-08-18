@@ -1,4 +1,314 @@
 en:
-  test: hello
+  # 账户页面
+  make money: Make money
+  Bets: Bets
+  Message: Message
+  Settings: Settings
+  Account: Account
+  Total assets: Total assets
+  Total balance: Total balance
+  Unsettled: Unsettled
+  Total deposit: Total deposit
+  Total withdrawal: Total withdrawal
+  Total profit: Total profit
+  Yesterday's profit: Yesterday's profit
+  hour: hour
+  minute: minute
+  Data update time: Data update time：
+  before: before
+  Total assets info: All the assets you currently hold. It is equal to the total balance + estimated profit + unsettled
+  Total balance info: The total balance is the sum of the balances of all your current accounts
+  Unsettled info: Come from two kinds of games, games that are not over yet and games that have ended but the balance are not setttled
+  Total deposit info: Total deposit amount of all accounts during subscription (including possible bonuses)
+  Total withdrawal info: Total withdrawl amount during subscription
+  Total profit info: Total profit from settled bets during subscription
+  Yesterday's profit info: Yesterdays' proft from settled bets
+  errorHandle info: Click OK to retrieve content
+  Sort by site: Sort by site
+  Sort by balance: Sort by balance
+  website: website
+  account name: account name
+  Balance: Balance
+  Yesterday's profit2: Yesterday's profit
+  status Action: status Action
+  online: online
+  offline: offline
+  Prohibit: Prohibit
+  System offline operation: System offline operation
+  Are you sure you want to go offline: Are you sure you want to go offline
+  Real-time unsettled: Real-time unsettled
+  history: history
+  web: web
+  account: account
+  time: time
+  A&B: A&B
+  turn: turn
+  money: money
+  odds: odds
+  Order time: Order time
+  We are not open yet: We are not open yet
+  Website not displayed: Website not displayed
+  Host: Host
+  Guest: Guest
+  Turn on automatic online: Turn on automatic online
+  Turn on automatic online info: In order to avoid loss, the system will automatically go online after 2 hours being offline
+  All data loaded: All data loaded
+  order details: order details
+  profit: profit
+  not sign info1: Your current account does not have any registration info about betting websites
+  not sign info2: Click "make money " to register on those websites
+  not sign info3: If you have already registered, please submit your account info
+  Website registration: Website registration
+  One-click registration: One-click
+  Manual registration: Manual
+  One-click registration info: One-click registration currently only supports three websites. liji, Pingbo, and 12bet. Other sites still require you to manually register
+  Account submission: Account submission
+  Country of Citizenship: Citizenship
+  submit: submit
+  Please choose: Please choose
+  Account submission info: Manual registration requires submitting account name and password; if you change the password, you also need to submit the new password, otherwise the system cannot put orders automatically.
+  username: username
+  password: password
+  Deposit: Deposit
+  Please complete the information: Please complete the information
+  auto sign info1: Please submit your real information, otherwise you will not be able to register successfully
+  auto sign info2: Click to agree to the Registration Agreement
+  Place of residence: Place of residence
+  Last name: Last name
+  First name: First name
+  Gender: Gender
+  male: male
+  Female: Female
+  Date of birth: Date of birth
+  Email: Email
+  Phone: Phone
+  Deposit Tips: Deposit Tips
+  Deposit Tips info1: Please use your own bank card. The name of the bank card must be the same as the name at the time of registration. The issuing bank must be filled out in real name to avoid problems at withdrawal
+  Deposit Tips info2: When depositing, please read the deposit method of the website carefully. For example, some of the comment areas  are required to fill in, or the deposit amount must be the same as the website requirements, etc. Follow the instructions carefully and avoid problems when depositing
+  Deposit Tips info3: After deposit is completed, please keep the deposit record or other records to facilitate reconciliation
+  Deposit Tips info4: After deposit is completed, be sure to make sure the it shows up on websites and then log out of the account. If any deposit has not arrived within half an hour, please contact customer service of the website
+  Deposit guide: Deposit guide
+  Deposit guide info: If you have any questions about deposit on a certain website, you can submit your email addresss and we will send a deposit guide to your email address. Check out our deposit guide, which details the deposit process for each website to ensure your successful deposit
+  Getting guide: Getting guide
+  Please enter: Please enter
+  Registration Tips: Registration Tips
+  Registration Tips info1: Please be sure to register with your real name, mobile phone number and email, otherwise you will not be able to deposit and withdraw funds
+  Registration Tips info2: Select the country and currency when registering. Please choose your own real country and currency. Otherwise, you will not be able to deposit and withdraw funds after registration
+  Registration Tips info3: The user name of multiple websites should not be similar as possible as you can to avoid being stolen and other risks
+  Registration Tips info4: After registration, you must save your own account number and password, as well as the relevant security question answer and security code. These are necessary when withdrawing money. Losing these info may cause troubles when logging in and affect money withdrawal
+  Registration guide: Registration guide
+  Registration guide info: If you have any questions about registering a website, you can submit your email address and we will send the registration guide to your email address. Check out our registration guide, which details the registration process for each website to ensure your successful registration
+  Registration website: Registration website
+  websiteInfo info1: Allow System
+  websiteInfo online: offline
+  websiteInfo offline: online
+
 zh-CN:
-  test: 你好
+  # 账户页面
+  Bets: 订单
+  Message: 消息
+  Settings: 我的
+  make money: 准备赚钱
+  Account: 账户
+  Total assets: 总资产(元）
+  Total balance: 总余额
+  Unsettled: 未结算
+  Total deposit: 充值总额
+  Total withdrawal: 提现总额
+  Total profit: 总盈亏
+  Yesterday's profit: 昨日盈亏
+  hour: 小时
+  minute: 分钟
+  Data update time: 数据更新时间：
+  before: 之前
+  Total assets info: 是您目前持有的所有资产，它等于总余额+预计收益+未结算
+  Total balance info: 总余额是您当前所有账户余额的和
+  Unsettled info: 包含两部分，比赛未结束和比赛已结束未结算
+  Total deposit info: 历史上您的所有账户的充值总额（包括可能的红利）
+  Total withdrawal info: 历史上您的提现总额
+  Total profit info: 历史所有已结算订单收益总和
+  Yesterday's profit info: 它是昨日已结算的成对的订单的金额的和
+  errorHandle info: 点击确定可以重新获取内容
+  Sort by site: 按网站排序
+  Sort by balance: 按余额从小到大
+  website: 网站
+  account name: 账户名
+  Balance: 余额
+  Yesterday's profit2: 昨日收益
+  status Action: 状态操作
+  online: 系统在线
+  offline: 系统下线
+  Prohibit: 禁用
+  System offline operation: 系统下线操作
+  Are you sure you want to go offline: 确定让系统下线乐天堂shalina1992的账号吗？
+  Real-time unsettled: 实时未结算
+  history: 历史
+  web: 网站
+  account: 账号
+  time: 比赛时间
+  A&B: A&B
+  turn: 方向
+  money: 购买金额
+  odds: 赔率
+  Order time: 下单时间
+  We are not open yet: 暂未开放，敬请期待
+  Website not displayed: 网站未显示
+  Host: 主
+  Guest: 客
+  Turn on automatic online: 启用自动上线
+  Turn on automatic online info: 为避免损失，系统下线后会在2小时后自动上线
+  All data loaded: 已加载全部数据
+  order details: 订单详情
+  profit: 收益
+  not sign info1: 您当前的账户还没有任何网站的信息
+  not sign info2: 点击准备赚钱按钮注册网站吧
+  not sign info3: 如果您已经注册好了账号，敬请提交账号
+  Website registration: 网站注册
+  One-click registration: 一键注册
+  Manual registration: 手动注册
+  One-click registration info: 一键注册目前只支持liji、平博、12bet这三个网站。其他网站还需要您手动注册
+  Account submission: 账号提交
+  Country of Citizenship: 国籍
+  submit: 提交
+  Please choose: 请选择
+  Account submission info: 手动注册需要提交账号密码；修改了密码的也需要提交账号密码，否则系统无法完成自动下单
+  username: 账户名
+  password: 密码
+  Deposit: 充值
+  Please complete the information: 请将信息填写完整
+  auto sign info1: 请提交真实的信息，否则将无法注册成功
+  auto sign info2: 点击代表您同意《注册协议》
+  Place of residence: 居住地
+  Last name: 姓
+  First name: 名
+  Gender: 性别
+  male: 男
+  Female: 女
+  Date of birth: 出生日期
+  Email: 邮箱
+  Phone: 手机号
+  Deposit Tips: 充值要点
+  Deposit Tips info1: 请一定要使用自己的银行卡，银行卡的姓名要与注册时的姓名一致。发卡行等一定要真实填写，避免之后提现出现问题
+  Deposit Tips info2: 充值时，请认真阅读网站的充值方法，如备注处需要填写内容，充值金额必须与网站要求的一致等。完全按照网站要求，避免充值不到账情况出现
+  Deposit Tips info3: 充值完成后，请保留充值截图及流水号等凭据，方便之后对账
+  Deposit Tips info4: 充值完成后，一定要确认网站到账后再登出账号。如半小时未到账，请于该网站的客服联系
+  Deposit guide: 充值指南
+  Deposit guide info: 如果您充值某个网址时还有什么问题，可以提交您的邮箱，我们会把充值指南发到您的邮箱。查看我们的充值指南，充值指南详细描写了每个网站的充值流程，确保你顺利充值成功
+  Getting guide: 获取指南
+  Please enter: 请输入
+  Registration Tips: 注册要点
+  Registration Tips info1: 请一定要用真实的姓名、手机邮箱注册，否则将无法充值和提款
+  Registration Tips info2: 注册时选择国家和货币请注意选择自己的真实国家和货币，否则注册完成后无法充值和提款
+  Registration Tips info3: 多个网站的用户名尽量不要重复，避免被盗号撞库
+  Registration Tips info4: 注册完成后一定要保存好自己的账号及密码还有相关的安全问题答案和安全码。这些都是提款时的必要素，丢失找回很麻烦且可能影响提款
+  Registration guide: 注册指南
+  Registration guide info: 如果您注册某个网址时还有什么问题，可以提交您的邮箱，我们会把注册指南发到您的邮箱。查看我们的注册指南，注册指南详细描写了每个网站的注册流程，确保你顺利注册成功
+  Registration website: 注册网址
+  websiteInfo info1: 允许系统
+  websiteInfo online: 下线
+  websiteInfo offline: 上线
+
+id:
+  # 账户页面
+  Bets: Pesanan
+  Message: Berita
+  Settings: Saya
+  make money: Hasilkan uang
+  Account: Akun
+  Total assets: Total Aset (IDR)
+  Total balance: Total Saldo
+  Unsettled: Saldo Tertahan
+  Total deposit: Total Isi Ulang
+  Total withdrawal: Total Penarikan
+  Total profit: Keuntungan & Kerugia
+  Yesterday's profit: Keuntungan & Kerugian Kemarin
+  hour: jam
+  minute: menit
+  Data update time: Data telah diperbarui：
+  before: yang lalu
+  Total assets info: Total aset yang anda miliki, mencakup total saldo + keuntungan rata-rata + saldo tertahan
+  Total balance info: Total saldo anda saat ini Total saldo dalam akun
+  Unsettled info: Melingkupi dua bagian, saldo tertahan saat permainan belum selesai dan saldo tertahan saat permainan telah selesai.
+  Total deposit info: Riwayat total pengisian ulang saldo (termasuk bonus)
+  Total withdrawal info: Riwayat total penarikan
+  Total profit info: Riwayat total keuntungan pesanan yang telah diselesaikan
+  Yesterday's profit info: Jumlah dari total pesanan kemarin yang telah diselesaikan
+  errorHandle info: Klik OK untuk mendapatkan kembali konten
+  Sort by site: Urutkan berdasarkan situs
+  Sort by balance: Urutkan berdasarkan saldo(Kecil -> Besar)
+  website: Situs web
+  account name: Nama akun
+  Balance: Saldo
+  Yesterday's profit2: Untung Kemarin
+  status Action: Status Operasional
+  online: Online
+  offline: Offline
+  Prohibit: Nonaktifkan
+  System offline operation: Sistem Operasi Offline
+  Are you sure you want to go offline: 确定让系统下线乐天堂shalina1992的账号吗？
+  Real-time unsettled: Saldo tertahan saat ini
+  history: Riwayat
+  web: Situs web
+  account: Akun
+  time: Waktu
+  A&B: A&B
+  turn: Posisi
+  money: Jumlah Pembelian
+  odds: Peluang
+  Order time: Waktu Pesanan
+  We are not open yet: Belum terbuka, harap nantikan
+  Website not displayed: Situs web tidak ditampilkan
+  Host: Tuhan
+  Guest: Tamu
+  Turn on automatic online: Aktifkan Unggah Otomatis
+  Turn on automatic online info: Untuk menghindari kerugian, sistem akan secara otomatis kembali online setelah 2 jam offline
+  All data loaded: Memuat semua data
+  order details: Detail pesanan
+  profit: Penghasilan
+  not sign info1: Akun Anda saat ini tidak memiliki informasi tentang situs web
+  not sign info2: Klik tombol "Siap Menghasilkan Uang" untuk mendaftarkan situs web
+  not sign info3: Jika Anda sudah mendaftarkan akun Anda, silahkan kirim akun Anda
+  Website registration: Registrasi situs web
+  One-click registration: satu klik
+  Manual registration: manual
+  One-click registration info: Registrasi satu klik saat ini hanya mendukung tiga situs web. liji, Pingbo, dan 12bet. Situs lain mengharuskan Anda untuk mendaftar secara manual.
+  Account submission: Pengajuan akun
+  Country of Citizenship: Negara
+  submit: Kirim
+  Please choose: Silakan pilih
+  Account submission info: Anda harus mengirimkan kata sandi akun untuk mendaftar secara manual dan mengubah kata sandi Anda. Jika tidak, Anda tidak dapat melakukan pemesanan.
+  username: Nama pengguna
+  password: Kata sandi
+  Deposit: Isi ulang
+  Please complete the information: Silakan lengkapi informasinya
+  auto sign info1: Mohon masukkan informasi yang sebenarnya, jika tidak Anda tidak bisa melakukan pendaftaran
+  auto sign info2: Klik untuk menyetujui "Perjanjian Pendaftaran"
+  Place of residence: Tempat tinggal
+  Last name: Nama Belakang
+  First name: Nama Depan
+  Gender: Gender
+  male: Laki-laki
+  Female: Perempuan
+  Date of birth: Tanggal lahir
+  Email: E-mail
+  Phone: Nomor ponsel
+  Deposit Tips: Catatan untuk Isi Ulang
+  Deposit Tips info1: Pastikan anda menggunakan kartu bank anda. Nama anda saat registrasi harus sama dengan nama pada kartu bank anda. Informasi bank pengirim harus diisi secara benar untuk menghindari masalah setelah penarikan
+  Deposit Tips info2: Ketika mengisi ulang, silahkan membaca tahapan pengisian ulang secara saksama, seperti catatan tambahan pengisian dan jumlah pengisian harus sama dengan persyaratan pada situs. Mohon mengikuti petunjuk pada situs untuk menghindari masalah yang berkaitan dengan pengisian ulang akun
+  Deposit Tips info3: Setelah melakukan pengisian ulang, mohon untuk menyimpan nomor seri dan bukti pengisian ulang, serta hal-hal penting lainnya untuk memudahkan proses penghitungan aset
+  Deposit Tips info4: Setelah pengisian ulang berhasil, mohon pastikan kembali bahwa saldo anda telah masuk ke dalam akun anda sebelum anda keluar dari akun. Jika dalam kurun waktu setengah jam saldo tidak masuk ke dalam akun, mohon hubungi layanan pelanggan situs
+  Deposit guide: Panduan Registrasi
+  Deposit guide info: Jika anda memiliki pertanyaan seputar mendaftar situs, kami akan mengirimkan panduan registrasi ke dalam e-mail anda. Panduan registrasi menjelaskan proses mendaftar setiap situs secara detail agar anda dapat melakukan registrasi secara lancar. Silahkan masukkan e-mail anda pada kotak di bawah ini.
+  Getting guide: Kirim
+  Please enter: Silakan masuk
+  Registration Tips: Catatan untuk Registrasi
+  Registration Tips info1: Mohon mendaftar dengan nama asli dan email yang dapat anda akses, bila tidak, anda tidak akan bisa mengisi ulang maupun menarik uang
+  Registration Tips info2: Ketika memilih negara asal dan mata uang, mohon memilihnya dengan informasi yang benar. Bila tidak, anda tidak akan bisa mengisi ulang maupun menarik uang setelah registrasi
+  Registration Tips info3: Pengguna banyak situs dimohonkan untuk tidak menggunakan nama dan kata sandi yang sama untuk menghindari pencurian
+  Registration Tips info4: Setelah melakukan registrasi, mohon untuk menyimpan akun dan kata sandi anda, serta pertanyaan keamanan dan kode keamanan. Semua elemen yang telah disebutkan sangatlah penting untuk melakukan penarikan uang. Kehilangan dan pemulihan dapat berdampak buruk bagi penarikan uang
+  Registration guide: Panduan Registrasi
+  Registration guide info: Jika anda memiliki pertanyaan seputar mendaftar situs, kami akan mengirimkan panduan registrasi ke dalam e-mail anda. Panduan registrasi menjelaskan proses mendaftar setiap situs secara detail agar anda dapat melakukan registrasi secara lancar. Silahkan masukkan e-mail anda pada kotak di bawah ini
+  Registration website: Situs Registrasi
+  websiteInfo info1: zinkan sistem untuk
+  websiteInfo online: zinkan sistem untuk
+  websiteInfo offline: mengunggah

@@ -1,9 +1,9 @@
 <template>
   <div class="first-wraper">
     <div class="first-inner">
-      <div class="first-title">第三步 充值</div>
+      <div class="first-title">3 {{$i18n.translate('Deposit')}}</div>
       <div class="first-btn-wraper">
-        <xButton class="first-btn" @click.native="submit">提交</xButton>
+        <xButton class="first-btn" @click.native="submit">{{$i18n.translate('Deposit')}}</xButton>
       </div>
     </div>
   </div>
@@ -19,10 +19,7 @@ export default {
   methods: {
     submit() {
       this.$router.push({
-        name: "PersonalSign",
-        params: {
-          type: "recharge"
-        }
+        name: "PersonalRecharge"
       });
     }
   }

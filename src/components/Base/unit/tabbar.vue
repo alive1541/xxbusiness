@@ -4,27 +4,27 @@
       <tabbar-item :selected="$store.state.currentRoute==='Account'" link="account">
         <img slot="icon" src="../../../assets/img/account-book.svg" />
         <img slot="icon-active" src="../../../assets/img/account-book-active.svg" />
-        <span slot="label">账户</span>
+        <span slot="label">{{$i18n.translate('Account')}}</span>
       </tabbar-item>
       <tabbar-item :selected="$store.state.currentRoute==='GetMoney'" link="getMoney">
         <img slot="icon" src="../../../assets/img/get-money.svg" />
         <img slot="icon-active" src="../../../assets/img/get-money-active.svg" />
-        <span slot="label">开始赚钱</span>
+        <span slot="label">{{$i18n.translate('make money')}}</span>
       </tabbar-item>
       <tabbar-item :selected="$store.state.currentRoute==='Order'" link="order">
         <img slot="icon" src="../../../assets/img/order.svg" />
         <img slot="icon-active" src="../../../assets/img/order-active.svg" />
-        <span slot="label">订单</span>
+        <span slot="label">{{$i18n.translate('Bets')}}</span>
       </tabbar-item>
       <tabbar-item :selected="$store.state.currentRoute==='Message'" link="message" :badge="badge">
         <img slot="icon" src="../../../assets/img/message.svg" />
         <img slot="icon-active" src="../../../assets/img/message-active.svg" />
-        <span slot="label">消息</span>
+        <span slot="label">{{$i18n.translate('Message')}}</span>
       </tabbar-item>
       <tabbar-item :selected="$store.state.currentRoute==='Card'" link="card">
         <img slot="icon" src="../../../assets/img/card.svg" />
         <img slot="icon-active" src="../../../assets/img/card-active.svg" />
-        <span slot="label">我的</span>
+        <span slot="label">{{$i18n.translate('Settings')}}</span>
       </tabbar-item>
     </tabbar>
   </div>
@@ -62,6 +62,7 @@ export default {
     setActiveTabbar: function() {
       const currentRoute = this.$router.history.current.name;
       // this.currentRoute = currentRoute;
+      console.log("setRouteTitle", currentRoute);
       this.$store.dispatch("setRouteTitle", routeMap[currentRoute]);
       handleTabbarAndRoute(currentRoute, this);
     }

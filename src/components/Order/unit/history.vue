@@ -1,11 +1,11 @@
 <template>
   <div>
     <div class="msg" v-if="noAuthority">
-      <divider>暂未开放，敬请期待</divider>
+      <divider>{{$i18n.translate("We are not open yet")}}</divider>
     </div>
     <div v-if="!ifRenderScrollCom">
       <h-table :list="list"></h-table>
-      <divider>已经加载全部数据</divider>
+      <divider>{{$i18n.translate("All data loaded")}}</divider>
     </div>
 
     <scroller
@@ -19,7 +19,7 @@
     >
       <h-table :list="list"></h-table>
       <load-more class="load-more" tip="loading"></load-more>
-      <divider v-if="ifNoData">已经加载全部数据</divider>
+      <divider v-if="ifNoData">{{$i18n.translate("All data loaded")}}</divider>
     </scroller>
   </div>
 </template>
@@ -38,7 +38,10 @@ export default {
       orderId: -1,
       noAuthority: false,
       list: [],
-      selectTeamBook: { left: "主", right: "客" },
+      selectTeamBook: {
+        left: this.$i18n.translate("Host"),
+        right: this.$i18n.translate("Guest")
+      },
       onFetching: false,
       ifNoData: false
     };
@@ -55,7 +58,6 @@ export default {
     getHistory() {
       Api.getHistory(
         {
-          owner_id: window.localStorage.getItem("owner_id"),
           order_id: this.orderId
         },
         cookie.get("token")

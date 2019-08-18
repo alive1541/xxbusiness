@@ -1,15 +1,33 @@
 <template>
   <div class="sign-wraper">
     <div class="sign-wraper-inner">
-      <div class="sign-info">注意：请提交真实的信息，否则将无法注册成功</div>
+      <div class="sign-info">Tips: {{$i18n.translate("auto sign info1")}}</div>
       <group>
-        <selector title="居住地" :options="neighborhood_list" v-model="neighborhood_id"></selector>
-        <selector title="国籍" :options="nationality_list" v-model="nationality_id"></selector>
-        <x-input title="姓    " v-model="last_name" :show-clear="false"></x-input>
-        <x-input title="名    " v-model="first_name" :show-clear="false"></x-input>
-        <popup-radio title="性别" :options="genderOptions" v-model="gender"></popup-radio>
-        <datetime title="出生日期" min-year="1900" v-model="birthdate" @on-confirm="onDateConfirm"></datetime>
-        <x-input title="邮箱   " is-type="email" v-model="mail" :show-clear="false"></x-input>
+        <selector
+          :title="$i18n.translate('Place of residence')"
+          :options="neighborhood_list"
+          v-model="neighborhood_id"
+        ></selector>
+        <selector
+          :title="$i18n.translate('Country of Citizenship')"
+          :options="nationality_list"
+          v-model="nationality_id"
+        ></selector>
+        <x-input :title="$i18n.translate('Last name')" v-model="last_name" :show-clear="false"></x-input>
+        <x-input :title="$i18n.translate('First name')" v-model="first_name" :show-clear="false"></x-input>
+        <popup-radio :title="$i18n.translate('Gender')" :options="genderOptions" v-model="gender"></popup-radio>
+        <datetime
+          :title="$i18n.translate('Date of birth')"
+          min-year="1900"
+          v-model="birthdate"
+          @on-confirm="onDateConfirm"
+        ></datetime>
+        <x-input
+          :title="$i18n.translate('Email')"
+          is-type="email"
+          v-model="mail"
+          :show-clear="false"
+        ></x-input>
         <div class="sign-group-wraper">
           <div></div>
           <selector class="sign-prefix" :options="phone_prefix_list" v-model="phone_prefix"></selector>
@@ -17,9 +35,9 @@
         </div>
       </group>
       <div class="sign-agreement">
-        <div class="sign-agreement-inner">点击代表您同意《注册协议》</div>
+        <div class="sign-agreement-inner">{{$i18n.translate("auto sign info2")}}</div>
       </div>
-      <xButton type="primary" @click.native="submit">点击提交</xButton>
+      <xButton type="primary" @click.native="submit">{{$i18n.translate("submit")}}</xButton>
     </div>
   </div>
 </template>
@@ -83,10 +101,8 @@ export default {
       if (ifHasEmpty) {
         return this.$vux.toast.text("请将信息填写完整");
       }
-      const owner_id = window.localStorage.getItem("owner_id");
       Api.registerWebsites(
         {
-          owner_id,
           neighborhood_id,
           nationality_id,
           last_name,
@@ -125,12 +141,7 @@ export default {
       this.birthdate = value;
     },
     init() {
-      Api.registerFilledInfoRange(
-        {
-          owner_id: window.localStorage.getItem("owner_id")
-        },
-        cookie.get("token")
-      )
+      Api.registerFilledInfoRange({}, cookie.get("token"))
         .then(res => {
           if (!res) return;
           if (res.errorCode === 0) {

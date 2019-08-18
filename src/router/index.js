@@ -11,6 +11,7 @@ import Card from "@/components/Card/index";
 import AutoSign from "@/components/AutoSign/index";
 import AutoSignResult from "@/components/AutoSignResult/index";
 import PersonalSign from "@/components/PersonalSign/index";
+import PersonalRecharge from "@/components/PersonalRecharge/index";
 import { handleTabbarAndRoute } from "../assets/util";
 
 Vue.use(Router);
@@ -71,6 +72,11 @@ let route = new Router({
           path: "personalSign",
           name: "PersonalSign",
           component: PersonalSign
+        },
+        {
+          path: "PersonalRecharge",
+          name: "PersonalRecharge",
+          component: PersonalRecharge
         }
       ]
     }

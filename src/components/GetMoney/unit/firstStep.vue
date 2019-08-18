@@ -1,26 +1,40 @@
 <template>
   <div class="first-wraper">
     <div class="first-inner">
-      <div class="first-title">第一步 网站注册</div>
+      <div class="first-title">1 {{$i18n.translate("Website registration")}}</div>
       <div class="first-btn-wraper">
-        <xButton type="primary" class="first-btn" @click.native="autoSign">一键注册</xButton>
-        <xButton class="first-btn" @click.native="personalSign">手动注册</xButton>
+        <!-- <xButton
+          type="primary"
+          class="first-btn"
+          @click.native="autoSign"
+        >{{$i18n.translate("One-click registration")}}</xButton>-->
+        <xButton
+          type="primary"
+          class="first-btn"
+          @click.native="personalSign"
+        >{{$i18n.translate("Manual registration")}}</xButton>
       </div>
-      <div class="first-info">提示：一键注册目前只支持liji、平博、12bet这三个网站。其他网站还需要您手动注册</div>
+      <div class="first-info">Tip: {{$i18n.translate("One-click registration info")}}</div>
     </div>
     <confirm
       ref="confirm"
       v-model="show"
-      title="选择国籍"
+      :title="$i18n.translate('Please choose')"
       @on-confirm="onConfirm"
       :close-on-confirm="false"
     >
       <group class="first-selector">
-        <selector title="国籍" placeholder="请选择国籍" v-model="value" :options="nationalityOptions"></selector>
+        <selector
+          :title="$i18n.translate('Country of Citizenship')"
+          :placeholder="$i18n.translate('Please choose')"
+          v-model="value"
+          :options="nationalityOptions"
+        ></selector>
       </group>
     </confirm>
   </div>
 </template>
+
 
 <script>
 import { XButton, Group, Selector, Confirm } from "vux";

@@ -2,10 +2,13 @@
   <div>
     <div class="card-switch">
       <div>
-        <span class="card-title">启用自动上线</span>
+        <span class="card-title">{{$i18n.translate("Turn on automatic online")}}</span>
         <span class="card-icon">
           <popover placement="bottom">
-            <div slot="content" class="popover-demo-content">为避免损失，系统下线后会在2小时后自动上线</div>
+            <div
+              slot="content"
+              class="popover-demo-content"
+            >{{$i18n.translate("Turn on automatic online info")}}</div>
             <a>
               <x-icon class="btn btn-default" type="ios-information-outline" size="30"></x-icon>
             </a>
@@ -18,10 +21,10 @@
         v-model="ifAutoOnline"
       ></inline-x-switch>
     </div>
-    <div class="logout-btn">
+    <!-- <div class="logout-btn">
       <x-button type="primary" @click.native="logout">退出</x-button>
-    </div>
-    <actionsheet v-model="logoutInfoVisible" :menus="menus" show-cancel @on-click-menu="submit"></actionsheet>
+    </div>-->
+    <!-- <actionsheet v-model="logoutInfoVisible" :menus="menus" show-cancel @on-click-menu="submit"></actionsheet> -->
   </div>
 </template>
 
@@ -40,25 +43,25 @@ export default {
   components: { Group, InlineXSwitch, Popover, XButton, Actionsheet },
   data() {
     return {
-      logoutInfoVisible: false,
-      ifAutoOnline: false,
-      menus: [
-        {
-          label: `确定咩?<br/><span style="color:#666;font-size:12px;">确定退出${this.$store.state.title}</span>`,
-          type: "info"
-        },
-        {
-          label: "确定",
-          type: "warn",
-          value: "ok"
-        }
-      ]
+      // logoutInfoVisible: false,
+      ifAutoOnline: false
+      // menus: [
+      //   {
+      //     label: `确定咩?<br/><span style="color:#666;font-size:12px;">确定退出${this.$store.state.title}</span>`,
+      //     type: "info"
+      //   },
+      //   {
+      //     label: "确定",
+      //     type: "warn",
+      //     value: "ok"
+      //   }
+      // ]
     };
   },
   methods: {
-    logout: function() {
-      this.logoutInfoVisible = true;
-    },
+    // logout: function() {
+    //   this.logoutInfoVisible = true;
+    // },
     submit(key, item) {
       if (key === "ok") {
         cookie.remove("token");
@@ -67,12 +70,7 @@ export default {
       }
     },
     getOnlineStatus() {
-      Api.getOnlineStatus(
-        {
-          owner_id: window.localStorage.getItem("owner_id")
-        },
-        cookie.get("token")
-      )
+      Api.getOnlineStatus({}, cookie.get("token"))
         .then(res => {
           if (!res) return;
           if (res.errorCode === 0) {
@@ -92,7 +90,6 @@ export default {
     setOnlineStatus(auto_online) {
       Api.setOnlineStatus(
         {
-          owner_id: window.localStorage.getItem("owner_id"),
           on_auto_online: auto_online
         },
         cookie.get("token")
@@ -113,7 +110,7 @@ export default {
       // 显示
       this.$vux.confirm.show({
         title: msg,
-        content: "点击确定可以重新获取内容",
+        content: this.$i18n.translate("errorHandle info"),
         onConfirm() {
           cb();
         },

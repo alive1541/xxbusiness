@@ -15,15 +15,7 @@
     <div class="login-btn">
       <p class="logon-info">{{infoMsg}}</p>
       <x-button type="primary" @click.native="login">{{$i18n.translate("test")}}</x-button>
-      <x-dialog v-model="dialogStatus" :hide-on-blur="true">
-        <div class="e-dialog">
-          <div class="e-dialog-content">
-            <radio title="请选择语言" :options="options" @on-change="check"></radio>
-          </div>
-        </div>
-      </x-dialog>
     </div>
-    <button @click="changeLanguage">切换语言</button>
   </div>
 </template>
 
@@ -46,23 +38,20 @@ export default {
       password: "",
       iconType1: "",
       iconType2: "",
-      infoMsg: "",
+      infoMsg: ""
 
-      dialogStatus: false,
-      value: "zh-CN",
-      options: ["zh-CN", "en"]
+      // dialogStatus: false,
+      // value: "zh-CN",
+      // options: ["zh-CN", "en"]
     };
   },
   methods: {
-    changeLanguage() {
-      this.dialogStatus = !this.dialogStatus;
-    },
-    check(value, label) {
-      this.$nextTick(() => {
-        this.$i18n.set(value);
-      });
-      // this.dialogStatus = false;
-    },
+    // check(value, label) {
+    //   this.$nextTick(() => {
+    //     this.$i18n.set(value);
+    //   });
+    //   // this.dialogStatus = false;
+    // },
     async login() {
       const ifAccess = this.validate();
       if (!ifAccess) return;
@@ -74,11 +63,9 @@ export default {
           if (!res) return;
           if (res.errorCode === 0) {
             const {
-              data: { token, owner_id }
+              data: { token }
             } = res;
             cookie.set("token", token);
-            // this.$store.dispatch("setownerId", res.owner_id);
-            window.localStorage.setItem("owner_id", owner_id);
             this.$router.replace({ path: "/page/account" });
           } else {
             return (this.infoMsg = res.msg);

@@ -1,18 +1,18 @@
 <template>
   <div>
     <div class="msg" v-if="noAuthority">
-      <divider>暂未开放，敬请期待</divider>
+      <divider>{{$i18n.translate("We are not open yet")}}</divider>
     </div>
     <x-table v-if="!noAuthority" class="order-table">
       <thead>
         <tr class="order-table-title">
-          <th>网站</th>
-          <th>账号</th>
-          <th>比赛时间</th>
-          <th>A&B</th>
-          <th>主客</th>
-          <th>购买金额</th>
-          <th>赔率</th>
+          <th>{{$i18n.translate("web")}}</th>
+          <th>{{$i18n.translate("account")}}</th>
+          <th>{{$i18n.translate("time")}}</th>
+          <th>{{$i18n.translate("A&B")}}</th>
+          <th>{{$i18n.translate("turn")}}</th>
+          <th>{{$i18n.translate("money")}}</th>
+          <th>{{$i18n.translate("odds")}}</th>
           <!-- <th>结算金额</th> -->
         </tr>
       </thead>
@@ -20,9 +20,9 @@
         <tr :key="i + 'key'" v-for="(item,i) in list">
           <td>{{item.website}}</td>
           <td>{{item.account}}</td>
-          <td>{{item.game_time || '网站未显示'}}</td>
+          <td>{{item.game_time || $i18n.translate("Website not displayed")}}</td>
           <td>
-            {{item.host_team}} 对
+            {{item.host_team}} &
             <br />
             {{item.guest_team}}
           </td>
@@ -46,17 +46,15 @@ export default {
     return {
       noAuthority: false,
       list: [],
-      selectTeamBook: { left: "主", right: "客" }
+      selectTeamBook: {
+        left: this.$i18n.translate("Host"),
+        right: this.$i18n.translate("Guest")
+      }
     };
   },
   methods: {
     getList() {
-      Api.getList(
-        {
-          owner_id: window.localStorage.getItem("owner_id")
-        },
-        cookie.get("token")
-      )
+      Api.getList({}, cookie.get("token"))
         .then(res => {
           if (!res) return;
           this.noAuthority = false;

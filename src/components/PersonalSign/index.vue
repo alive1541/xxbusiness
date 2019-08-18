@@ -2,11 +2,11 @@
   <div class="personal-white-wraper">
     <div class="personal-wraper">
       <div class="personal-wraper-inner">
-        <div class="personal-title">注册要点</div>
-        <p class="personal-content">1、请一定要用真实的姓名、手机邮箱注册，否则将无法充值和提款</p>
-        <p class="personal-content">2、注册时选择国家和货币请注意选择自己的真实国家和货币，否则注册完成后无法充值和提款</p>
-        <p class="personal-content">3、多个网站的用户名尽量不要重复，避免被盗号撞库</p>
-        <p class="personal-content">4、注册完成后一定要保存好自己的账号及密码还有相关的安全问题答案和安全码。这些都是提款时的必要素，丢失找回很麻烦且可能影响提款</p>
+        <div class="personal-title">{{$i18n.translate('Registration Tips')}}</div>
+        <p class="personal-content">1、{{$i18n.translate('Registration Tips info1')}}</p>
+        <p class="personal-content">2、{{$i18n.translate('Registration Tips info2')}}</p>
+        <p class="personal-content">3、{{$i18n.translate('Registration Tips info3')}}</p>
+        <p class="personal-content">4、{{$i18n.translate('Registration Tips info4')}}</p>
       </div>
     </div>
     <div v-if="$route.params.type !== 'recharge'" class="personal-wraper">
@@ -25,14 +25,16 @@
     </div>
     <div class="personal-wraper">
       <div class="personal-wraper-inner">
-        <div class="personal-title">注册指南</div>
-        <p
-          class="personal-content"
-        >如果您注册某个网址时还有什么问题，可以提交您的邮箱，我们会把注册指南发到您的邮箱。查看我们的注册指南，注册指南详细描写了每个网站的注册流程，确保你顺利注册成功。</p>
+        <div class="personal-title">{{$i18n.translate('Registration guide')}}</div>
+        <p class="personal-content">{{$i18n.translate('Registration guide info')}}</p>
         <group>
-          <x-input placeholder="请输入邮箱地址" is-type="email" v-model="mail"></x-input>
+          <x-input :placeholder="$i18n.translate('Please enter')" is-type="email" v-model="mail"></x-input>
         </group>
-        <x-button class="personal-btn" type="primary" @click.native="getInstruction">获取指南</x-button>
+        <x-button
+          class="personal-btn"
+          type="primary"
+          @click.native="getInstruction"
+        >{{$i18n.translate('Getting guide')}}</x-button>
       </div>
     </div>
   </div>
@@ -65,7 +67,6 @@ export default {
         return this.$vux.toast.text("请填写邮箱");
       }
       let params = {
-        owner_id: window.localStorage.getItem("owner_id"),
         mail: this.mail,
         nationality_id: this.$route.params.nationality_id
       };
@@ -86,7 +87,6 @@ export default {
     },
     getWebsiteUrl() {
       let params = {
-        owner_id: window.localStorage.getItem("owner_id"),
         nationality_id: this.$route.params.nationality_id || ""
       };
       this.handleParams(params);
@@ -114,6 +114,7 @@ export default {
     }
   },
   mounted() {
+    //现在把充值拆分出去了，需要整理todo
     this.check();
     this.getWebsiteUrl();
   }

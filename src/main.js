@@ -55,7 +55,8 @@ Vue.use(vuexI18n.plugin, lanStore);
 Vue.use(LocalePlugin);
 const finalLocales = {
   en: objectAssign(vuxLocales["en"], componentsLocales["en"]),
-  "zh-CN": objectAssign(vuxLocales["zh-CN"], componentsLocales["zh-CN"])
+  zh: objectAssign(vuxLocales["zh-CN"], componentsLocales["zh-CN"]),
+  id: objectAssign(vuxLocales["id"], componentsLocales["id"])
 };
 
 for (let i in finalLocales) {
@@ -63,9 +64,11 @@ for (let i in finalLocales) {
 }
 const nowLocale = Vue.locale.get();
 if (/zh/.test(nowLocale)) {
-  Vue.i18n.set("zh-CN");
+  Vue.i18n.set("zh");
 } else if (/en/.test(nowLocale)) {
   Vue.i18n.set("en");
+} else if (/id/.test(nowLocale)) {
+  Vue.i18n.set("id");
 }
 
 /* eslint-disable no-new */

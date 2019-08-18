@@ -2,9 +2,11 @@
 node_modules/
 mockServer/node_modules
 dist/
-dist.tar.gz
+*.tar.gz
 npm-debug.log
 yarn-error.log
+build.sh
+upload.sh
 
 # Editor directories and files
 .idea

@@ -2,25 +2,29 @@
   <div class="website-wraper bottom-pad">
     <div class="titleBar">
       <button-tab>
-        <button-tab-item :selected="selectedIndex === 0" @on-item-click="tabChange">按网站排序</button-tab-item>
-        <button-tab-item :selected="selectedIndex === 1" @on-item-click="tabChange">按余额从小到大</button-tab-item>
+        <button-tab-item :selected="selectedIndex === 0" @on-item-click="tabChange">
+          <div class="titleBarTitle">{{$i18n.translate("Sort by site")}}</div>
+        </button-tab-item>
+        <button-tab-item :selected="selectedIndex === 1" @on-item-click="tabChange">
+          <div class="titleBarTitle">{{$i18n.translate("Sort by balance")}}</div>
+        </button-tab-item>
       </button-tab>
     </div>
     <flexbox class="website-header">
       <flexbox-item>
-        <div class="flex-demo">网站</div>
+        <div class="flex-demo">{{$i18n.translate("website")}}</div>
       </flexbox-item>
       <flexbox-item>
-        <div class="flex-demo">账户名</div>
+        <div class="flex-demo">{{$i18n.translate("account name")}}</div>
       </flexbox-item>
       <flexbox-item>
         <div class="flex-demo">
-          <div class="demo-title-p">余额</div>
-          <div class="demo-title-p">昨日收益</div>
+          <div class="demo-title-p">{{$i18n.translate("Balance")}}</div>
+          <div class="demo-title-p">{{$i18n.translate("Yesterday's profit2")}}</div>
         </div>
       </flexbox-item>
       <flexbox-item>
-        <div class="flex-demo">状态操作</div>
+        <div class="flex-demo">{{$i18n.translate("status Action")}}</div>
       </flexbox-item>
     </flexbox>
     <div>
@@ -37,17 +41,17 @@
           <div v-if="isNagtiveNum(item.yes_profit)" class="flex-demo green">{{item.yes_profit}}</div>
         </flexbox-item>
         <flexbox-item>
-          <div v-if="isOnline(item.is_online)" class="flex-demo">系统在线</div>
+          <div v-if="isOnline(item.is_online)" class="flex-demo">{{$i18n.translate("online")}}</div>
           <div class="website-mini-btn-wrap" v-if="isOnline(item.is_online)">
             <x-button
               class="website-mini-btn"
               mini
               type="warn"
               @click.native="onOffLine(item.website, -1, item.account)"
-            >下线</x-button>
+            >{{$i18n.translate("offline")}}</x-button>
           </div>
-          <div v-if="isOffline(item.is_online)" class="flex-demo">系统下线</div>
-          <div v-if="isDisable(item.is_online)" class="flex-demo">禁用</div>
+          <div v-if="isOffline(item.is_online)" class="flex-demo">{{$i18n.translate("offline")}}</div>
+          <div v-if="isDisable(item.is_online)" class="flex-demo">{{$i18n.translate("Prohibit")}}</div>
           <div
             class="website-mini-btn-wrap"
             v-if="isOffline(item.is_online) || isDisable(item.is_online)"
@@ -57,18 +61,22 @@
               mini
               type="primary"
               @click.native="onOffLine(item.website, 1,item.account)"
-            >上线</x-button>
+            >{{$i18n.translate("online")}}</x-button>
           </div>
         </flexbox-item>
       </flexbox>
-      <divider v-if="websiteData.length === 0">您当前的账户还没有任何网站的信息</divider>
-      <divider v-if="websiteData.length === 0">点击准备赚钱按钮注册网站吧</divider>
-      <divider v-if="websiteData.length === 0">如果您已经注册好了账号，敬请提交账号</divider>
+      <divider v-if="websiteData.length === 0">{{$i18n.translate("not sign info1")}}</divider>
+      <divider v-if="websiteData.length === 0">{{$i18n.translate("not sign info2")}}</divider>
+      <divider v-if="websiteData.length === 0">{{$i18n.translate("not sign info3")}}</divider>
     </div>
-    <confirm v-model="show" title="系统下线操作" @on-confirm="onConfirm">
+    <confirm
+      v-model="show"
+      :title="$i18n.translate('System offline operation')"
+      @on-confirm="onConfirm"
+    >
       <p
         style="text-align:center;"
-      >确定让系统{{websiteStatusBook[toWebsiteStatus]}}{{website}}／{{balance}}的账号吗?</p>
+      >{{$i18n.translate("websiteInfo info1")}} {{websiteStatusBook[toWebsiteStatus]}} {{website}}／{{balance}}?</p>
     </confirm>
   </div>
 </template>
@@ -100,8 +108,8 @@ export default {
       balance: "",
       toWebsiteStatus: "",
       websiteStatusBook: {
-        "-1": "下线",
-        "1": "上线"
+        "-1": this.$i18n.translate("websiteInfo offline"),
+        "1": this.$i18n.translate("websiteInfo online")
       },
       selectedIndex: 0,
       websiteData: []
@@ -120,7 +128,6 @@ export default {
     onConfirm() {
       Api.turnWebsiteStatus(
         {
-          owner_id: window.localStorage.getItem("owner_id"),
           website: this.website,
           account: this.balance,
           to_website_status: this.toWebsiteStatus
@@ -152,10 +159,12 @@ export default {
       this.getWebsiteBalance(orderNameBook[this.selectedIndex]);
     },
     getWebsiteBalance(order_name = "Website_code") {
-      Api.websiteBalance({
-        owner_id: window.localStorage.getItem("owner_id"),
-        order_name
-      },cookie.get("token"))
+      Api.websiteBalance(
+        {
+          order_name
+        },
+        cookie.get("token")
+      )
         .then(res => {
           if (!res) return;
           if (res.errorCode === 0) {
@@ -173,7 +182,7 @@ export default {
       // 显示
       this.$vux.confirm.show({
         title: msg,
-        content: "点击确定可以重新获取内容",
+        content: this.$i18n.translate("errorHandle info"),
         onConfirm() {
           cb();
         },
@@ -196,6 +205,12 @@ export default {
 </script>
 
 <style>
+.titleBarTitle {
+  width: 150px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
 .titleBar {
   margin: 20px auto 0px auto;
   width: 90%;
@@ -218,6 +233,8 @@ export default {
 }
 .flex-demo {
   text-align: center;
+  line-height: 12px;
+  margin: 5px 0;
 }
 .red {
   color: #f74c31;
