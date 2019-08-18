@@ -27,7 +27,7 @@ export default {
   },
   methods: {
     init() {
-      Api.getAllWebsites({}, cookie.get("token"))
+      Api.getAllWebsites({}, cookie.get("token"), this.$store.state.language)
         .then(res => {
           if (!res) return;
           if (res.errorCode === 0) {

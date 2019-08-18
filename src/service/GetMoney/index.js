@@ -3,19 +3,21 @@ import { baseApi } from "@/config/config.js";
 import qs from "qs";
 
 class api {
-  getAllWebsites(params, token) {
+  getAllWebsites(params, token, language) {
     return axios.get(baseApi + "/customer/get_all_websites", {
       params,
       headers: {
-        token
+        token,
+        language
       }
     });
   }
-  accountSubmit(params, token) {
+  accountSubmit(params, token, language) {
     // token = qs.stringify(token);
     return axios.post(baseApi + "/customer/account_submit", params, {
       headers: {
-        token
+        token,
+        language
       }
     });
   }

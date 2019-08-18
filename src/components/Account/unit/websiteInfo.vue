@@ -132,7 +132,8 @@ export default {
           account: this.balance,
           to_website_status: this.toWebsiteStatus
         },
-        cookie.get("token")
+        cookie.get("token"),
+        this.$store.state.language
       )
         .then(res => {
           if (!res) return;
@@ -163,7 +164,8 @@ export default {
         {
           order_name
         },
-        cookie.get("token")
+        cookie.get("token"),
+        this.$store.state.language
       )
         .then(res => {
           if (!res) return;

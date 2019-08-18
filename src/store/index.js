@@ -10,7 +10,8 @@ export default new Vuex.Store({
     title: "XX理财",
     routeTitle: "账户", //todo
     currentRoute: "Account",
-    ifRefresh: true
+    ifRefresh: true,
+    language: "zh"
   },
   actions,
   mutations

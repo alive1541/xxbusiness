@@ -71,7 +71,11 @@ export default {
         nationality_id: this.$route.params.nationality_id
       };
       this.handleParams(params);
-      Api.getInstruction(params, cookie.get("token"))
+      Api.getInstruction(
+        params,
+        cookie.get("token"),
+        this.$store.state.language
+      )
         .then(res => {
           if (!res) return;
           if (res.errorCode === 0) {
@@ -90,7 +94,7 @@ export default {
         nationality_id: this.$route.params.nationality_id || ""
       };
       this.handleParams(params);
-      Api.getWebsiteUrl(params, cookie.get("token"))
+      Api.getWebsiteUrl(params, cookie.get("token"), this.$store.state.language)
         .then(res => {
           if (!res) return;
           if (res.errorCode === 0) {

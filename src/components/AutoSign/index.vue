@@ -113,7 +113,8 @@ export default {
           phone_prefix,
           phone
         },
-        cookie.get("token")
+        cookie.get("token"),
+        this.$store.state.language
       )
         .then(res => {
           if (!res) return;
@@ -141,7 +142,11 @@ export default {
       this.birthdate = value;
     },
     init() {
-      Api.registerFilledInfoRange({}, cookie.get("token"))
+      Api.registerFilledInfoRange(
+        {},
+        cookie.get("token"),
+        this.$store.state.language
+      )
         .then(res => {
           if (!res) return;
           if (res.errorCode === 0) {

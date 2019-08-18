@@ -71,6 +71,8 @@ if (/zh/.test(nowLocale)) {
   Vue.i18n.set("id");
 }
 
+export const a = 1;
+
 /* eslint-disable no-new */
 export default new Vue({
   store,

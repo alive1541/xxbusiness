@@ -108,7 +108,7 @@ export default {
       this.$router.push({ name: "AutoSign" });
     },
     registerInfoList() {
-      Api.registerInfoList({}, cookie.get("token"))
+      Api.registerInfoList({}, cookie.get("token"), this.$store.state.language)
         .then(res => {
           if (!res) return;
           if (res.errorCode === 0) {

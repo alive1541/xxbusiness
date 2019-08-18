@@ -1,27 +1,30 @@
 import axios from "../axios.js";
 import { baseApi } from "@/config/config.js";
 class api {
-  getAssets(params, token) {
+  getAssets(params, token, language) {
     return axios.get(baseApi + "/customer/assets", {
       params,
       headers: {
-        token
+        token,
+        language
       }
     });
   }
-  websiteBalance(params, token) {
+  websiteBalance(params, token, language) {
     return axios.get(baseApi + "/customer/websiteBalance", {
       params,
       headers: {
-        token
+        token,
+        language
       }
     });
   }
-  turnWebsiteStatus(params, token) {
+  turnWebsiteStatus(params, token, language) {
     return axios.get(baseApi + "/customer/account/turn_website_status", {
       params,
       headers: {
-        token
+        token,
+        language
       }
     });
   }

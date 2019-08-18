@@ -1,19 +1,21 @@
 import axios from "../axios.js";
 import { baseApi } from "@/config/config.js";
 class api {
-  getOnlineStatus(params, token) {
+  getOnlineStatus(params, token, language) {
     return axios.get(baseApi + "/customer/show_owner_info", {
       params,
       headers: {
-        token
+        token,
+        language
       }
     });
   }
-  setOnlineStatus(params) {
+  setOnlineStatus(params, token, language) {
     return axios.get(baseApi + "/customer/auto_online", {
       params,
       headers: {
-        token
+        token,
+        language
       }
     });
   }

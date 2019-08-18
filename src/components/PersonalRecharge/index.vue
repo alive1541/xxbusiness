@@ -49,7 +49,11 @@ export default {
         nationality_id: this.$route.params.nationality_id,
         type: 2
       };
-      Api.getInstruction(params, cookie.get("token"))
+      Api.getInstruction(
+        params,
+        cookie.get("token"),
+        this.$store.state.language
+      )
         .then(res => {
           if (!res) return;
           if (res.errorCode === 0) {

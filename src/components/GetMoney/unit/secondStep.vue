@@ -83,7 +83,8 @@ export default {
           account,
           password
         },
-        cookie.get("token")
+        cookie.get("token"),
+        this.$store.state.language
       )
         .then(res => {
           if (!res) return;

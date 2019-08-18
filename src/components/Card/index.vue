@@ -70,7 +70,7 @@ export default {
       }
     },
     getOnlineStatus() {
-      Api.getOnlineStatus({}, cookie.get("token"))
+      Api.getOnlineStatus({}, cookie.get("token"), this.$store.state.language)
         .then(res => {
           if (!res) return;
           if (res.errorCode === 0) {
@@ -92,7 +92,8 @@ export default {
         {
           on_auto_online: auto_online
         },
-        cookie.get("token")
+        cookie.get("token"),
+        this.$store.state.language
       )
         .then(res => {
           if (!res) return;

@@ -7,5 +7,8 @@ export default {
   },
   updateRefresh({ commit }, refresh) {
     commit("updateRefresh", refresh);
+  },
+  changeLanguage({ commit }, language) {
+    commit("changeLanguage", language);
   }
 };

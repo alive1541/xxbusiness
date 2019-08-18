@@ -29,6 +29,8 @@ export default {
           cookie.set("token", token);
         }
         if (language) {
+          console.log("this.$store", this.$store);
+          this.$store.dispatch("changeLanguage", language);
           this.$nextTick(() => {
             this.$i18n.set(language);
           });

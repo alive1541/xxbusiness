@@ -9,5 +9,8 @@ export const mutations = {
   },
   updateRefresh(state, refresh) {
     state.ifRefresh = refresh;
+  },
+  changeLanguage(state, language) {
+    state.language = language;
   }
 };

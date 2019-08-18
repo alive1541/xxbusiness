@@ -28,7 +28,7 @@ export default {
   },
   methods: {
     getOrderList() {
-      Api.getOrderList({}, cookie.get("token"))
+      Api.getOrderList({}, cookie.get("token"), this.$store.state.language)
         .then(res => {
           if (!res) return;
           if (res.errorCode === 0) {

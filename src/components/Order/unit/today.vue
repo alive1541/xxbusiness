@@ -54,7 +54,7 @@ export default {
   },
   methods: {
     getList() {
-      Api.getList({}, cookie.get("token"))
+      Api.getList({}, cookie.get("token"), this.$store.state.language)
         .then(res => {
           if (!res) return;
           this.noAuthority = false;

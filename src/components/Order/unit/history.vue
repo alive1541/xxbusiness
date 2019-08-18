@@ -60,7 +60,8 @@ export default {
         {
           order_id: this.orderId
         },
-        cookie.get("token")
+        cookie.get("token"),
+        this.$store.state.language
       )
         .then(res => {
           if (!res) return;
