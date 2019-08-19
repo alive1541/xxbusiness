@@ -184,7 +184,6 @@ export default {
       return `${seconds}${this.$i18n.translate("minute")}`;
     },
     getAllBalance() {
-      console.log("getS", this.$store.state.language);
       Api.getAssets({}, cookie.get("token"), this.$store.state.language)
         .then(res => {
           if (!res) return;

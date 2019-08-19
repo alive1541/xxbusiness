@@ -38,19 +38,6 @@ export default {
   methods: {
     tabChange(index) {
       this.selectedIndex = index;
-    },
-    errorHandler(msg, cb) {
-      // 显示
-      this.$vux.confirm.show({
-        title: msg,
-        content: this.$i18n.translate("errorHandle info"),
-        onConfirm() {
-          cb();
-        },
-        onCancel() {
-          // console.log("Plugin: I'm hiding");
-        }
-      });
     }
   },
   mounted: function() {}

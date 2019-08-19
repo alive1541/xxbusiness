@@ -102,6 +102,9 @@ en:
   websiteInfo info1: Allow System
   websiteInfo online: offline
   websiteInfo offline: online
+  Re-login: Re-login
+  Settlement amount: Settlement amount
+  website info: Please click the copy button to copy the above address, and then paste it into the mobile phone or computer browser to register the website
 
 zh-CN:
   # 账户页面
@@ -207,6 +210,9 @@ zh-CN:
   websiteInfo info1: 允许系统
   websiteInfo online: 下线
   websiteInfo offline: 上线
+  Re-login: 重新登录
+  Settlement amount: 结算金额
+  website info: 请点击复制按钮复制以上网址，然后黏贴到手机或电脑浏览器中注册该网站
 
 id:
   # 账户页面
@@ -312,3 +318,6 @@ id:
   websiteInfo info1: zinkan sistem untuk
   websiteInfo online: zinkan sistem untuk
   websiteInfo offline: mengunggah
+  Re-login: Login ulang
+  Settlement amount: Penyelesaian
+  website info: Mohon klik "Salin" untuk menyalin tautan diatas, kemudian buka tautan tersebut di browser untuk mendaftar situs web

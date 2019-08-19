@@ -110,10 +110,10 @@ module.exports = vuxLoader.merge(webpackConfig, {
     },
     {
       name: "i18n",
-      vuxStaticReplace: true,
-      staticReplace: true,
+      vuxStaticReplace: false,
+      staticReplace: false,
       extractToFiles: "src/locales/component.yml",
-      localeList: ["en", "zh-CN"]
+      localeList: ["en", "zh-CN", "id"]
     }
   ]
 });

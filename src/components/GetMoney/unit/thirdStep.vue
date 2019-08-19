@@ -1,7 +1,7 @@
 <template>
   <div class="first-wraper">
     <div class="first-inner">
-      <div class="first-title">3 {{$i18n.translate('Deposit')}}</div>
+      <div class="first-title">2 {{$i18n.translate('Deposit')}}</div>
       <div class="first-btn-wraper">
         <xButton class="first-btn" @click.native="submit">{{$i18n.translate('Deposit')}}</xButton>
       </div>

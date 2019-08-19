@@ -1,8 +1,8 @@
 <template>
   <div class="money-wraper">
     <firstStep :nationalityOptions="nationalityOptions" />
-    <secondStep :nationalityOptions="nationalityOptions" :websiteOptions="websiteOptions" />
     <thirdStep />
+    <secondStep :nationalityOptions="nationalityOptions" :websiteOptions="websiteOptions" />
   </div>
 </template>
 

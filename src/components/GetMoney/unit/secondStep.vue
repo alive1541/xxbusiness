@@ -1,7 +1,7 @@
 <template>
   <div class="first-wraper">
     <div class="first-inner">
-      <div class="first-title">2 {{$i18n.translate("Account submission")}}</div>
+      <div class="first-title">3 {{$i18n.translate("Account submission")}}</div>
       <group class="first-group-wraper">
         <div>
           <selector
@@ -33,6 +33,7 @@
       v-model="show"
       :title="handleTitle()"
       @on-confirm="onConfirm"
+      @on-hide="onHide"
       :close-on-confirm="false"
     >
       <group>
@@ -64,6 +65,10 @@ export default {
     };
   },
   methods: {
+    onHide() {
+      this.account = "";
+      this.password = "";
+    },
     onConfirm() {
       if (this.account.trim() === "") {
         return this.$vux.toast.text(

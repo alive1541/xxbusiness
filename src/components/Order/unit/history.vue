@@ -87,12 +87,25 @@ export default {
           } else if (res.errorCode === 4) {
             this.noAuthority = true;
           } else {
-            this.errorHandler(res.msg, this.getList);
+            this.errorHandler(res.msg, this.getHistory);
           }
         })
         .catch(e => {
           this.$vux.toast.text(e);
         });
+    },
+    errorHandler(msg, cb) {
+      // 显示
+      this.$vux.confirm.show({
+        title: msg,
+        content: this.$i18n.translate("errorHandle info"),
+        onConfirm() {
+          cb();
+        },
+        onCancel() {
+          // console.log("Plugin: I'm hiding");
+        }
+      });
     },
     getScrollHeight() {
       const c_height = document.documentElement.clientHeight;

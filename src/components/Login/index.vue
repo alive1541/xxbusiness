@@ -14,7 +14,7 @@
     </group>
     <div class="login-btn">
       <p class="logon-info">{{infoMsg}}</p>
-      <x-button type="primary" @click.native="login">{{$i18n.translate("test")}}</x-button>
+      <x-button type="primary" @click.native="login">登录</x-button>
     </div>
   </div>
 </template>

@@ -20,7 +20,7 @@ axios.interceptors.response.use(
   function(response) {
     console.log(response);
     if (response.data.errorCode === 7) {
-      return handle403Error("您在其他地方有登陆，请确认是否本人在登录");
+      return handle403Error();
     }
     return response.data;
   },
@@ -34,15 +34,16 @@ axios.interceptors.response.use(
   }
 );
 
-function handle403Error(msg) {
+function handle403Error() {
   ctx.$vux.alert.show({
-    title: "请重新登录",
-    content: msg,
+    title: ctx.$i18n.translate("Re-login"),
+    content: ctx.$i18n.translate("Re-login"),
     onShow() {
       // console.log("Plugin: I'm showing");
     },
     onHide() {
-      window.location.href = "/";
+      window.location.href = "http://18.136.0.180/login";
+      // window.location.href = "/";
       // ctx.$router.replace({ name: "LogIn" });
     }
   });

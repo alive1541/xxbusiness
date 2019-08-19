@@ -13,16 +13,24 @@
       <div class="personal-wraper-inner">
         <div class="personal-title">注册网址</div>
         <div class="personal-flex">
-          <a
-            :href="item.url"
-            target="_blank"
+          <div
+            @click="openModal(item)"
             class="personal-item"
             :key="i + 'key'"
             v-for="(item,i) in websiteObj"
-          >{{item.website_name}}</a>
+          >{{item.website_name}}</div>
         </div>
       </div>
     </div>
+    <confirm
+      v-model="currentWebsiteVisile"
+      :show-cancel-button="false"
+      :title="website_name"
+      @on-confirm="onConfirm"
+    >
+      <p class="personal-website-info">{{this.currentWebsite}}</p>
+      <p style="text-align:center;">{{ $i18n.translate('website info') }}</p>
+    </confirm>
     <div class="personal-wraper">
       <div class="personal-wraper-inner">
         <div class="personal-title">{{$i18n.translate('Registration guide')}}</div>
@@ -41,18 +49,31 @@
 </template>
 
 <script>
-import { Group, XInput, XButton, cookie } from "vux";
+import { Group, XInput, XButton, cookie, Confirm } from "vux";
 import Api from "../../service/PersonalSign";
 
 export default {
-  components: { Group, XInput, XButton },
+  components: { Group, XInput, XButton, Confirm },
   data() {
     return {
       mail: "",
-      websiteObj: []
+      websiteObj: [],
+      currentWebsiteVisile: false,
+      website_name: "",
+      currentWebsite: ""
     };
   },
   methods: {
+    openModal(item) {
+      this.currentWebsiteVisile = true;
+      this.website_name = item.website_name;
+      this.currentWebsite = item.url;
+    },
+    onConfirm() {
+      this.currentWebsiteVisile = false;
+      this.website_name = "";
+      this.currentWebsite = "";
+    },
     handleParams(params) {
       console.log(111, this.$route.params.type);
       if (this.$route.params.type === "recharge") {
@@ -129,6 +150,9 @@ export default {
 @import "~vux/src/styles/1px.less";
 .personal-white-wraper {
   padding-bottom: 75px;
+}
+.personal-website-info {
+  color: #0288d1;
 }
 .personal-wraper {
   font-size: 14px;
