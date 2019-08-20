@@ -33,43 +33,67 @@ export default {
           if (res.errorCode === 0) {
             this.setOptionsData(res.data);
           } else {
-            this.$vux.toast.text(res.msg);
+            this.errorHandler(res.msg, this.init);
+            // this.$vux.toast.text(res.msg);
           }
         })
         .catch(e => {
-          this.$vux.toast.text(e);
+          this.errorHandler(this.$i18n.translate("error info"), this.init);
+          // this.$vux.toast.text(e);
         });
     },
     setOptionsData(data) {
       let nationalityOptions = [];
       let websiteOptions = {};
       data.forEach(item => {
-        const nationalityIndex = nationalityOptions.findIndex(value => {
-          return value.key === item.nationality_id;
-        });
-        if (nationalityIndex === -1) {
-          nationalityOptions.push({
-            key: item.nationality_id,
-            value: item.nationality_name
+        try {
+          const nationalityIndex = nationalityOptions.findIndex(value => {
+            return value.key === item.nationality_id;
           });
-        }
-        const websiteKey = item.nationality_id;
-        if (websiteOptions[websiteKey]) {
-          websiteOptions[websiteKey].push({
-            key: item.website_id,
-            value: item.website_name
-          });
-        } else {
-          websiteOptions[websiteKey] = [
-            {
+          if (nationalityIndex === -1) {
+            nationalityOptions.push({
+              key: item.nationality_id,
+              value: item.nationality_name
+            });
+          }
+          const websiteKey = item.nationality_id;
+          if (websiteOptions[websiteKey]) {
+            websiteOptions[websiteKey].push({
               key: item.website_id,
               value: item.website_name
-            }
-          ];
+            });
+          } else {
+            websiteOptions[websiteKey] = [
+              {
+                key: item.website_id,
+                value: item.website_name
+              }
+            ];
+          }
+        } catch (e) {
+          console.log("出错了--", e);
         }
       });
       this.nationalityOptions = nationalityOptions;
       this.websiteOptions = websiteOptions;
+      console.log(
+        "index-nationalityOptions",
+        JSON.stringify(this.nationalityOptions)
+      );
+      console.log("index-websiteOptions", JSON.stringify(this.websiteOptions));
+    },
+    errorHandler(msg, cb) {
+      // 显示
+      this.$vux.confirm.show({
+        title: msg,
+        content: this.$i18n.translate("errorHandle info"),
+        onConfirm() {
+          cb();
+        },
+        onCancel() {
+          // console.log("Plugin: I'm hiding");
+        }
+      });
     }
   },
   mounted() {

@@ -18,7 +18,6 @@ axios.interceptors.request.use(
 // 添加一个响应拦截器
 axios.interceptors.response.use(
   function(response) {
-    console.log(response);
     if (response.data.errorCode === 7) {
       return handle403Error();
     }

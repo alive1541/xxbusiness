@@ -125,7 +125,6 @@ export default {
           }
         })
         .catch(e => {
-          console.log(2);
           this.$vux.toast.text(e);
         });
     },

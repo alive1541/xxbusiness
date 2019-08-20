@@ -171,7 +171,7 @@ export default {
           if (!res) return;
           if (res.errorCode === 0) {
             const data = res.data;
-            this.websiteData = data;
+            this.websiteData = this.setDisabledBottom(data);
           } else {
             this.errorHandler(res.msg, this.getWebsiteBalance);
           }
@@ -179,6 +179,16 @@ export default {
         .catch(e => {
           this.$vux.toast.text(e);
         });
+    },
+    setDisabledBottom(data) {
+      const bottom = [];
+      for (let i = 0; i < data.length; i++) {
+        if (this.isDisable(data[i].is_online)) {
+          bottom.push(data.splice(i, 1)[0]);
+          i--;
+        }
+      }
+      return data.concat(bottom);
     },
     errorHandler(msg, cb) {
       // 显示

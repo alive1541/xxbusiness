@@ -127,9 +127,18 @@ export default {
       } else {
         this.buttonDisabled = true;
       }
+    },
+    log() {
+      console.log(
+        "inner-------nationalityOptions",
+        JSON.stringify(this.nationalityOptions)
+      );
+      console.log(
+        "inner------websiteOptions",
+        JSON.stringify(this.websiteOptions)
+      );
     }
-  },
-  mounted() {}
+  }
 };
 </script>
 

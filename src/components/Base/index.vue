@@ -1,13 +1,15 @@
 <template>
-  <div class="box-wraper">
-    <div class="header">
-      <x-header :title="$store.state.routeTitle" :left-options="{showBack: false}">
-        <div class="title">{{$store.state.routeTitle}}</div>
-      </x-header>
-    </div>
-    <div class="content">
-      <div style="height:46px"></div>
-      <router-view></router-view>
+  <div class="base-wraper">
+    <div class="box-wraper">
+      <div class="header">
+        <x-header :title="$store.state.routeTitle" :left-options="{showBack: false}">
+          <div class="title">{{$store.state.routeTitle}}</div>
+        </x-header>
+      </div>
+      <div class="content">
+        <div style="height:46px"></div>
+        <router-view></router-view>
+      </div>
     </div>
     <tabbar :father_badge="badge" />
   </div>
@@ -81,6 +83,12 @@ export default {
 </script>
 
 <style scoped lang="less">
+.box-wraper {
+  height: 100%;
+}
+.base-wraper {
+  height: 100%;
+}
 .content {
   position: absolute;
   width: 100%;

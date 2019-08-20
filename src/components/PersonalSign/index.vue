@@ -75,7 +75,6 @@ export default {
       this.currentWebsite = "";
     },
     handleParams(params) {
-      console.log(111, this.$route.params.type);
       if (this.$route.params.type === "recharge") {
         params.type = 2;
         delete params.nationality_id;

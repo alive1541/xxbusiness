@@ -62,7 +62,6 @@ export default {
     setActiveTabbar: function() {
       const currentRoute = this.$router.history.current.name;
       // this.currentRoute = currentRoute;
-      console.log("setRouteTitle", currentRoute);
       this.$store.dispatch("setRouteTitle", routeMap[currentRoute]);
       handleTabbarAndRoute(currentRoute, this);
     }

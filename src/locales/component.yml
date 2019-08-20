@@ -1,4 +1,6 @@
 en:
+  # info
+  error info: Server deserted
   # 账户页面
   make money: Make money
   Bets: Bets
@@ -107,6 +109,8 @@ en:
   website info: Please click the copy button to copy the above address, and then paste it into the mobile phone or computer browser to register the website
 
 zh-CN:
+  # info
+  error info: 服务器开小差了
   # 账户页面
   Bets: 订单
   Message: 消息
@@ -215,6 +219,8 @@ zh-CN:
   website info: 请点击复制按钮复制以上网址，然后黏贴到手机或电脑浏览器中注册该网站
 
 id:
+  # info
+  error info: Server kehabisan jalan
   # 账户页面
   Bets: Pesanan
   Message: Berita
