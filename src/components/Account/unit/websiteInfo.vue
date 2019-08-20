@@ -61,7 +61,7 @@
               mini
               type="primary"
               @click.native="onOffLine(item.website, 1,item.account)"
-            >{{$i18n.translate("online")}}</x-button>
+            >{{$i18n.translate("online2")}}</x-button>
           </div>
         </flexbox-item>
       </flexbox>
@@ -70,13 +70,24 @@
       <divider v-if="websiteData.length === 0">{{$i18n.translate("not sign info3")}}</divider>
     </div>
     <confirm
+      v-if="toWebsiteStatus === -1"
       v-model="show"
       :title="$i18n.translate('System offline operation')"
       @on-confirm="onConfirm"
     >
       <p
         style="text-align:center;"
-      >{{$i18n.translate("websiteInfo info1")}} {{websiteStatusBook[toWebsiteStatus]}} {{website}}／{{balance}}?</p>
+      >{{$i18n.translate("websiteInfo info1")}} {{$i18n.translate("websiteInfo offline")}} {{website}}／{{balance}}?</p>
+    </confirm>
+    <confirm
+      v-if="toWebsiteStatus === 1"
+      v-model="show"
+      :title="$i18n.translate('System online operation')"
+      @on-confirm="onConfirm"
+    >
+      <p
+        style="text-align:center;"
+      >{{$i18n.translate("websiteInfo info1")}} {{$i18n.translate("websiteInfo online")}} {{website}}／{{balance}}?</p>
     </confirm>
   </div>
 </template>

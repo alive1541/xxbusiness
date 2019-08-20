@@ -34,8 +34,10 @@ en:
   Yesterday's profit2: Yesterday's profit
   status Action: status Action
   online: online
+  online2: online
   offline: offline
   Prohibit: Prohibit
+  System online operation: System online operation
   System offline operation: System offline operation
   Are you sure you want to go offline: Are you sure you want to go offline
   Real-time unsettled: Real-time unsettled
@@ -102,8 +104,8 @@ en:
   Registration guide info: If you have any questions about registering a website, you can submit your email address and we will send the registration guide to your email address. Check out our registration guide, which details the registration process for each website to ensure your successful registration
   Registration website: Registration website
   websiteInfo info1: Allow System
-  websiteInfo online: offline
-  websiteInfo offline: online
+  websiteInfo online: online
+  websiteInfo offline: offline
   Re-login: Re-login
   Settlement amount: Settlement amount
   website info: Please click the copy button to copy the above address, and then paste it into the mobile phone or computer browser to register the website
@@ -144,8 +146,10 @@ zh-CN:
   Yesterday's profit2: 昨日收益
   status Action: 状态操作
   online: 系统在线
+  online2: 系统上线
   offline: 系统下线
   Prohibit: 禁用
+  System online operation: 系统上线操作
   System offline operation: 系统下线操作
   Are you sure you want to go offline: 确定让系统下线乐天堂shalina1992的账号吗？
   Real-time unsettled: 实时未结算
@@ -212,8 +216,8 @@ zh-CN:
   Registration guide info: 如果您注册某个网址时还有什么问题，可以提交您的邮箱，我们会把注册指南发到您的邮箱。查看我们的注册指南，注册指南详细描写了每个网站的注册流程，确保你顺利注册成功
   Registration website: 注册网址
   websiteInfo info1: 允许系统
-  websiteInfo online: 下线
-  websiteInfo offline: 上线
+  websiteInfo online: 上线
+  websiteInfo offline: 下线
   Re-login: 重新登录
   Settlement amount: 结算金额
   website info: 请点击复制按钮复制以上网址，然后黏贴到手机或电脑浏览器中注册该网站
@@ -255,7 +259,9 @@ id:
   status Action: Status Operasional
   online: Online
   offline: Offline
+  online2: Offline
   Prohibit: Nonaktifkan
+  System online operation: Sistem operasi online
   System offline operation: Sistem Operasi Offline
   Are you sure you want to go offline: 确定让系统下线乐天堂shalina1992的账号吗？
   Real-time unsettled: Saldo tertahan saat ini
@@ -322,8 +328,8 @@ id:
   Registration guide info: Jika anda memiliki pertanyaan seputar mendaftar situs, kami akan mengirimkan panduan registrasi ke dalam e-mail anda. Panduan registrasi menjelaskan proses mendaftar setiap situs secara detail agar anda dapat melakukan registrasi secara lancar. Silahkan masukkan e-mail anda pada kotak di bawah ini
   Registration website: Situs Registrasi
   websiteInfo info1: zinkan sistem untuk
-  websiteInfo online: zinkan sistem untuk
-  websiteInfo offline: mengunggah
+  websiteInfo online: mengunggah
+  websiteInfo offline: Offline
   Re-login: Login ulang
   Settlement amount: Penyelesaian
   website info: Mohon klik "Salin" untuk menyalin tautan diatas, kemudian buka tautan tersebut di browser untuk mendaftar situs web
