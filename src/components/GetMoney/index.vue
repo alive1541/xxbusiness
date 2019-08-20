@@ -38,8 +38,11 @@ export default {
           }
         })
         .catch(e => {
-          this.errorHandler(this.$i18n.translate("error info"), this.init);
-          // this.$vux.toast.text(e);
+          this.errorHandler(
+            "getAllWebsites" + this.$i18n.translate("error info"),
+            this.init
+          );
+          // this.$vux.toast.text(this.$i18n.translate("error info"));
         });
     },
     setOptionsData(data) {

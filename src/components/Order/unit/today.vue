@@ -69,7 +69,7 @@ export default {
           }
         })
         .catch(e => {
-          this.$vux.toast.text(e);
+          this.$vux.toast.text("getList" + this.$i18n.translate("error info"));
         });
     },
     errorHandler(msg, cb) {

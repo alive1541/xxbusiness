@@ -125,7 +125,9 @@ export default {
           }
         })
         .catch(e => {
-          this.$vux.toast.text(e);
+          this.$vux.toast.text(
+            "registerWebsites" + this.$i18n.translate("error info")
+          );
         });
     },
     nonEmptyCheck(...args) {
@@ -177,7 +179,9 @@ export default {
           this.mail = "";
         })
         .catch(e => {
-          this.$vux.toast.text(e);
+          this.$vux.toast.text(
+            "registerFilledInfoRange" + this.$i18n.translate("error info")
+          );
         });
     }
   },

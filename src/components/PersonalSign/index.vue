@@ -106,7 +106,9 @@ export default {
           this.mail = "";
         })
         .catch(e => {
-          this.$vux.toast.text(e);
+          this.$vux.toast.text(
+            "getInstruction" + this.$i18n.translate("error info")
+          );
         });
     },
     getWebsiteUrl() {
@@ -124,7 +126,9 @@ export default {
           }
         })
         .catch(e => {
-          this.$vux.toast.text(e);
+          this.$vux.toast.text(
+            "getWebsiteUrl" + this.$i18n.translate("error info")
+          );
         });
     },
     check() {

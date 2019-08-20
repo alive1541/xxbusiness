@@ -64,7 +64,9 @@ export default {
           this.mail = "";
         })
         .catch(e => {
-          this.$vux.toast.text(e);
+          this.$vux.toast.text(
+            "getInstruction" + this.$i18n.translate("error info")
+          );
         });
     }
   },

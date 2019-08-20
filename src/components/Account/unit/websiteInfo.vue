@@ -157,7 +157,9 @@ export default {
           }
         })
         .catch(e => {
-          this.$vux.toast.text(e);
+          this.$vux.toast.text(
+            "turnWebsiteStatus" + this.$i18n.translate("error info")
+          );
         });
     },
     onOffLine(website, to_website_status, balance) {
@@ -188,7 +190,9 @@ export default {
           }
         })
         .catch(e => {
-          this.$vux.toast.text(e);
+          this.$vux.toast.text(
+            "websiteBalance" + this.$i18n.translate("error info")
+          );
         });
     },
     setDisabledBottom(data) {

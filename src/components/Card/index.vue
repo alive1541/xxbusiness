@@ -80,7 +80,9 @@ export default {
           }
         })
         .catch(e => {
-          this.$vux.toast.text(e);
+          this.$vux.toast.text(
+            "getOnlineStatus" + this.$i18n.translate("error info")
+          );
         });
     },
     autoOnlineChange(value) {
@@ -104,7 +106,9 @@ export default {
           }
         })
         .catch(e => {
-          this.$vux.toast.text(e);
+          this.$vux.toast.text(
+            "setOnlineStatus" + this.$i18n.translate("error info")
+          );
         });
     },
     errorHandler(msg, cb) {
