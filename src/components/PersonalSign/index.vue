@@ -11,7 +11,7 @@
     </div>
     <div v-if="$route.params.type !== 'recharge'" class="personal-wraper">
       <div class="personal-wraper-inner">
-        <div class="personal-title">注册网址</div>
+        <div class="personal-title">{{$i18n.translate('Registration website')}}</div>
         <div class="personal-flex">
           <div
             @click="openModal(item)"
