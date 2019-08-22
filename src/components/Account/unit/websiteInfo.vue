@@ -275,4 +275,8 @@ export default {
   margin-bottom: 2px;
   box-shadow: 0 1px 1px #e0e0e0;
 }
+.vux-divider {
+  display: block !important;
+  white-space: normal !important;
+}
 </style>
