@@ -12,6 +12,7 @@ import SecondStep from "./unit/secondStep.vue";
 import ThirdStep from "./unit/thirdStep.vue";
 import Api from "../../service/GetMoney";
 import { cookie } from "vux";
+import { initFromOfficialWebsite } from "../../assets/util/index";
 
 export default {
   components: {
@@ -79,11 +80,6 @@ export default {
       });
       this.nationalityOptions = nationalityOptions;
       this.websiteOptions = websiteOptions;
-      console.log(
-        "index-nationalityOptions",
-        JSON.stringify(this.nationalityOptions)
-      );
-      console.log("index-websiteOptions", JSON.stringify(this.websiteOptions));
     },
     errorHandler(msg, cb) {
       // 显示
@@ -100,6 +96,7 @@ export default {
     }
   },
   mounted() {
+    initFromOfficialWebsite(this);
     this.init();
   }
 };

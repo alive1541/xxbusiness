@@ -1,3 +1,6 @@
+import qs from "qs";
+import { cookie } from "vux";
+
 export const handleTabbarAndRoute = (route, ctx) => {
   const routeMap = ["Account", "GetMoney", "Order", "Message", "Card"];
   if (ctx) {
@@ -25,3 +28,23 @@ function sentRouteTitle(currentRoute, ctx) {
     ctx.$store.dispatch("setRouteTitle", ctx.$i18n.translate(currentRoute));
   });
 }
+
+export const initFromOfficialWebsite = ctx => {
+  const query = location.href.split("?")[1];
+  try {
+    const { token, language } = qs.parse(query);
+    if (token) {
+      cookie.set("token", token);
+    }
+    if (language) {
+      console.log("language", language);
+
+      ctx.$store.dispatch("changeLanguage", language);
+      ctx.$nextTick(() => {
+        ctx.$i18n.set(language);
+      });
+    }
+  } catch (e) {
+    console.log(e);
+  }
+};

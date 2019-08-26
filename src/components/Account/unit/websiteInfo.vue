@@ -128,10 +128,11 @@ export default {
   },
   methods: {
     isOnline(status) {
-      return status !== -1 && status !== -2;
+      // return status !== -1 && status !== -2;
+      return status > 0;
     },
     isOffline(status) {
-      return status === -1;
+      return status < 0 && status !== -2;
     },
     isDisable(status) {
       return status === -2;
