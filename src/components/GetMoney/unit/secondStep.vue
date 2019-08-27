@@ -46,18 +46,31 @@
         <x-input :title="$i18n.translate('password')" v-model="password"></x-input>
       </group>
     </confirm>
+    <div v-transfer-dom>
+      <alert
+        v-model="multipleSubmitAlertVisible"
+        :title="$i18n.translate('Repeated submission')"
+        :button-text="$i18n.translate('close')"
+      >
+        <br />
+        <p>{{$i18n.translate('info15')}}</p>
+        <p>{{$i18n.translate('info16')}}</p>
+        <br />
+        <p>{{$i18n.translate('info17')}}</p>
+      </alert>
+    </div>
   </div>
 </template>
 
 <script>
-import { Selector, Group, XButton, XInput, Confirm, cookie } from "vux";
+import { Selector, Group, XButton, XInput, Confirm, cookie, Alert } from "vux";
 import Api from "../../../service/GetMoney";
 export default {
   props: {
     nationalityOptions: Array,
     websiteOptions: Object
   },
-  components: { Group, Selector, XButton, XInput, Confirm },
+  components: { Group, Selector, XButton, XInput, Confirm, Alert },
   data() {
     return {
       show: false,
@@ -66,10 +79,14 @@ export default {
       nationality_id: "",
       website_id: "",
       buttonDisabled: true,
-      websiteKeyOptions: []
+      websiteKeyOptions: [],
+      multipleSubmitAlertVisible: false
     };
   },
   methods: {
+    alertMultipleSubmit() {
+      this.multipleSubmitAlertVisible = true;
+    },
     viewResult() {
       this.$router.push({ name: "SubmissionStatus" });
     },
@@ -104,6 +121,9 @@ export default {
           if (res.errorCode === 0) {
             this.$vux.toast.text(res.msg);
             this.$refs.confirm._onCancel();
+          } else if (res.errorCode === 13) {
+            this.$refs.confirm._onCancel();
+            this.alertMultipleSubmit();
           } else {
             this.$vux.toast.text(res.msg);
           }
@@ -125,6 +145,7 @@ export default {
     },
     nationalityChange(val) {
       const keyOptions = this.websiteOptions[val];
+
       if (keyOptions) {
         this.websiteKeyOptions = keyOptions;
         this.website_id = keyOptions[0].key;

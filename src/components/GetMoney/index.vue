@@ -63,7 +63,6 @@ export default {
       const query = location.href.split("?")[1];
       try {
         const { isNewUser } = qs.parse(query);
-        console.log(111, isNewUser);
         if (isNewUser === "true") {
           console.log(12222, isNewUser);
           this.isNewUser = true;

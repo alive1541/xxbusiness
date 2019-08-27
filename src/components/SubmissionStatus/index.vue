@@ -119,13 +119,15 @@ export default {
           if (res.errorCode === 0) {
             this.$vux.toast.text(res.msg);
             this.$refs.confirm._onCancel();
+            this.resetData();
+            this.getSubmitAccountInfoList();
           } else if (res.errorCode === 13) {
             this.$refs.confirm._onCancel();
             this.alertMultipleSubmit();
+            this.resetData();
           } else {
             this.$vux.toast.text(res.msg);
           }
-          this.resetData();
         })
         .catch(e => {
           this.resetData();

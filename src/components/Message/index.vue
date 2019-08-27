@@ -20,16 +20,8 @@ export default {
       list
     };
   },
-  methods: {
-    log() {
-      const ele = document.querySelector(".message-wraper");
-      const h = window.getComputedStyle(ele).height;
-      console.log(1111, h);
-    }
-  },
-  mounted: function() {
-    this.log();
-  }
+  methods: {},
+  mounted: function() {}
 };
 </script>
 
