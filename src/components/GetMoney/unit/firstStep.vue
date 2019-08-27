@@ -3,11 +3,11 @@
     <div class="first-inner">
       <div class="first-title">1 {{$i18n.translate("Website registration")}}</div>
       <div class="first-btn-wraper">
-        <!-- <xButton
+        <xButton
           type="primary"
           class="first-btn"
           @click.native="autoSign"
-        >{{$i18n.translate("One-click registration")}}</xButton>-->
+        >{{$i18n.translate("One-click registration")}}</xButton>
         <xButton
           type="primary"
           class="first-btn"
@@ -56,7 +56,9 @@ export default {
     },
     onConfirm() {
       if (this.value === "") {
-        return this.$vux.toast.text("请选择国籍");
+        return this.$vux.toast.text(
+          this.$i18n.translate("Please complete the information")
+        );
       }
       this.$router.push({
         name: "PersonalSign",

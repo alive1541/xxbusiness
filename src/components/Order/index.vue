@@ -57,6 +57,8 @@ export default {
 .todayContent {
   color: #fff;
   margin-top: 20px;
+  margin-right: 10px;
+  margin-left: 10px;
 }
 
 .titleBar {

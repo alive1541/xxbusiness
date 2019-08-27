@@ -1,8 +1,36 @@
 <template>
   <div class="money-wraper">
     <firstStep :nationalityOptions="nationalityOptions" />
-    <thirdStep />
+    <thirdStep :nationalityOptions="nationalityOptions" />
     <secondStep :nationalityOptions="nationalityOptions" :websiteOptions="websiteOptions" />
+    <div v-if="isNewUser" v-transfer-dom>
+      <x-dialog
+        v-model="showDialog"
+        hide-on-blur
+        :dialog-style="{'max-width': '100%', width: '100%', height: '100%', 'background-color': 'transparent'}"
+      >
+        <div class="accout-dialog">
+          <p class="account-info">{{$i18n.translate("info1")}}</p>
+          <br />
+          <p class="account-info">{{$i18n.translate("info2")}}</p>
+          <br />
+          <p class="account-info-strong">{{$i18n.translate("title1")}}</p>
+          <p class="account-info-strong">{{$i18n.translate("info3")}}</p>
+          <br />
+          <p class="account-info-strong">{{$i18n.translate("title2")}}</p>
+          <p class="account-info-strong">{{$i18n.translate("info4")}}</p>
+          <br />
+          <p class="account-info-strong">{{$i18n.translate("title3")}}</p>
+          <p class="account-info-strong">{{$i18n.translate("info5")}}</p>
+          <br />
+          <p class="account-info">{{$i18n.translate("info6")}}</p>
+          <br />
+          <p class="account-info-small">{{$i18n.translate("info7")}}</p>
+          <br />
+          <x-icon @click="showDialog = false" type="ios-close-outline" style="fill:#fff;"></x-icon>
+        </div>
+      </x-dialog>
+    </div>
   </div>
 </template>
 
@@ -11,22 +39,39 @@ import FirstStep from "./unit/firstStep.vue";
 import SecondStep from "./unit/secondStep.vue";
 import ThirdStep from "./unit/thirdStep.vue";
 import Api from "../../service/GetMoney";
-import { cookie } from "vux";
+import { cookie, XDialog } from "vux";
 import { initFromOfficialWebsite } from "../../assets/util/index";
+import qs from "qs";
 
 export default {
   components: {
     FirstStep,
     SecondStep,
-    ThirdStep
+    ThirdStep,
+    XDialog
   },
   data() {
     return {
       nationalityOptions: [],
-      websiteOptions: {}
+      websiteOptions: {},
+      isNewUser: false,
+      showDialog: true
     };
   },
   methods: {
+    checkNewUser() {
+      const query = location.href.split("?")[1];
+      try {
+        const { isNewUser } = qs.parse(query);
+        console.log(111, isNewUser);
+        if (isNewUser === "true") {
+          console.log(12222, isNewUser);
+          this.isNewUser = true;
+        }
+      } catch (e) {
+        console.log(e);
+      }
+    },
     init() {
       Api.getAllWebsites({}, cookie.get("token"), this.$store.state.language)
         .then(res => {
@@ -95,8 +140,11 @@ export default {
       });
     }
   },
-  mounted() {
+  beforeMount: function() {
+    this.checkNewUser();
     initFromOfficialWebsite(this);
+  },
+  mounted() {
     this.init();
   }
 };
@@ -104,6 +152,26 @@ export default {
 
 <style scoped lang="less">
 @import "~vux/src/styles/1px.less";
+.accout-dialog {
+  overflow-y: scroll;
+  height: 100%;
+  padding: 56px 10px 20px 10px;
+}
+.account-info,
+.account-info-small {
+  text-align: center;
+  color: #ffffff;
+  font-weight: 500;
+  font-size: 14px;
+}
+.account-info-strong {
+  font-weight: 700;
+  font-size: 25px;
+  color: #ffffff;
+}
+.account-info-small {
+  font-size: 12px;
+}
 .money-wraper {
   padding-bottom: 75px;
 }

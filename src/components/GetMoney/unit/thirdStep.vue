@@ -6,21 +6,55 @@
         <xButton class="first-btn" @click.native="submit">{{$i18n.translate('Deposit')}}</xButton>
       </div>
     </div>
+    <confirm
+      ref="confirm"
+      v-model="show"
+      :title="$i18n.translate('Please choose')"
+      @on-confirm="onConfirm"
+      :close-on-confirm="false"
+    >
+      <group class="first-selector">
+        <selector
+          :title="$i18n.translate('Country of Citizenship')"
+          :placeholder="$i18n.translate('Please choose')"
+          v-model="value"
+          :options="nationalityOptions"
+        ></selector>
+      </group>
+    </confirm>
   </div>
 </template>
 
 <script>
-import { XButton } from "vux";
+import { XButton, Confirm, Group, Selector } from "vux";
 export default {
-  components: { XButton },
+  props: {
+    nationalityOptions: Array
+  },
+  components: { XButton, Confirm, Group, Selector },
   data() {
-    return {};
+    return { show: false, value: "" };
   },
   methods: {
-    submit() {
+    onConfirm() {
+      if (this.value === "") {
+        return this.$vux.toast.text(
+          this.$i18n.translate("Please complete the information")
+        );
+      }
       this.$router.push({
-        name: "PersonalRecharge"
+        name: "PersonalRecharge",
+        params: {
+          type: "PersonalRecharge",
+          nationality_id: this.value
+        }
       });
+    },
+    submit() {
+      this.show = true;
+      // this.$router.push({
+      //   name: "PersonalRecharge"
+      // });
     }
   }
 };

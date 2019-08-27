@@ -76,6 +76,7 @@ export default {
     },
     handleParams(params) {
       if (this.$route.params.type === "recharge") {
+        //type = 2 已经废弃，因为单独抽离到了PersonnalRecharge中，目前不会存在type为recharge
         params.type = 2;
         delete params.nationality_id;
       } else {
@@ -84,7 +85,9 @@ export default {
     },
     getInstruction() {
       if (this.mail === "") {
-        return this.$vux.toast.text("请填写邮箱");
+        return this.$vux.toast.text(
+          this.$i18n.translate("Please complete the information")
+        );
       }
       let params = {
         mail: this.mail,

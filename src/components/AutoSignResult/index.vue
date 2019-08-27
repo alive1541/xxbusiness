@@ -3,11 +3,11 @@
     <x-table :cell-bordered="false" :content-bordered="false" style="background-color:#fff;">
       <thead>
         <tr style="background-color: #F7F7F7">
-          <th>网站</th>
-          <th>手机尾号</th>
-          <th>提交时间</th>
-          <th>注册状态</th>
-          <th>操作</th>
+          <th>{{$i18n.translate('website')}}</th>
+          <th>{{$i18n.translate('Phone number')}}</th>
+          <th>{{$i18n.translate('Submission time')}}</th>
+          <th>{{$i18n.translate('status')}}</th>
+          <th>{{$i18n.translate('operation')}}</th>
         </tr>
       </thead>
       <tbody>
@@ -22,13 +22,16 @@
               mini
               type="primary"
               @click.native="extraMsg(item)"
-            >查看</x-button>
+            >{{$i18n.translate('check')}}</x-button>
           </td>
         </tr>
       </tbody>
     </x-table>
     <div class="result-btn">
-      <x-button type="primary" @click.native="signNewUser">注册新的用户</x-button>
+      <x-button
+        type="primary"
+        @click.native="signNewUser"
+      >{{$i18n.translate('Register another user')}}</x-button>
     </div>
     <confirm
       ref="confirm"
@@ -44,13 +47,13 @@
         </div>
       </div>
       <div class="result-btn-group">
-        <div class="result-concel" @click="concel()">取消</div>
+        <div class="result-concel" @click="concel()">{{$i18n.translate('vux.search.cancel_text')}}</div>
         <div
           class="result-clip"
           v-clipboard:copy="copyExt()"
           v-clipboard:success="onCopy"
           v-clipboard:error="onError"
-        >复制</div>
+        >{{$i18n.translate('copy')}}</div>
       </div>
       <div class="result-pad"></div>
     </confirm>
@@ -65,7 +68,11 @@ export default {
   components: { XButton, XTable, Confirm },
   data() {
     return {
-      statusBook: { 1: "注册中", 2: "注册成功", 3: "注册失败" },
+      statusBook: {
+        1: this.$i18n.translate("Registering"),
+        2: this.$i18n.translate("Successed"),
+        3: this.$i18n.translate("Failed")
+      },
       list: [],
       extraData: [],
       extraTitle: "",
@@ -74,10 +81,10 @@ export default {
   },
   methods: {
     onError(e) {
-      this.$vux.toast.text(`复制出错:${e}`);
+      this.$vux.toast.text(this.$i18n.translate("Failed"));
     },
     onCopy(e) {
-      this.$vux.toast.text(`复制成功`);
+      this.$vux.toast.text(this.$i18n.translate("Successed"));
       this.concel();
     },
     copyExt() {

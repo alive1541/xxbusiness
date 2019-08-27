@@ -21,6 +21,10 @@
         v-model="ifAutoOnline"
       ></inline-x-switch>
     </div>
+    <div class="card-switch" @click="toNewUserGuide">
+      <span class="card-title">{{$i18n.translate("Novice Guidance")}}</span>
+      <x-icon style="margin-right: 10px" type="ios-arrow-forward" size="30"></x-icon>
+    </div>
     <!-- <div class="logout-btn">
       <x-button type="primary" @click.native="logout">退出</x-button>
     </div>-->
@@ -59,6 +63,9 @@ export default {
     };
   },
   methods: {
+    toNewUserGuide() {
+      this.$router.push({ name: "NewUserGuide" });
+    },
     // logout: function() {
     //   this.logoutInfoVisible = true;
     // },
@@ -132,6 +139,10 @@ export default {
 </script>
 
 <style scoped>
+.card-guide {
+  height: 47px;
+  padding: 0 10px;
+}
 .logout-btn {
   width: 94%;
   margin: 40px auto;

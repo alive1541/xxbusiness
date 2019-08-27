@@ -12,6 +12,8 @@ import AutoSign from "@/components/AutoSign/index";
 import AutoSignResult from "@/components/AutoSignResult/index";
 import PersonalSign from "@/components/PersonalSign/index";
 import PersonalRecharge from "@/components/PersonalRecharge/index";
+import NewUserGuide from "@/components/NewUserGuide/index";
+import SubmissionStatus from "@/components/SubmissionStatus/index";
 import { handleTabbarAndRoute } from "../assets/util";
 
 Vue.use(Router);
@@ -77,6 +79,16 @@ let route = new Router({
           path: "PersonalRecharge",
           name: "PersonalRecharge",
           component: PersonalRecharge
+        },
+        {
+          path: "NewUserGuide",
+          name: "NewUserGuide",
+          component: NewUserGuide
+        },
+        {
+          path: "SubmissionStatus",
+          name: "SubmissionStatus",
+          component: SubmissionStatus
         }
       ]
     }

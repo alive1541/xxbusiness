@@ -16,43 +16,21 @@ export default {
     WebsiteInfo
   },
   data() {
-    return {};
+    return {
+      showDialog: true
+    };
   },
-  methods: {
-    // init() {
-    //   const query = location.href.split("?")[1];
-    //   try {
-    //     const { token, language } = qs.parse(query);
-    //     if (token) {
-    //       cookie.set("token", token);
-    //     }
-    //     if (language) {
-    //       this.$store.dispatch("changeLanguage", language);
-    //       this.$nextTick(() => {
-    //         this.$i18n.set(language);
-    //       });
-    //     }
-    //   } catch (e) {
-    //     console.log(e);
-    //   }
-    // }
-  },
+  methods: {},
   beforeMount: function() {
     initFromOfficialWebsite(this);
-  }
-  // mounted: function() {
-  //   this.init();
-  // }
+  },
+  mounted: function() {}
 };
 </script>
 
 <style scoped lang="less">
 @import "~vux/src/styles/1px.less";
-// .logout {
-//   position: absolute;
-//   right: 15px;
-//   margin: 0 5px 0 10px;
-// }
+
 .vux-demo {
   text-align: center;
 }

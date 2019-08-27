@@ -7,5 +7,6 @@ export default {
   AutoSign: "一键注册",
   AutoSignResult: "一键注册结果",
   PersonalSign: "手动注册",
-  PersonalRecharge: "充值"
+  PersonalRecharge: "充值",
+  NewUserGuide: "新手引导"
 };

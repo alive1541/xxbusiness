@@ -1,6 +1,5 @@
 import axios from "../axios.js";
 import { baseApi } from "@/config/config.js";
-import qs from "qs";
 
 class api {
   getAllWebsites(params, token, language) {

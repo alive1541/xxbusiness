@@ -11,6 +11,19 @@
     </div>
     <div class="personal-wraper">
       <div class="personal-wraper-inner">
+        <div class="personal-title">{{$i18n.translate('Registration website')}}</div>
+        <div class="personal-flex">
+          <div
+            @click="openModal(item)"
+            class="personal-item"
+            :key="i + 'key'"
+            v-for="(item,i) in websiteObj"
+          >{{item.website_name}}</div>
+        </div>
+      </div>
+    </div>
+    <div class="personal-wraper">
+      <div class="personal-wraper-inner">
         <div class="personal-title">{{$i18n.translate('Deposit guide')}}</div>
         <p class="personal-content">{{$i18n.translate('Deposit guide info')}}</p>
         <group>
@@ -34,10 +47,39 @@ export default {
   components: { Group, XInput, XButton },
   data() {
     return {
-      mail: ""
+      mail: "",
+      websiteObj: [],
+      currentWebsiteVisile: false,
+      website_name: "",
+      currentWebsite: ""
     };
   },
   methods: {
+    openModal(item) {
+      this.currentWebsiteVisile = true;
+      this.website_name = item.website_name;
+      this.currentWebsite = item.url;
+    },
+    getWebsiteUrl() {
+      let params = {
+        nationality_id: this.$route.params.nationality_id || "",
+        type: 2
+      };
+      Api.getWebsiteUrl(params, cookie.get("token"), this.$store.state.language)
+        .then(res => {
+          if (!res) return;
+          if (res.errorCode === 0) {
+            this.websiteObj = res.data;
+          } else {
+            this.$vux.toast.text(res.msg);
+          }
+        })
+        .catch(e => {
+          this.$vux.toast.text(
+            "getWebsiteUrl" + this.$i18n.translate("error info")
+          );
+        });
+    },
     getInstruction() {
       if (this.mail === "") {
         return this.$vux.toast.text(
@@ -70,7 +112,9 @@ export default {
         });
     }
   },
-  mounted() {}
+  mounted() {
+    this.getWebsiteUrl();
+  }
 };
 </script>
 

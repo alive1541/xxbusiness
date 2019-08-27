@@ -64,6 +64,7 @@ en:
   not sign info3: If you have already registered, please submit your account info
   Website registration: Website registration
   One-click registration: One-click
+  One-click registration Result: One-click Result
   Manual registration: Manual
   One-click registration info: One-click registration currently only supports three websites. liji, Pingbo, and 12bet. Other sites still require you to manually register
   Account submission: Account submission
@@ -109,6 +110,45 @@ en:
   Re-login: Re-login
   Settlement amount: Settlement amount
   website info: Please click the copy button to copy the above address, and then paste it into the mobile phone or computer browser to register the website
+  Phone number: Phone number
+  Submission time: Submission time
+  status: status
+  operation: operation
+  check: check
+  Register another user: Register another user
+  copy: copy
+  Registering: Registering
+  Successed: Successed
+  Failed: Failed
+  info1: Congratulations on signing up your membership. Now let's start a pleasant journey.
+  info2: You need three steps before you can start to make profit.
+  title1: Step 1 Registration
+  info3: Register on betting websites
+  title2: Step 2 Deposit
+  info4: Deposit your accounts registered on betting websites
+  title3: Step 3 Account Submission
+  info5: Submit your account info to us for operation
+  info6: After these three steps, you can start to make money.
+  info7: "Note:The system will automatically operate your account and complete automatic orders."
+  info8: We can't use your accounts to withdraw funds and make any other transactions
+  Novice Guidance: New user's guide
+  info9: Congratulations on signing up your membership.Now let's start a pleasant journey
+  info10: You need three steps before you can start to make money.
+  info11: First, you need to register betting websites and remember the password when you register. Click on the first step to register 12 bet, letiantang, liji, etc. and then click on the manual registration to register the remaining few websites.
+  info12: Then, you need to deposit the websites you have registered with. Click on the second step to deposit according to the instruction.
+  info13: Finally, you need to submit your account names and passwords of these websites you just registered, so that the system can place orders for you. Please rest assured that we can't do anything except placing orders. Click on Step 3 to submit accounts.
+  info14: After these three steps, the rest will be left to us. You just need to check the profit when you are free and rebalance accounts in time to ensure each account have enough money to place orders.
+  View the results: View the results
+  site: site
+  Account Name: Account Name
+  Status: Status
+  Action needed: Action needed
+  Resubmit: Resubmit
+  Repeated submission: Repeated submission
+  info15: Your account has been submitted unsuccessfully many times.
+  info16: We suggest that you contact us for manual setup.
+  info17: "Email: Opportech.service@gmail.com"
+  close: Close
 
 zh-CN:
   # info
@@ -176,6 +216,7 @@ zh-CN:
   not sign info3: 如果您已经注册好了账号，敬请提交账号
   Website registration: 网站注册
   One-click registration: 一键注册
+  One-click registration Result: 一键注册结果
   Manual registration: 手动注册
   One-click registration info: 一键注册目前只支持liji、平博、12bet这三个网站。其他网站还需要您手动注册
   Account submission: 账号提交
@@ -221,6 +262,45 @@ zh-CN:
   Re-login: 重新登录
   Settlement amount: 结算金额
   website info: 请点击复制按钮复制以上网址，然后黏贴到手机或电脑浏览器中注册该网站
+  Phone number: 手机尾号
+  Submission time: 提交时间
+  status: 注册状态
+  operation: 操作
+  check: 查看
+  Register another user: 注册新的用户
+  copy: 复制
+  Registering: 注册中
+  Successed: 成功
+  Failed: 失败
+  info1: 恭喜您成为我们的会员，现在开始愉快的赚钱之旅吧
+  info2: 在开始赚钱之前您需要做三步准备
+  title1: 第一步 注册
+  info3: 注册博彩网站
+  title2: 第二步 充值
+  info4: 给你注册的各个博彩网站账号充值
+  title3: 第三步 账号提交
+  info5: 将你充值好的账号提交给我们进行操作
+  info6: 完成这三步后你就可以赚钱了
+  info7: 注：系统会自动操作你的账号，完成自动下单。
+  info8: 我们无法用您的账号提款等资金操作
+  Novice Guidance: 新手引导
+  info9: 恭喜您成为我们的会员，现在开始愉快的赚钱之旅吧
+  info10: 在开始赚钱之前您需要做三步准备
+  info11: 首先，您需要注册博彩网站，并记住注册时的账号密码。点击第一步中的一键注册来集中注册12bet、letiantang、liji这三个网站，然后点击手动注册来注册剩余几个网站。
+  info12: 然后，您需要给您注册的几个网站充值。点击第二步充值，根据提示来完成充值。
+  info13: 最后，您需要把您注册的这几个网站的账号和密码提交给系统，这样系统才能为您下单。请您放心，除了下单之外，我们不能做任何操作。点击第三步账号提交，提交账户。
+  info14: 做完这三步，剩下的就交给我们了，您只需要在有空的时候查看本后台的盈利情况并及时做充值，确保账户中有钱可以做套利下单即可。
+  View the results: 查看提交结果
+  site: 网站
+  Account Name: 提交账号名
+  Status: 状态
+  Action needed: 操作
+  Resubmit: 重新提交
+  Repeated submission: 重复提交多次
+  info15: 您的账号多次提交未成功
+  info16: 建议您联系我们，手动修改
+  info17: "邮箱： Opportech.service@gmail.com"
+  close: 关闭
 
 id:
   # info
@@ -288,6 +368,7 @@ id:
   not sign info3: Jika Anda sudah mendaftarkan akun Anda, silahkan kirim akun Anda
   Website registration: Registrasi situs web
   One-click registration: satu klik
+  One-click registration Result: Hasil satu klik
   Manual registration: manual
   One-click registration info: Registrasi satu klik saat ini hanya mendukung tiga situs web. liji, Pingbo, dan 12bet. Situs lain mengharuskan Anda untuk mendaftar secara manual.
   Account submission: Pengajuan akun
@@ -333,3 +414,42 @@ id:
   Re-login: Login ulang
   Settlement amount: Penyelesaian
   website info: Mohon klik "Salin" untuk menyalin tautan diatas, kemudian buka tautan tersebut di browser untuk mendaftar situs web
+  Phone number: Nomor ponsel
+  Submission time: Waktu
+  status: Status Pendaftaran
+  operation: Operasi
+  check: Lihat
+  Register another user: Daftar akun baru
+  copy: Salin
+  Registering: Dalam Proses
+  Successed: Berhasil
+  Failed: Gagal
+  info1: Selamat anda  telah menjadi anggota kami,Ayo mulai menghasilkan uang sekarang!
+  info2: Sebelum memulai menghasilkan uang,anda perlu mempersiapkan 3 tahapan
+  title1: "Tahap 1 : Registrasi"
+  info3: Registrasi situs bet
+  title2: "Tahap 2 : Isi Ulang"
+  info4: Isi ulang setiap situs web yang telah anda registrasi
+  title3: "Tahap 3 : Kirim Akun"
+  info5: Kirim akun yang telah anda isi ulang agar kami dapat melakukan operasi
+  info6: Setelah melakukan 3 tahap diatas,anda sudah bisa memulai menghasilkan uang!
+  info7: "Catatan: Sistem dapat mengoperasikan akun anda secara otomatis dan menyelesaikan pesanan otomatis."
+  info8: Kami tidak dapat menggunakan akun anda untuk melakukan penarikan uang atau operasi pendanaan lainnya.
+  Novice Guidance: Panduan Pemula
+  info9: Selamat anda  telah menjadi anggota kami,Ayo mulai menghasilkan uang sekarang!
+  info10: Sebelum memulai menghasilkan uang,anda perlu mempersiapkan 3 tahapan
+  info11: Pertama, anda perlu mendaftar situs bet dan mengingat kata sandi akun anda. Klik [registrasi satu klik] pada tahap 1 untuk mendaftar situs 12bet, letiantang, dan liji. Kemudian, klik [registrasi manual] untuk mendaftar beberapa situs lainnya yang tersisa.
+  info12: Selanjutnya, anda harus mengisi ulang situs web yang telah anda daftar. Klik [isi ulang] pada tahap 2, dan lakukan isi ulang sesuai dengan tip yang tersedia.
+  info13: Dan yang terakhir, anda harus mengirimkan akun dan kata sandi dari akun yang telah anda daftar. Tahap tersebut berfungsi agar sistem dapat melakukan pesanan untuk anda. Anda harap tenang, karena kami TIDAK dapat melakukan operasi lainnya selain melakukan pesanan saja. Klik [kirim akun] pada tahap 3 untuk mengirimkan akun anda.
+  info14: Setelah anda melakukan 3 tahapan tersebut, anda hanya perlu memeriksa keuntungan anda pada platform dan memastikan bahwa anda mengisi ulang saldo anda tepat waktu, agar akun anda tetap dapat melakukan pesanan untuk arbitrase.
+  View the results: Lihat Hasil Kirim
+  site: Situs
+  Account Name: Nama akun pengirim
+  Status: Status
+  Action needed: Operasi
+  Resubmit: Kirim ulang
+  Repeated submission: Pengulangan pengiriman
+  info15: Akun anda telah gagal dikirimkan berulang kali
+  info16: mohon hubungi kami untuk melakukan perubahan manual
+  info17: "Email：Opportech.service@gmail.com"
+  close: Tutup

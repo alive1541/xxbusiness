@@ -1,6 +1,6 @@
 <template>
   <div>
-    <x-table class="order-table">
+    <x-table class="order-table" full-bordered>
       <thead>
         <tr class="order-table-title">
           <th>{{$i18n.translate("web")}}</th>
@@ -39,7 +39,7 @@
           <td>{{item.second_order_amount}}({{item.second_odds}})</td>
           <td>{{item.second_order_time}}</td>
           <td>{{item.second_settle_amount === null ? '-' : item.second_settle_amount }}</td>
-          <td></td>
+          <!-- <td></td> -->
         </tr>
       </tbody>
     </x-table>
@@ -72,4 +72,20 @@ export default {
 </script>
 
 <style>
+/* .order-table-title {
+  font-weight: 500;
+  background-color: #f7f7f7;
+  color: black;
+}
+
+.order-table {
+  table-layout: fixed;
+  color: black;
+  background-color: #fff;
+}
+.order-table th,
+.order-table td {
+  line-height: 20px;
+  word-break: break-all;
+} */
 </style>

@@ -66,7 +66,10 @@ export default {
       neighborhood_list: [],
       phone_prefix_list: [],
       gender: "1",
-      genderOptions: [{ key: "1", value: "男" }, { key: "2", value: "女" }],
+      genderOptions: [
+        { key: "1", value: this.$i18n.translate("male") },
+        { key: "2", value: this.$i18n.translate("Female") }
+      ],
       birthdate: "",
       mail: "",
       phone_prefix: "",
@@ -99,7 +102,9 @@ export default {
         phone
       );
       if (ifHasEmpty) {
-        return this.$vux.toast.text("请将信息填写完整");
+        return this.$vux.toast.text(
+          this.$i18n.translate("Please complete the information")
+        );
       }
       Api.registerWebsites(
         {

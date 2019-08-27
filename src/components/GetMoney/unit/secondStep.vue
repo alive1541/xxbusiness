@@ -26,6 +26,11 @@
         @click.native="handleClick"
         :disabled="buttonDisabled"
       >{{$i18n.translate('submit')}}</xButton>
+      <xButton
+        class="first-btn"
+        type="primary"
+        @click.native="viewResult"
+      >{{$i18n.translate('View the results')}}</xButton>
       <div class="first-info">Tips: {{$i18n.translate('Account submission info')}}</div>
     </div>
     <confirm
@@ -65,6 +70,9 @@ export default {
     };
   },
   methods: {
+    viewResult() {
+      this.$router.push({ name: "SubmissionStatus" });
+    },
     onHide() {
       this.account = "";
       this.password = "";
@@ -129,16 +137,6 @@ export default {
       } else {
         this.buttonDisabled = true;
       }
-    },
-    log() {
-      console.log(
-        "inner-------nationalityOptions",
-        JSON.stringify(this.nationalityOptions)
-      );
-      console.log(
-        "inner------websiteOptions",
-        JSON.stringify(this.websiteOptions)
-      );
     }
   }
 };

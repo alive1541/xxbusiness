@@ -3,7 +3,7 @@
     <div class="msg" v-if="noAuthority">
       <divider>{{$i18n.translate("We are not open yet")}}</divider>
     </div>
-    <x-table v-if="!noAuthority" class="order-table">
+    <x-table v-if="!noAuthority" class="order-table" full-bordered>
       <thead>
         <tr class="order-table-title">
           <th>{{$i18n.translate("web")}}</th>
@@ -104,11 +104,14 @@ export default {
 }
 
 .order-table {
+  table-layout: fixed;
   color: black;
   background-color: #fff;
 }
 .order-table th,
 .order-table td {
   line-height: 20px;
+  word-break: break-all;
+  word-spacing: normal;
 }
 </style>

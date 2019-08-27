@@ -31,7 +31,7 @@
 </template>
 
 <script>
-import routeMap from "../../../router/routeMap";
+// import routeMap from "../../../router/routeMap";
 import { handleTabbarAndRoute } from "../../../assets/util";
 
 export default {
@@ -62,7 +62,7 @@ export default {
     setActiveTabbar: function() {
       const currentRoute = this.$router.history.current.name;
       // this.currentRoute = currentRoute;
-      this.$store.dispatch("setRouteTitle", routeMap[currentRoute]);
+      // this.$store.dispatch("setRouteTitle", routeMap[currentRoute]);
       handleTabbarAndRoute(currentRoute, this);
     }
   },
