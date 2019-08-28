@@ -64,7 +64,6 @@ export default {
       try {
         const { isNewUser } = qs.parse(query);
         if (isNewUser === "true") {
-          console.log(12222, isNewUser);
           this.isNewUser = true;
         }
       } catch (e) {
