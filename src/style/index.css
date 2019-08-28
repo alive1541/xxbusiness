@@ -24,3 +24,17 @@ html {
 .bottom-pad {
   padding-bottom: 53px;
 }
+
+#money-wraper .weui-mask {
+  z-index: 99999;
+}
+
+#money-wraper .weui-dialog {
+  width: 90%;
+  max-width: 90%;
+  height: 90%;
+  max-height: 90%;
+  z-index: 999999;
+  border-radius: 8px;
+  padding-bottom: 8px;
+}

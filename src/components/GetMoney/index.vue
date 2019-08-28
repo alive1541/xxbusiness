@@ -1,15 +1,12 @@
 <template>
-  <div class="money-wraper">
+  <div id="money-wraper" class="money-wraper">
     <firstStep :nationalityOptions="nationalityOptions" />
     <thirdStep :nationalityOptions="nationalityOptions" />
     <secondStep :nationalityOptions="nationalityOptions" :websiteOptions="websiteOptions" />
     <div v-if="isNewUser" v-transfer-dom>
-      <x-dialog
-        v-model="showDialog"
-        hide-on-blur
-        :dialog-style="{'max-width': '100%', width: '100%', height: '100%', 'background-color': 'transparent'}"
-      >
+      <x-dialog v-model="showDialog" class="dialog-demo">
         <div class="accout-dialog">
+          <br />
           <p class="account-info">{{$i18n.translate("info1")}}</p>
           <br />
           <p class="account-info">{{$i18n.translate("info2")}}</p>
@@ -27,8 +24,8 @@
           <br />
           <p class="account-info-small">{{$i18n.translate("info7")}}</p>
           <br />
-          <x-icon @click="showDialog = false" type="ios-close-outline" style="fill:#fff;"></x-icon>
         </div>
+        <x-icon class="vux-close" @click="showDialog = false" type="ios-close-outline"></x-icon>
       </x-dialog>
     </div>
   </div>
@@ -150,27 +147,44 @@ export default {
 
 <style scoped lang="less">
 @import "~vux/src/styles/1px.less";
-.accout-dialog {
-  overflow-y: scroll;
-  height: 100%;
-  padding: 56px 10px 20px 10px;
-}
+// .accout-dialog {
+// overflow-y: scroll;
+// height: 100%;
+// padding: 56px 10px 20px 10px;
+// }
+
 .account-info,
 .account-info-small {
   text-align: center;
-  color: #ffffff;
   font-weight: 500;
   font-size: 14px;
 }
 .account-info-strong {
   font-weight: 700;
   font-size: 25px;
-  color: #ffffff;
 }
 .account-info-small {
   font-size: 12px;
 }
 .money-wraper {
   padding-bottom: 75px;
+}
+
+.dialog-demo {
+  .dialog-title {
+    line-height: 30px;
+    color: #666;
+  }
+
+  .accout-dialog {
+    height: 94%;
+    padding: 10px 15px;
+    overflow-y: scroll;
+  }
+
+  .vux-close {
+    margin-top: 8px;
+    margin-bottom: 8px;
+  }
 }
 </style>
