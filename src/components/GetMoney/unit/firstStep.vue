@@ -37,7 +37,8 @@
 
 
 <script>
-import { XButton, Group, Selector, Confirm } from "vux";
+import { XButton, Group, Selector, Confirm, cookie } from "vux";
+import Api from "../../../service/AutoSignResult";
 
 export default {
   props: {
@@ -49,7 +50,23 @@ export default {
   },
   methods: {
     autoSign() {
-      this.$router.push({ name: "AutoSign" });
+      Api.registerInfoList({}, cookie.get("token"), this.$store.state.language)
+        .then(res => {
+          if (!res) return;
+          if (res.errorCode === 0) {
+            const list = res.data;
+            if (list.length > 0) {
+              this.$router.push({ name: "AutoSignResult" });
+            } else {
+              this.$router.push({ name: "AutoSign" });
+            }
+          } else {
+            this.$vux.toast.text(res.msg);
+          }
+        })
+        .catch(e => {
+          this.$vux.toast.text(this.$i18n.translate("error info"));
+        });
     },
     personalSign() {
       this.show = true;

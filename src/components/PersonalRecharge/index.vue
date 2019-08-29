@@ -22,6 +22,15 @@
         </div>
       </div>
     </div>
+    <confirm
+      v-model="currentWebsiteVisile"
+      :show-cancel-button="false"
+      :title="website_name"
+      @on-confirm="onConfirm"
+    >
+      <p class="personal-website-info">{{this.currentWebsite}}</p>
+      <p style="text-align:center;">{{ $i18n.translate('website info') }}</p>
+    </confirm>
     <div class="personal-wraper">
       <div class="personal-wraper-inner">
         <div class="personal-title">{{$i18n.translate('Deposit guide')}}</div>
@@ -40,11 +49,11 @@
 </template>
 
 <script>
-import { Group, XInput, XButton, cookie } from "vux";
+import { Group, XInput, XButton, cookie, Confirm } from "vux";
 import Api from "../../service/PersonalSign";
 
 export default {
-  components: { Group, XInput, XButton },
+  components: { Group, XInput, XButton, Confirm },
   data() {
     return {
       mail: "",
@@ -136,6 +145,9 @@ export default {
 }
 .personal-wraper-inner {
   padding: 15px;
+}
+.personal-website-info {
+  color: #0288d1;
 }
 .personal-title {
   font-size: 17px;

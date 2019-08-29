@@ -25,11 +25,11 @@ html {
   padding-bottom: 53px;
 }
 
-#money-wraper .weui-mask {
+#money-wraper .account-weui-wraper .weui-mask {
   z-index: 99999;
 }
 
-#money-wraper .weui-dialog {
+#money-wraper .account-weui-wraper .weui-dialog {
   width: 90%;
   max-width: 90%;
   height: 90%;

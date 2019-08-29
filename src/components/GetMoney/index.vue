@@ -4,29 +4,31 @@
     <thirdStep :nationalityOptions="nationalityOptions" />
     <secondStep :nationalityOptions="nationalityOptions" :websiteOptions="websiteOptions" />
     <div v-if="isNewUser" v-transfer-dom>
-      <x-dialog v-model="showDialog" class="dialog-demo">
-        <div class="accout-dialog">
-          <br />
-          <p class="account-info">{{$i18n.translate("info1")}}</p>
-          <br />
-          <p class="account-info">{{$i18n.translate("info2")}}</p>
-          <br />
-          <p class="account-info-strong">{{$i18n.translate("title1")}}</p>
-          <p class="account-info-strong">{{$i18n.translate("info3")}}</p>
-          <br />
-          <p class="account-info-strong">{{$i18n.translate("title2")}}</p>
-          <p class="account-info-strong">{{$i18n.translate("info4")}}</p>
-          <br />
-          <p class="account-info-strong">{{$i18n.translate("title3")}}</p>
-          <p class="account-info-strong">{{$i18n.translate("info5")}}</p>
-          <br />
-          <p class="account-info">{{$i18n.translate("info6")}}</p>
-          <br />
-          <p class="account-info-small">{{$i18n.translate("info7")}}</p>
-          <br />
-        </div>
-        <x-icon class="vux-close" @click="showDialog = false" type="ios-close-outline"></x-icon>
-      </x-dialog>
+      <div class="account-weui-wraper">
+        <x-dialog v-model="showDialog" class="dialog-demo">
+          <div class="accout-dialog">
+            <br />
+            <p class="account-info">{{$i18n.translate("info1")}}</p>
+            <br />
+            <p class="account-info">{{$i18n.translate("info2")}}</p>
+            <br />
+            <p class="account-info-strong">{{$i18n.translate("title1")}}</p>
+            <p class="account-info-strong">{{$i18n.translate("info3")}}</p>
+            <br />
+            <p class="account-info-strong">{{$i18n.translate("title2")}}</p>
+            <p class="account-info-strong">{{$i18n.translate("info4")}}</p>
+            <br />
+            <p class="account-info-strong">{{$i18n.translate("title3")}}</p>
+            <p class="account-info-strong">{{$i18n.translate("info5")}}</p>
+            <br />
+            <p class="account-info">{{$i18n.translate("info6")}}</p>
+            <br />
+            <p class="account-info-small">{{$i18n.translate("info7")}}</p>
+            <br />
+          </div>
+          <x-icon class="vux-close" @click="showDialog = false" type="ios-close-outline"></x-icon>
+        </x-dialog>
+      </div>
     </div>
   </div>
 </template>
@@ -161,7 +163,7 @@ export default {
 }
 .account-info-strong {
   font-weight: 700;
-  font-size: 25px;
+  font-size: 20px;
 }
 .account-info-small {
   font-size: 12px;
