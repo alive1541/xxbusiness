@@ -25,7 +25,7 @@
         </div>
       </div>
     </div>
-    <confirm
+    <!-- <confirm
       v-model="currentWebsiteVisile"
       :show-cancel-button="false"
       :title="website_name"
@@ -33,6 +33,32 @@
     >
       <p class="personal-website-info">{{this.currentWebsite}}</p>
       <p style="text-align:center;">{{ $i18n.translate('website info') }}</p>
+    </confirm>-->
+    <confirm
+      ref="confirm"
+      v-model="currentWebsiteVisile"
+      :title="website_name"
+      :show-cancel-button="false"
+      :show-confirm-button="false"
+    >
+      <div class="result-confirm-content">
+        <div :key="i + 'key'" v-for="(item,i) in extraData">
+          <span class="result-confirm-content-item">{{item.keyName}}</span>:
+          <span class="result-confirm-content-item">{{item.value}}</span>
+        </div>
+      </div>
+      <p class="personal-website-info">{{this.currentWebsite}}</p>
+      <p style="text-align:center;margin-bottom: 10px;">{{ $i18n.translate('website info') }}</p>
+      <div class="result-btn-group">
+        <div class="result-concel" @click="concel()">{{$i18n.translate('vux.search.cancel_text')}}</div>
+        <div
+          class="result-clip"
+          v-clipboard:copy="copyExt()"
+          v-clipboard:success="onCopy"
+          v-clipboard:error="onError"
+        >{{$i18n.translate('copy')}}</div>
+      </div>
+      <div class="result-pad"></div>
     </confirm>
     <div class="personal-wraper">
       <div class="personal-wraper-inner">
@@ -67,6 +93,19 @@ export default {
     };
   },
   methods: {
+    copyExt() {
+      return this.currentWebsite;
+    },
+    onError(e) {
+      this.$vux.toast.text(this.$i18n.translate("Failed"));
+    },
+    onCopy(e) {
+      this.$vux.toast.text(this.$i18n.translate("Successed"));
+      this.concel();
+    },
+    concel() {
+      this.$refs.confirm._onCancel();
+    },
     openModal(item) {
       this.currentWebsiteVisile = true;
       this.website_name = item.website_name;
@@ -132,6 +171,51 @@ export default {
 
 <style scoped lang="less">
 @import "~vux/src/styles/1px.less";
+.result-confirm-content {
+  margin-bottom: 15px;
+}
+.result-confirm-content-item {
+  display: inline-block;
+  margin: 5px;
+}
+.result-btn-group {
+  position: absolute;
+  display: flex;
+  left: 0;
+  border-top: 1px solid #d5d5d6;
+  width: 100%;
+  color: #353535;
+  transform-origin: 0 0;
+  line-height: 48px;
+  height: 48px;
+  font-size: 18px;
+  @media (min-resolution: 2dppx) {
+    width: 200%;
+    line-height: 96px;
+    height: 96px;
+    font-size: 36px;
+    transform: scale(0.5);
+  }
+  @media (min-resolution: 3dppx) {
+    width: 300%;
+    line-height: 144px;
+    height: 144px;
+    font-size: 54px;
+    transform: scale(0.33);
+  }
+}
+.result-concel {
+  flex: 1;
+}
+.result-clip {
+  flex: 1;
+  border-left: 1px solid #d5d5d6;
+  color: #0bb20c;
+}
+.result-pad {
+  height: 48px;
+}
+
 .personal-white-wraper {
   padding-bottom: 75px;
 }
@@ -151,6 +235,7 @@ export default {
 }
 .personal-website-info {
   color: #0288d1;
+  margin-bottom: 10px;
 }
 .personal-title {
   font-size: 17px;
