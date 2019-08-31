@@ -189,14 +189,16 @@ export default {
           if (!res) return;
           if (res.errorCode === 0) {
             const data = res.data;
-            this.all_assets = data["all_assets"];
-            this.all_balance = data["all_balance"];
-            this.all_unsettle = data["all_unsettle"];
-            this.all_deposit = data["all_deposit"];
-            this.all_withdrawals = data["all_withdrawals"];
-            this.all_profit = data["all_profit"];
-            this.yes_profit = data["yes_profit"];
-            this.updatedTimeStr = this.getTime(data["updated_at"]);
+            if (data) {
+              this.all_assets = data["all_assets"];
+              this.all_balance = data["all_balance"];
+              this.all_unsettle = data["all_unsettle"];
+              this.all_deposit = data["all_deposit"];
+              this.all_withdrawals = data["all_withdrawals"];
+              this.all_profit = data["all_profit"];
+              this.yes_profit = data["yes_profit"];
+              this.updatedTimeStr = this.getTime(data["updated_at"]);
+            }
             // this.updatedTimeStr = this.getTime("2019/06/05 20:50:05");
           } else {
             this.errorHandler(res.msg, this.getAllBalance);
