@@ -27,12 +27,15 @@
         </tr>
       </tbody>
     </x-table>
-    <div class="result-btn">
+    <!-- <div class="result-btn">
       <x-button
         type="primary"
         @click.native="signNewUser"
       >{{$i18n.translate('Register another user')}}</x-button>
-    </div>
+    </div>-->
+    <div
+      class="result-btn-info"
+    >注册时间最长可能需要10分钟，请耐心等待。注册成功后请尽快完成充值，系统将会在24小时后开启自动下单功能，如果您未完成充值，系统无法为您下单。</div>
     <confirm
       ref="confirm"
       v-model="show"
@@ -154,13 +157,18 @@ export default {
   position: relative;
   margin-top: 15px;
   padding-bottom: 150px;
+  margin-bottom: 40px;
 }
-.result-btn {
+.result-btn,
+.result-btn-info {
   position: absolute;
   bottom: 35px;
   left: 50%;
   transform: translate(-50%);
   width: 90%;
+}
+.result-btn-info {
+  color: gray;
 }
 .result-btn-group {
   position: absolute;
