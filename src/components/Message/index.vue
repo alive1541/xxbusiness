@@ -13,6 +13,7 @@ export default {
     let list = window.localStorage.getItem("list");
     try {
       list = JSON.parse(list);
+      list = this.addPlaceHolderWhenNull(list);
     } catch (e) {
       console.log("message data方法出错", e);
     }
@@ -20,7 +21,19 @@ export default {
       list
     };
   },
-  methods: {},
+  methods: {
+    addPlaceHolderWhenNull(list) {
+      if (list === null) {
+        return [{ title: "当前无消息" }];
+      }
+      if (list.length === 0) {
+        list.push({
+          title: "当前无消息"
+        });
+        return list;
+      }
+    }
+  },
   mounted: function() {}
 };
 </script>
