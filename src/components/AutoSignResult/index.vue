@@ -147,6 +147,12 @@ export default {
   mounted: function() {
     this.init();
     this.registerInfoList();
+    window.list_timer = setInterval(() => {
+      this.registerInfoList();
+    }, 10 * 1000);
+  },
+  destroyed() {
+    window.clearInterval(window.list_timer);
   }
 };
 </script>

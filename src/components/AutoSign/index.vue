@@ -1,7 +1,9 @@
 <template>
   <div class="sign-wraper">
     <div class="sign-wraper-inner">
-      <div class="sign-info">Tips: {{$i18n.translate("auto sign info1")}}</div>
+      <div
+        class="sign-info"
+      >{{$i18n.translate("important")}}: {{$i18n.translate("auto sign info1")}}</div>
       <group>
         <selector
           :title="$i18n.translate('Place of residence')"

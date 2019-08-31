@@ -149,6 +149,7 @@ en:
   info16: We suggest that you contact us for manual setup.
   info17: "Email: Opportech.service@gmail.com"
   close: Close
+  important: important
 
 zh-CN:
   # info
@@ -218,12 +219,12 @@ zh-CN:
   One-click registration: 一键注册
   One-click registration Result: 一键注册结果
   Manual registration: 手动注册
-  One-click registration info: 一键注册目前只支持liji、平博、12bet这三个网站。其他网站还需要您手动注册
+  One-click registration info: 一键注册成功的网站不需要手动注册 ；一键注册失败的网站需要手动注册
   Account submission: 账号提交
   Country of Citizenship: 国籍
   submit: 提交
   Please choose: 请选择
-  Account submission info: 手动注册需要提交账号密码；修改了密码的也需要提交账号密码，否则系统无法完成自动下单
+  Account submission info: 手动注册成功后需要您提交账号密码，一键注册成功的网站不需要提交
   username: 账户名
   password: 密码
   Deposit: 充值
@@ -301,6 +302,7 @@ zh-CN:
   info16: 建议您联系我们，手动修改
   info17: "邮箱： Opportech.service@gmail.com"
   close: 关闭
+  important: 特别重要
 
 id:
   # info
@@ -453,3 +455,4 @@ id:
   info16: mohon hubungi kami untuk melakukan perubahan manual
   info17: "Email：Opportech.service@gmail.com"
   close: Tutup
+  important: important
