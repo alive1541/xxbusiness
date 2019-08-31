@@ -24,8 +24,15 @@ import { cookie } from "vux";
 export default {
   components: { Tabbar },
   data() {
+    let token = cookie.get("token");
+    let href;
+    if (token) {
+      href = `http://18.136.0.180/index?token=${token}`;
+    } else {
+      href = `http://18.136.0.180/index`;
+    }
     return {
-      href: `http://18.136.0.180/index?token=${cookie.get("token")}`,
+      href,
       badge: "",
       routeTitle: this.$store.state.routeTitle
     };
