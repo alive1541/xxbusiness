@@ -151,6 +151,7 @@ en:
   info17: "Email: Opportech.service@gmail.com"
   close: Close
   important: important
+  homePage: homePage
 
 zh-CN:
   # info
@@ -305,6 +306,7 @@ zh-CN:
   info17: "邮箱： Opportech.service@gmail.com"
   close: 关闭
   important: 特别重要
+  homePage: 首页
 
 id:
   # info
@@ -459,3 +461,4 @@ id:
   info17: "Email：Opportech.service@gmail.com"
   close: Tutup
   important: important
+  homePage: Rumah

@@ -4,6 +4,7 @@
       <div class="header">
         <x-header :title="$store.state.routeTitle" :left-options="{showBack: false}">
           <div class="title">{{$store.state.routeTitle}}</div>
+          <a :href="href" slot="right">{{$i18n.translate("homePage")}}</a>
         </x-header>
       </div>
       <div class="content">
@@ -24,6 +25,7 @@ export default {
   components: { Tabbar },
   data() {
     return {
+      href: `http://18.136.0.180/index?token=${cookie.get("token")}`,
       badge: "",
       routeTitle: this.$store.state.routeTitle
     };
