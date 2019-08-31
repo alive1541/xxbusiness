@@ -33,9 +33,7 @@
         @click.native="signNewUser"
       >{{$i18n.translate('Register another user')}}</x-button>
     </div>-->
-    <div
-      class="result-btn-info"
-    >注册时间最长可能需要10分钟，请耐心等待。注册成功后请尽快完成充值，系统将会在24小时后开启自动下单功能，如果您未完成充值，系统无法为您下单。</div>
+    <div class="result-btn-info">{{$i18n.translate('info18')}}</div>
     <confirm
       ref="confirm"
       v-model="show"

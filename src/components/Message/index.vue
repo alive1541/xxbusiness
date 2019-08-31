@@ -23,12 +23,13 @@ export default {
   },
   methods: {
     addPlaceHolderWhenNull(list) {
+      const title = this.$i18n.translate("No message");
       if (list === null) {
-        return [{ title: "当前无消息" }];
+        return [{ title }];
       }
       if (list.length === 0) {
         list.push({
-          title: "当前无消息"
+          title
         });
         return list;
       }

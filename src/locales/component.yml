@@ -66,12 +66,12 @@ en:
   One-click registration: One-click
   One-click registration Result: One-click Result
   Manual registration: Manual
-  One-click registration info: One-click registration currently only supports three websites. liji, Pingbo, and 12bet. Other sites still require you to manually register
+  One-click registration info: No manual registration is required for websites succeeded with one-click registration; for websites failded with one-click registration, manual registration is required
   Account submission: Account submission
   Country of Citizenship: Citizenship
   submit: submit
   Please choose: Please choose
-  Account submission info: Manual registration requires submitting account name and password; if you change the password, you also need to submit the new password, otherwise the system cannot put orders automatically.
+  Account submission info: After successful manual registration, you need to submit your account name and password you just registered with, but websites succeeded with  one-click registration does not need to be submitted.
   username: username
   password: password
   Deposit: Deposit
@@ -128,7 +128,7 @@ en:
   info4: Deposit your accounts registered on betting websites
   title3: Step 3 Account Submission
   info5: Submit your account info to us for operation
-  info5_5: 一键注册成功的网站无需提交
+  info5_5: Websites succeeded with one-click registration does not require submission
   info6: After these three steps, you can start to make money.
   info7: "Note:The system will automatically operate your account and complete automatic orders."
   info8: We can't use your accounts to withdraw funds and make any other transactions
@@ -152,6 +152,8 @@ en:
   close: Close
   important: important
   homePage: homePage
+  No message: No message
+  info18: Registration may take up to 10 minutes. Please wait patiently. After successful registration, please complete deposit as soon as possible. The system will place automatic orders in 24 hours. If you do not complete deposit, the system won't be able to place orders automatically for you.
 
 zh-CN:
   # info
@@ -307,6 +309,8 @@ zh-CN:
   close: 关闭
   important: 特别重要
   homePage: 首页
+  No message: 当前无消息
+  info18: 注册时间最长可能需要10分钟，请耐心等待。注册成功后请尽快完成充值，系统将会在24小时后开启自动下单功能，如果您未完成充值，系统无法为您下单。
 
 id:
   # info
@@ -376,12 +380,12 @@ id:
   One-click registration: satu klik
   One-click registration Result: Hasil satu klik
   Manual registration: manual
-  One-click registration info: Registrasi satu klik saat ini hanya mendukung tiga situs web. liji, Pingbo, dan 12bet. Situs lain mengharuskan Anda untuk mendaftar secara manual.
+  One-click registration info: No manual registration is required for successful websites with one-click registration; for websites with one-click registration failure, manual registration is required
   Account submission: Pengajuan akun
   Country of Citizenship: Negara
   submit: Kirim
   Please choose: Silakan pilih
-  Account submission info: Anda harus mengirimkan kata sandi akun untuk mendaftar secara manual dan mengubah kata sandi Anda. Jika tidak, Anda tidak dapat melakukan pemesanan.
+  Account submission info: After successful manual registration, you need to submit your account password, and a successful website does not need to submit one-click registration.
   username: Nama pengguna
   password: Kata sandi
   Deposit: Isi ulang
@@ -438,7 +442,7 @@ id:
   info4: Isi ulang setiap situs web yang telah anda registrasi
   title3: "Tahap 3 : Kirim Akun"
   info5: Kirim akun yang telah anda isi ulang agar kami dapat melakukan operasi
-  info5_5: 一键注册成功的网站无需提交
+  info5_5: One-click registration of successful websites does not require submission
   info6: Setelah melakukan 3 tahap diatas,anda sudah bisa memulai menghasilkan uang!
   info7: "Catatan: Sistem dapat mengoperasikan akun anda secara otomatis dan menyelesaikan pesanan otomatis."
   info8: Kami tidak dapat menggunakan akun anda untuk melakukan penarikan uang atau operasi pendanaan lainnya.
@@ -462,3 +466,5 @@ id:
   close: Tutup
   important: important
   homePage: Rumah
+  No message: No message
+  info18: Registration may take up to 10 minutes. Please wait patiently. After successful registration, please complete the recharge as soon as possible. The system will open the automatic order-placing function in 24 hours. If you do not complete the recharge, the system can not order for you
