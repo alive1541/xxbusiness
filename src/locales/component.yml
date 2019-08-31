@@ -128,6 +128,7 @@ en:
   info4: Deposit your accounts registered on betting websites
   title3: Step 3 Account Submission
   info5: Submit your account info to us for operation
+  info5_5: 一键注册成功的网站无需提交
   info6: After these three steps, you can start to make money.
   info7: "Note:The system will automatically operate your account and complete automatic orders."
   info8: We can't use your accounts to withdraw funds and make any other transactions
@@ -276,11 +277,12 @@ zh-CN:
   info1: 恭喜您成为我们的会员，现在开始愉快的赚钱之旅吧
   info2: 在开始赚钱之前您需要做三步准备
   title1: 第一步 注册
-  info3: 注册博彩网站
+  info3: 注册网站
   title2: 第二步 充值
-  info4: 给你注册的各个博彩网站账号充值
+  info4: 给你注册的各个网站账号充值
   title3: 第三步 账号提交
   info5: 将你充值好的账号提交给我们进行操作
+  info5_5: 一键注册成功的网站无需提交
   info6: 完成这三步后你就可以赚钱了
   info7: 注：系统会自动操作你的账号，完成自动下单。
   info8: 我们无法用您的账号提款等资金操作
@@ -434,6 +436,7 @@ id:
   info4: Isi ulang setiap situs web yang telah anda registrasi
   title3: "Tahap 3 : Kirim Akun"
   info5: Kirim akun yang telah anda isi ulang agar kami dapat melakukan operasi
+  info5_5: 一键注册成功的网站无需提交
   info6: Setelah melakukan 3 tahap diatas,anda sudah bisa memulai menghasilkan uang!
   info7: "Catatan: Sistem dapat mengoperasikan akun anda secara otomatis dan menyelesaikan pesanan otomatis."
   info8: Kami tidak dapat menggunakan akun anda untuk melakukan penarikan uang atau operasi pendanaan lainnya.

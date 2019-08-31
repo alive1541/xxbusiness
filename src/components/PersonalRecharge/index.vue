@@ -3,7 +3,10 @@
     <div class="personal-wraper">
       <div class="personal-wraper-inner">
         <div class="personal-title">{{$i18n.translate('Deposit Tips')}}</div>
-        <p class="personal-content">1、{{$i18n.translate('Deposit Tips info1')}}</p>
+        <p
+          class="personal-content"
+          style="color: #e80707"
+        >1、{{$i18n.translate('Deposit Tips info1')}}</p>
         <p class="personal-content">2、{{$i18n.translate('Deposit Tips info2')}}</p>
         <p class="personal-content">3、{{$i18n.translate('Deposit Tips info3')}}</p>
         <p class="personal-content">4、{{$i18n.translate('Deposit Tips info4')}}</p>

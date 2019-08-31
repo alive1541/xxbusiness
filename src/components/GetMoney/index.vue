@@ -20,6 +20,7 @@
             <br />
             <p class="account-info-strong">{{$i18n.translate("title3")}}</p>
             <p class="account-info-strong">{{$i18n.translate("info5")}}</p>
+            <p class="account-info">({{$i18n.translate("info5_5")}})</p>
             <br />
             <p class="account-info">{{$i18n.translate("info6")}}</p>
             <br />
