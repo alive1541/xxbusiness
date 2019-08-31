@@ -64,6 +64,8 @@ export default {
             this.list = result;
           } else if (res.errorCode === 4) {
             this.noAuthority = true;
+          } else if (res.errorCode === 3) {
+            //权限不足不作处理
           } else {
             this.errorHandler(res.msg, this.getList);
           }

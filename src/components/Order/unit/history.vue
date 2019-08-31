@@ -18,7 +18,7 @@
       :scroll-bottom-offst="200"
     >
       <h-table :list="list"></h-table>
-      <load-more class="load-more" tip="loading"></load-more>
+      <load-more v-if="list.length>0" class="load-more" tip="loading"></load-more>
       <divider v-if="ifNoData">{{$i18n.translate("All data loaded")}}</divider>
     </scroller>
   </div>
@@ -86,6 +86,8 @@ export default {
             }
           } else if (res.errorCode === 4) {
             this.noAuthority = true;
+          } else if (res.errorCode === 3) {
+            //权限不足不作处理
           } else {
             this.errorHandler(res.msg, this.getHistory);
           }
