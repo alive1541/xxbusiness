@@ -28,14 +28,14 @@ en:
   errorHandle info: Click OK to retrieve content
   Sort by site: Sort by site
   Sort by balance: Sort by balance
-  website: website
-  account name: account name
+  website: Website
+  account name: Account name
   Balance: Balance
   Yesterday's profit2: Yesterday's profit
-  status Action: status Action
-  online: online
-  online2: online
-  offline: offline
+  status Action: Status Action
+  online: Online
+  online2: Online
+  offline: Offline
   Prohibit: Prohibit
   System online operation: System online operation
   System offline operation: System offline operation
@@ -151,7 +151,7 @@ en:
   info17: "Email: Opportech.service@gmail.com"
   close: Close
   important: important
-  homePage: homePage
+  homePage: HomePage
   No message: No message
   info18: Registration may take up to 10 minutes. Please wait patiently. After successful registration, please complete deposit as soon as possible. The system will place automatic orders in 24 hours. If you do not complete deposit, the system won't be able to place orders automatically for you.
 
