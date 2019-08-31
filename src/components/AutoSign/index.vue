@@ -79,9 +79,18 @@ export default {
     };
   },
   methods: {
+    findValueFromList(id) {
+      let val;
+      this.phone_prefix_list.forEach(item => {
+        if (item.id === id) {
+          val = item.value;
+        }
+      });
+      return val;
+    },
     // dateChange() {},
     submit() {
-      const {
+      let {
         neighborhood_id,
         nationality_id,
         last_name,
@@ -92,6 +101,8 @@ export default {
         phone_prefix,
         phone
       } = this;
+      //兼容处理
+      phone_prefix = this.findValueFromList(phone_prefix);
       const ifHasEmpty = this.nonEmptyCheck(
         neighborhood_id,
         nationality_id,
