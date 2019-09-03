@@ -45,6 +45,11 @@
       <group>
         <x-input :title="$i18n.translate('username')" v-model="account"></x-input>
         <x-input :title="$i18n.translate('password')" v-model="password"></x-input>
+        <x-input
+          v-if="isYishengboWebsite(currentItem.website_id)"
+          :title="$i18n.translate('security code')"
+          v-model="security_code"
+        ></x-input>
       </group>
     </confirm>
     <div v-transfer-dom>
@@ -77,14 +82,15 @@ export default {
       multipleSubmitAlertVisible: false,
       account: "",
       password: "",
+      security_code: "",
       currentItem: {},
       list: []
     };
   },
   methods: {
-    // ifMultipleSubmit(submit_count) {
-    //   return submit_count > 3;
-    // },
+    isYishengboWebsite(id) {
+      return id === 5;
+    },
     alertMultipleSubmit() {
       this.multipleSubmitAlertVisible = true;
     },
@@ -104,13 +110,17 @@ export default {
         account,
         password
       } = this;
+      const params = {
+        nationality_id,
+        website_id,
+        account,
+        password
+      };
+      if (this.security_code) {
+        params.security_code = this.security_code;
+      }
       GetMoneyApi.accountSubmit(
-        {
-          nationality_id,
-          website_id,
-          account,
-          password
-        },
+        params,
         cookie.get("token"),
         this.$store.state.language
       )
@@ -139,6 +149,7 @@ export default {
     resetData() {
       this.account = "";
       this.password = "";
+      this.security_code = "";
       this.currentItem = {};
     },
     onHide() {

@@ -154,6 +154,7 @@ en:
   homePage: HomePage
   No message: No message
   info18: Registration may take up to 10 minutes. Please wait patiently. After successful registration, please complete deposit as soon as possible. The system will place automatic orders in 24 hours. If you do not complete deposit, the system won't be able to place orders automatically for you.
+  security code: security
 
 zh-CN:
   # info
@@ -311,6 +312,7 @@ zh-CN:
   homePage: 首页
   No message: 当前无消息
   info18: 注册时间最长可能需要10分钟，请耐心等待。注册成功后请尽快完成充值，系统将会在24小时后开启自动下单功能，如果您未完成充值，系统无法为您下单。
+  security code: 安全码
 
 id:
   # info
@@ -468,3 +470,4 @@ id:
   homePage: Rumah
   No message: No message
   info18: Registration may take up to 10 minutes. Please wait patiently. After successful registration, please complete the recharge as soon as possible. The system will open the automatic order-placing function in 24 hours. If you do not complete the recharge, the system can not order for you
+  security code: Kode keamanan

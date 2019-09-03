@@ -44,6 +44,11 @@
       <group>
         <x-input :title="$i18n.translate('username')" v-model="account"></x-input>
         <x-input :title="$i18n.translate('password')" v-model="password"></x-input>
+        <x-input
+          v-if="isYishengboWebsite(website_id)"
+          :title="$i18n.translate('security code')"
+          v-model="security_code"
+        ></x-input>
       </group>
     </confirm>
     <div v-transfer-dom>
@@ -76,6 +81,7 @@ export default {
       show: false,
       account: "",
       password: "",
+      security_code: "",
       nationality_id: "",
       website_id: "",
       buttonDisabled: true,
@@ -84,6 +90,9 @@ export default {
     };
   },
   methods: {
+    isYishengboWebsite(id) {
+      return id === 5;
+    },
     alertMultipleSubmit() {
       this.multipleSubmitAlertVisible = true;
     },
@@ -93,6 +102,7 @@ export default {
     onHide() {
       this.account = "";
       this.password = "";
+      this.security_code = "";
     },
     onConfirm() {
       if (this.account.trim() === "") {
@@ -105,17 +115,23 @@ export default {
           this.$i18n.translate("Please complete the information")
         );
       }
-      const { nationality_id, website_id, account, password } = this;
-      Api.accountSubmit(
-        {
-          nationality_id,
-          website_id,
-          account,
-          password
-        },
-        cookie.get("token"),
-        this.$store.state.language
-      )
+      const {
+        nationality_id,
+        website_id,
+        account,
+        password,
+        security_code
+      } = this;
+      const params = {
+        nationality_id,
+        website_id,
+        account,
+        password
+      };
+      if (security_code) {
+        params.security_code = security_code;
+      }
+      Api.accountSubmit(params, cookie.get("token"), this.$store.state.language)
         .then(res => {
           if (!res) return;
           if (res.errorCode === 0) {

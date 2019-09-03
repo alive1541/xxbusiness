@@ -33,6 +33,7 @@ export default {
         });
         return list;
       }
+      return list;
     }
   },
   mounted: function() {}
