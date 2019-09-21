@@ -14,6 +14,7 @@ import PersonalSign from "@/components/PersonalSign/index";
 import PersonalRecharge from "@/components/PersonalRecharge/index";
 import NewUserGuide from "@/components/NewUserGuide/index";
 import SubmissionStatus from "@/components/SubmissionStatus/index";
+import NewsDetail from "@/components/NewsDetail/index";
 import { handleTabbarAndRoute } from "../assets/util";
 
 Vue.use(Router);
@@ -29,6 +30,13 @@ let route = new Router({
       name: "LogIn",
       name_ch: "登陆",
       component: LogIn
+    },
+    //新闻马甲包的详情页面
+    {
+      path: "/news-detail",
+      name: "NewsDetail",
+      name_ch: "详情",
+      component: NewsDetail
     },
     {
       path: "/page",

@@ -420,6 +420,31 @@ const routers = app => {
     };
   });
 
+  router.get("/news/get_news_detail", (ctx, next) => {
+    console.log("/news/get_news_detail", ctx.query);
+    // const cookies = ctx.cookies.get("token");
+    ctx.body = {
+      code: 2000,
+      msg: "",
+      data: {
+        news_id: 0,
+        title:
+          "文本我是新闻标题，我最多显示三行，我是印尼语的，文本我是新闻标题，我最多显示三",
+        body:
+          '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus sapien nunc eget.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean e<br/></p ><p><img src="http://img2.imgtn.bdimg.com/it/u=1290030057,1414681145&fm=26&gp=0.jpg" title="tu.jpg" alt="tu.jpg"/></p ><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. </p >',
+        is_collected: true,
+        comment_list: [
+          {
+            mail: "str",
+            comment: "str",
+            publish_time: 0
+          }
+        ],
+        publish_time: "2019-11-29 14:49"
+      }
+    };
+  });
+
   app.use(router.routes()).use(router.allowedMethods());
 };
 
