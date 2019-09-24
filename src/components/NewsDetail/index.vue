@@ -2,7 +2,7 @@
   <div class="news-wraper">
     <div class="news-wraper-inner">
       <p class="news-title">{{data.title}}</p>
-      <p class="news-time">{{data.publish_time}}</p>
+      <p class="news-time">{{time}}</p>
       <div class="news-content" v-html="data.body"></div>
     </div>
   </div>
@@ -11,11 +11,21 @@
 <script>
 import Api from "@/service/NewsDetail";
 import qs from "qs";
+import dayjs from "dayjs";
 
 export default {
   components: {},
   data() {
     return { data: { body: "", publish_time: "", title: "" } };
+  },
+  computed: {
+    // 计算属性的 getter
+    time: function() {
+      // `this` 指向 vm 实例
+      return this.data.publish_time === ""
+        ? ""
+        : dayjs(this.data.publish_time).format("YYYY-MM-DD HH-mm-ss");
+    }
   },
   methods: {
     getQuery() {
@@ -65,7 +75,7 @@ export default {
   margin: 15px;
 }
 .news-title {
-  font-size: 21px;
+  font-size: 24px;
   font-weight: 500;
 }
 .news-time {
@@ -81,5 +91,11 @@ export default {
   width: 100%;
   height: auto;
   margin: 5px 0;
+}
+.news-content ul,
+li {
+  padding: 0 !important;
+  margin: 0 !important;
+  list-style: none !important;
 }
 </style>

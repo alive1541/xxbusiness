@@ -20,6 +20,7 @@ import { handleTabbarAndRoute } from "../assets/util";
 Vue.use(Router);
 
 let route = new Router({
+  mode: "history",
   routes: [
     {
       path: "/",
@@ -33,7 +34,7 @@ let route = new Router({
     },
     //新闻马甲包的详情页面
     {
-      path: "/news-detail",
+      path: "/xxnews/news-detail",
       name: "NewsDetail",
       name_ch: "详情",
       component: NewsDetail
