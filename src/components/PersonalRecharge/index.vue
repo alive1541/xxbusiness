@@ -7,9 +7,13 @@
           class="personal-content"
           style="color: #e80707"
         >1、{{$i18n.translate('Deposit Tips info1')}}</p>
-        <p class="personal-content">2、{{$i18n.translate('Deposit Tips info2')}}</p>
-        <p class="personal-content">3、{{$i18n.translate('Deposit Tips info3')}}</p>
-        <p class="personal-content">4、{{$i18n.translate('Deposit Tips info4')}}</p>
+        <p
+          class="personal-content"
+          style="color: #e80707"
+        >2、{{$i18n.translate('Deposit Tips info2_append1')}}</p>
+        <p class="personal-content">3、{{$i18n.translate('Deposit Tips info2')}}</p>
+        <p class="personal-content">4、{{$i18n.translate('Deposit Tips info3')}}</p>
+        <p class="personal-content">5、{{$i18n.translate('Deposit Tips info4')}}</p>
       </div>
     </div>
     <div class="personal-wraper">
@@ -244,6 +248,9 @@ export default {
 }
 .personal-content {
   margin-bottom: 5px;
+}
+.personal-content .personal-content-span {
+  color: #e80707;
 }
 .personal-flex {
   display: flex;

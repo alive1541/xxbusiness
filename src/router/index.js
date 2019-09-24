@@ -20,7 +20,7 @@ import { handleTabbarAndRoute } from "../assets/util";
 Vue.use(Router);
 
 let route = new Router({
-  mode: "history",
+  // mode: "history",
   routes: [
     {
       path: "/",

@@ -89,6 +89,7 @@ en:
   Phone: Phone
   Deposit Tips: Deposit Tips
   Deposit Tips info1: Please use your own bank card. The name of the bank card must be the same as the name at the time of registration. The issuing bank must be filled out in real name to avoid problems at withdrawal
+  Deposit Tips info2_append1: When recharging, we must not choose preferential dividends or other benefits, otherwise we can not withdraw them.
   Deposit Tips info2: When depositing, please read the deposit method of the website carefully. For example, some of the comment areas  are required to fill in, or the deposit amount must be the same as the website requirements, etc. Follow the instructions carefully and avoid problems when depositing
   Deposit Tips info3: After deposit is completed, please keep the deposit record or other records to facilitate reconciliation
   Deposit Tips info4: After deposit is completed, be sure to make sure the it shows up on websites and then log out of the account. If any deposit has not arrived within half an hour, please contact customer service of the website
@@ -247,6 +248,7 @@ zh-CN:
   Phone: 手机号
   Deposit Tips: 充值要点
   Deposit Tips info1: 请一定要使用自己的银行卡，银行卡的姓名要与注册时的姓名一致。发卡行等一定要真实填写，避免之后提现出现问题
+  Deposit Tips info2_append1: 充值时一定不要选择红利等优惠，否则无法提现。
   Deposit Tips info2: 充值时，请认真阅读网站的充值方法，如备注处需要填写内容，充值金额必须与网站要求的一致等。完全按照网站要求，避免充值不到账情况出现
   Deposit Tips info3: 充值完成后，请保留充值截图及流水号等凭据，方便之后对账
   Deposit Tips info4: 充值完成后，一定要确认网站到账后再登出账号。如半小时未到账，请于该网站的客服联系
@@ -405,6 +407,7 @@ id:
   Phone: Nomor ponsel
   Deposit Tips: Catatan untuk Isi Ulang
   Deposit Tips info1: Pastikan anda menggunakan kartu bank anda. Nama anda saat registrasi harus sama dengan nama pada kartu bank anda. Informasi bank pengirim harus diisi secara benar untuk menghindari masalah setelah penarikan
+  Deposit Tips info2_append1: Ketika melakukan pengisian ulang, mohon untuk tidak memilih bonus dividen atau diskon lainnya. Jika tidak, anda tidak dapat menarik uang anda.
   Deposit Tips info2: Ketika mengisi ulang, silahkan membaca tahapan pengisian ulang secara saksama, seperti catatan tambahan pengisian dan jumlah pengisian harus sama dengan persyaratan pada situs. Mohon mengikuti petunjuk pada situs untuk menghindari masalah yang berkaitan dengan pengisian ulang akun
   Deposit Tips info3: Setelah melakukan pengisian ulang, mohon untuk menyimpan nomor seri dan bukti pengisian ulang, serta hal-hal penting lainnya untuk memudahkan proses penghitungan aset
   Deposit Tips info4: Setelah pengisian ulang berhasil, mohon pastikan kembali bahwa saldo anda telah masuk ke dalam akun anda sebelum anda keluar dari akun. Jika dalam kurun waktu setengah jam saldo tidak masuk ke dalam akun, mohon hubungi layanan pelanggan situs
