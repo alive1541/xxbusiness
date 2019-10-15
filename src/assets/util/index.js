@@ -43,8 +43,6 @@ export const initFromOfficialWebsite = ctx => {
       cookie.set("token", token);
     }
     if (language) {
-      console.log("language", language);
-
       ctx.$store.dispatch("changeLanguage", language);
       ctx.$nextTick(() => {
         ctx.$i18n.set(language);
@@ -53,4 +51,8 @@ export const initFromOfficialWebsite = ctx => {
   } catch (e) {
     console.log(e);
   }
+};
+
+export const getLanguage = ctx => {
+  return ctx.$store.state.language;
 };

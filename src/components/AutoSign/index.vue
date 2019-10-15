@@ -9,13 +9,19 @@
           :title="$i18n.translate('Place of residence')"
           :options="neighborhood_list"
           v-model="neighborhood_id"
+          @on-change="neighborhoodChange"
         ></selector>
         <selector
           :title="$i18n.translate('Country of Citizenship')"
           :options="nationality_list"
           v-model="nationality_id"
         ></selector>
-        <x-input :title="$i18n.translate('Last name')" v-model="last_name" :show-clear="false"></x-input>
+        <x-input
+          class="isSpecial"
+          :title="$i18n.translate('Last name')"
+          v-model="last_name"
+          :show-clear="false"
+        ></x-input>
         <x-input :title="$i18n.translate('First name')" v-model="first_name" :show-clear="false"></x-input>
         <popup-radio :title="$i18n.translate('Gender')" :options="genderOptions" v-model="gender"></popup-radio>
         <datetime
@@ -54,7 +60,12 @@ import {
   Datetime,
   cookie
 } from "vux";
+import { getLanguage } from "../../assets/util";
 import Api from "../../service/AutoSign";
+
+const indonesia_phone_prefix = "2";
+const PLACEHOLDER =
+  "Jika Anda tidak memiliki nama belakang\nsilakan isi nama Anda di sini";
 
 export default {
   components: { Group, Selector, XButton, XInput, PopupRadio, Datetime },
@@ -79,6 +90,60 @@ export default {
     };
   },
   methods: {
+    isIndonesia(value) {
+      return value === 2;
+    },
+    languageIsId() {
+      return getLanguage(this) === "id";
+    },
+    setPlaceHolder(isSet) {
+      if (isSet) {
+        const isSpecialEle = document.querySelector(".isSpecial");
+        if (!this.inputEle) {
+          this.inputEle = document.querySelector(".isSpecial input");
+        }
+        if (!this.divEle) {
+          this.divEle = document.createElement("div");
+        }
+        const inputEle = this.inputEle;
+        const divEle = this.divEle;
+        divEle.innerHTML = PLACEHOLDER;
+        divEle.setAttribute("class", "div-placeholder");
+        if (this.languageIsId() && inputEle) {
+          if (inputEle.value === "") {
+            divEle.style.display = "block";
+          }
+
+          isSpecialEle.appendChild(divEle);
+
+          inputEle.onfocus = function() {
+            divEle.style.display = "none";
+          };
+          inputEle.onblur = function() {
+            if (this.value === "") {
+              divEle.style.display = "block";
+            }
+          };
+        }
+      } else {
+        if (this.inputEle) {
+          this.inputEle.onfocus = null;
+          this.inputEle.onblur = null;
+        }
+
+        if (this.divEle) {
+          this.divEle.style.display = "none";
+        }
+      }
+    },
+    neighborhoodChange(value) {
+      if (this.isIndonesia(value)) {
+        this.phone_prefix = indonesia_phone_prefix;
+        this.setPlaceHolder(true);
+      } else {
+        this.setPlaceHolder(false);
+      }
+    },
     findValueFromList(id) {
       let val;
       this.phone_prefix_list.forEach(item => {
@@ -190,7 +255,7 @@ export default {
               v.key = v.id;
               return v;
             });
-            this.phone_prefix = this.phone_prefix_list[0].id;
+            this.phone_prefix = indonesia_phone_prefix;
           } else {
             this.$vux.toast.text(res.msg);
           }
@@ -209,8 +274,32 @@ export default {
 };
 </script>
 
+<style lang="less">
+.div-placeholder {
+  position: absolute;
+  font-size: 8px;
+  color: gray;
+  padding-left: 42%;
+  z-index: 0;
+}
+.isSpecial .weui-cell__bd {
+  z-index: 99;
+}
+// .isSpecial {
+//   input::-webkit-input-placeholder {
+//     color: transparent;
+//   }
+//   input::-webkit-input-placeholder:before {
+//     display: block;
+//     color: #999;
+//     content: "第一行文本提示 \A 第二行文本提示 \A 第三行文本提示 \A";
+//   }
+// }
+</style>
+
 <style scoped lang="less">
 @import "~vux/src/styles/1px.less";
+
 .sign-wraper {
   font-size: 14px;
   padding: 10px 0;
@@ -223,6 +312,7 @@ export default {
   padding: 5px;
   padding-bottom: 80px;
 }
+
 .sign-wraper-inner {
   padding: 15px;
 }
