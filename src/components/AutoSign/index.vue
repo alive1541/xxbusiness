@@ -147,7 +147,7 @@ export default {
     findValueFromList(id) {
       let val;
       this.phone_prefix_list.forEach(item => {
-        if (item.id === id) {
+        if (item.id == id) {
           val = item.value;
         }
       });
