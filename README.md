@@ -33,6 +33,12 @@ npm install
 npm start
 ```
 
+## send
+
+```
+npm run send
+```
+
 ## config
 
 接口 host: /src/config baseApi
